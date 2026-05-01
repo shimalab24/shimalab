@@ -1,0 +1,1505 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shima Lab | 島ラボ — Kota Uezu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:  #F2EDE4;
+  --cream2: #E8E2D8;
+  --chalk:  #FAF8F4;
+  --char:   #1C1A17;
+  --char2:  #2E2B27;
+  --mid:    #3D3A36;
+  --muted:  #6B6660;
+  --green:  #2A5C3F;
+  --gold:   #9A7040;
+  --line:   rgba(28,26,23,0.12);
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--char);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top:0; left:0; right:0;
+  z-index: 200;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 7vw;
+  height: 68px;
+  background: rgba(242,237,228,0.97);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: 17px;
+  letter-spacing: 0.24em;
+  color: var(--char);
+  text-decoration: none;
+}
+.nav-logo em { font-style: italic; color: var(--green); }
+
+.nav-links { display:flex; gap:36px; list-style:none; }
+.nav-links a {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--mid);
+  text-decoration: none;
+  transition: color 0.2s;
+  text-transform: uppercase;
+}
+.nav-links a:hover { color: var(--char); }
+
+.nav-cta {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--chalk);
+  background: var(--char);
+  padding: 11px 24px;
+  text-decoration: none;
+  transition: background 0.25s;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+.nav-cta:hover { background: var(--green); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  background: var(--char);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 68px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 100% 0%, rgba(42,92,63,0.14) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.hero-left {
+  position: relative; z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 6vw 80px 7vw;
+  border-right: 1px solid rgba(242,237,228,0.08);
+}
+
+.hero-overline {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 44px;
+}
+.hero-overline::before { content:''; width:24px; height:1px; background:var(--green); flex-shrink:0; }
+.hero-overline span { font-size: 10px; letter-spacing: 0.28em; color: var(--green); text-transform: uppercase; font-weight: 400; }
+
+h1.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(38px, 4.8vw, 62px);
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  color: var(--cream);
+  margin-bottom: 20px;
+}
+
+.hero-subtitle {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 300;
+  font-size: clamp(13px, 1.4vw, 16px);
+  line-height: 1;
+  color: var(--green);
+  letter-spacing: 0.1em;
+  margin-bottom: 36px;
+}
+
+.hero-body {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 2.2;
+  color: rgba(242,237,228,0.75);
+  letter-spacing: 0.07em;
+  margin-bottom: 52px;
+  max-width: 400px;
+}
+
+.hero-actions { display:flex; gap:16px; align-items:center; flex-wrap:wrap; }
+
+.btn-fill {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--char);
+  background: var(--cream);
+  padding: 14px 32px;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  text-transform: uppercase;
+  font-weight: 400;
+  display: inline-block;
+}
+.btn-fill:hover { background: var(--green); color: var(--cream); }
+
+.btn-outline {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: rgba(242,237,228,0.6);
+  text-decoration: none;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(242,237,228,0.25);
+  padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.btn-outline:hover { color: var(--cream); border-color: rgba(242,237,228,0.6); }
+
+.hero-right {
+  position: relative; z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 4vw;
+}
+
+.hero-right-inner {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-jp {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 300;
+  font-size: clamp(26px, 3.2vw, 44px);
+  color: rgba(242,237,228,0.15);
+  letter-spacing: 0.4em;
+  display: block;
+  margin-bottom: 36px;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  height: auto;
+  max-height: 200px;
+}
+
+.hero-id {
+  border: 1px solid rgba(242,237,228,0.12);
+  padding: 28px 36px;
+  display: inline-block;
+}
+.hero-name-en { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:19px; letter-spacing:0.22em; color:var(--cream); margin-bottom:8px; }
+.hero-name-jp { font-size:12px; letter-spacing:0.18em; color:rgba(242,237,228,0.5); margin-bottom:14px; font-weight:300; }
+.hero-role { font-size:10px; letter-spacing:0.24em; color:var(--green); text-transform:uppercase; font-weight:400; }
+
+.hero-scroll {
+  position: absolute;
+  bottom: 36px; left: 7vw;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 9px;
+  letter-spacing: 0.24em;
+  color: rgba(242,237,228,0.25);
+  text-transform: uppercase;
+}
+.hero-scroll::before { content:''; width:1px; height:30px; background:rgba(242,237,228,0.15); animation:blink 2.5s ease-in-out infinite; }
+@keyframes blink { 0%,100%{opacity:0.3} 50%{opacity:1} }
+
+/* ── STRIP ── */
+.strip {
+  background: var(--char2);
+  padding: 14px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border-top: 1px solid rgba(242,237,228,0.05);
+  border-bottom: 1px solid rgba(242,237,228,0.05);
+}
+.strip-inner {
+  display: inline-block;
+  animation: run 28s linear infinite;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 13px;
+  letter-spacing: 0.28em;
+  color: rgba(242,237,228,0.35);
+}
+@keyframes run { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+/* ── SHARED ── */
+.sec { padding: 96px 7vw; }
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 10px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+.eyebrow::before { content:''; width:16px; height:1px; flex-shrink:0; }
+.ey-dark  { color: var(--green); }
+.ey-dark::before  { background: var(--green); }
+.ey-light { color: rgba(242,237,228,0.5); }
+.ey-light::before { background: rgba(242,237,228,0.3); }
+.ey-gold  { color: var(--gold); }
+.ey-gold::before  { background: var(--gold); }
+
+.hdg {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(28px, 3.6vw, 44px);
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+  margin-bottom: 20px;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+.hdg em { font-style: italic; }
+.hdg-light { color: var(--cream); }
+.hdg-light em { color: rgba(242,237,228,0.5); }
+.hdg-dark  { color: var(--char); }
+.hdg-dark em  { color: var(--green); }
+
+.prose {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 2.2;
+  letter-spacing: 0.06em;
+}
+.prose-light { color: rgba(242,237,228,0.8); }
+.prose-dark  { color: var(--mid); }
+
+/* ── CONCEPT ── */
+.concept { background: var(--char); }
+
+.concept-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-top: 52px;
+  align-items: start;
+}
+
+.concept-left {}
+
+.concept-main-copy {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 300;
+  font-size: clamp(18px, 2.2vw, 26px);
+  line-height: 2.1;
+  color: var(--cream);
+  letter-spacing: 0.06em;
+  margin-bottom: 20px;
+  border-left: 3px solid var(--green);
+  padding-left: 24px;
+}
+
+.concept-sub-copy {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 2.2;
+  color: rgba(242,237,228,0.75);
+  letter-spacing: 0.07em;
+  padding-left: 27px;
+}
+
+.concept-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: rgba(242,237,228,0.06);
+}
+
+.concept-card {
+  background: var(--char);
+  padding: 28px 30px;
+}
+
+.concept-card-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--green);
+  margin-bottom: 10px;
+}
+
+.concept-card-title {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--cream);
+  margin-bottom: 8px;
+  letter-spacing: 0.04em;
+}
+
+.concept-card-body {
+  font-size: 12.5px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: rgba(242,237,228,0.72);
+  letter-spacing: 0.04em;
+}
+
+/* ── VALUE ── */
+.value { background: var(--cream); }
+
+.val-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 40px;
+  margin-top: 52px;
+}
+
+.val-item {
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.val-num { font-family:'Cormorant Garamond',serif; font-weight:300; font-style:italic; font-size:12px; letter-spacing:0.2em; color:var(--muted); margin-bottom:14px; }
+.val-title { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:22px; letter-spacing:0.04em; color:var(--char); margin-bottom:12px; }
+.val-body { font-size: 13px; font-weight:300; line-height:2.1; color:var(--mid); letter-spacing:0.05em; }
+
+/* ── PROBLEM ── */
+.problem { background: var(--char2); }
+
+.prob-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(242,237,228,0.07);
+  margin-top: 52px;
+}
+
+.prob-card {
+  background: var(--char2);
+  padding: 36px 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.prob-card::after {
+  content: attr(data-n);
+  position: absolute;
+  right: 20px; top: 12px;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 52px;
+  color: rgba(242,237,228,0.04);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.prob-title { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:18px; letter-spacing:0.04em; color:var(--cream); margin-bottom:12px; }
+.prob-body { font-size: 13px; font-weight:300; line-height:2.1; color:rgba(242,237,228,0.75); letter-spacing:0.05em; }
+.prob-solve { margin-top:16px; font-size:12px; font-weight:400; color:var(--green); letter-spacing:0.1em; }
+
+/* ── SERVICE CATEGORY ── */
+.svc-category {
+  margin-top: 48px;
+}
+
+.svc-cat-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--char);
+  margin-bottom: 0;
+}
+
+.svc-cat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  color: var(--green);
+}
+
+.svc-cat-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: 0.05em;
+  color: var(--char);
+}
+
+.svc-cat-desc {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  font-weight: 300;
+}
+
+/* ── SERVICES ── */
+.services { background: var(--chalk); }
+
+.svc-list { margin-top: 52px; }
+
+.svc-row {
+  display: grid;
+  grid-template-columns: 52px 1fr 1.4fr auto;
+  align-items: center;
+  gap: 28px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--line);
+  transition: background 0.18s, padding 0.18s;
+  cursor: default;
+}
+.svc-row:first-child { border-top: 1px solid var(--line); }
+.svc-row:hover { background:rgba(28,26,23,0.025); padding-left:10px; padding-right:10px; margin:0 -10px; }
+
+.svc-idx { font-family:'Cormorant Garamond',serif; font-weight:300; font-style:italic; font-size:22px; color:rgba(28,26,23,0.12); line-height:1; }
+.svc-name { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:19px; letter-spacing:0.04em; color:var(--char); margin-bottom:4px; vertical-align:baseline; line-height:1.3; }
+.svc-tag { font-size:10px; letter-spacing:0.14em; color:var(--green); font-weight:400; }
+.svc-desc { font-size: 13px; font-weight:300; line-height:2; color:var(--mid); letter-spacing:0.05em; }
+.svc-price { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:20px; letter-spacing:0.04em; color:var(--char); white-space:nowrap; text-align:right; }
+.svc-price small { font-family:'Noto Sans JP',sans-serif; font-size:10px; font-weight:300; color:var(--muted); letter-spacing:0.04em; }
+
+.svc-highlight {
+  background: rgba(42,92,63,0.04);
+  border-left: 3px solid var(--green);
+  padding-left: 16px !important;
+  margin-left: 0 !important;
+}
+
+/* ── FLOW ── */
+.flow { background: var(--cream2); }
+
+.flow-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  margin-top: 52px;
+  position: relative;
+}
+.flow-grid::before { content:''; position:absolute; top:17px; left:12%; right:12%; height:1px; background:var(--line); }
+
+.flow-step { padding: 0 14px; text-align:center; }
+.flow-dot {
+  width:34px; height:34px;
+  border:1px solid var(--green);
+  border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  margin:0 auto 24px;
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300; font-style:italic; font-size:14px;
+  color:var(--green);
+  background:var(--cream2);
+  position:relative; z-index:1;
+}
+.flow-title { font-size:12px; font-weight:400; letter-spacing:0.1em; margin-bottom:10px; color:var(--char); }
+.flow-body { font-size:12px; font-weight:300; line-height:2; color:var(--mid); letter-spacing:0.05em; }
+
+/* ── MISSION ── */
+.mission { background: var(--cream2); }
+
+.mission-copy {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 300;
+  font-size: clamp(24px, 3vw, 38px);
+  line-height: 1.9;
+  color: var(--char);
+  letter-spacing: 0.06em;
+  margin-top: 48px;
+  margin-bottom: 24px;
+}
+
+.mission-body {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 2.3;
+  color: var(--mid);
+  letter-spacing: 0.06em;
+  max-width: 560px;
+}
+
+/* ── COMPARE ── */
+.compare { background: var(--chalk); }
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 52px;
+  font-size: 13px;
+}
+
+.compare-table th {
+  padding: 16px 20px;
+  text-align: center;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 400;
+  border-bottom: 2px solid var(--line);
+}
+
+.compare-table th:first-child { text-align: left; }
+.compare-table th.th-shima { background: rgba(42,92,63,0.06); color: var(--green); border-bottom-color: var(--green); }
+.compare-table th.th-other { color: var(--muted); }
+
+.compare-table td {
+  padding: 18px 20px;
+  text-align: center;
+  border-bottom: 1px solid rgba(28,26,23,0.05);
+  vertical-align: middle;
+  color: var(--mid);
+  line-height: 1.7;
+}
+
+.compare-table td:first-child {
+  text-align: left;
+  font-weight: 400;
+  color: var(--char);
+  font-size: 13px;
+}
+
+.compare-table td.td-shima { background: rgba(42,92,63,0.04); }
+
+.compare-table tr:last-child td { border-bottom: none; }
+
+.check { color: var(--green); font-size: 16px; font-weight: 500; }
+.cross { color: var(--muted); font-size: 16px; }
+.partial { color: var(--gold); font-size: 13px; font-weight: 400; }
+
+/* ── DATA TABLE ── */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.data-table th {
+  text-align: left;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 400;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(28,26,23,0.03);
+}
+.data-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(28,26,23,0.05);
+  vertical-align: top;
+  line-height: 1.9;
+  color: var(--mid);
+}
+.data-table td:first-child { font-weight: 400; color: var(--char); }
+
+/* ── PARTNER ── */
+.partner { background: var(--char); }
+
+.partner-inner {
+  margin-top: 52px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(242,237,228,0.06);
+}
+
+.partner-card {
+  background: var(--char);
+  padding: 40px 36px;
+}
+
+.partner-card-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--green);
+  margin-bottom: 18px;
+}
+
+.partner-card-title {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 2;
+  color: var(--cream);
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+}
+
+.partner-card-body {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 2.1;
+  color: rgba(242,237,228,0.55);
+  letter-spacing: 0.05em;
+}
+
+.partner-price-box {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(242,237,228,0.08);
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.partner-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 36px;
+  color: var(--cream);
+  letter-spacing: 0.02em;
+}
+
+.partner-price-unit {
+  font-size: 11px;
+  color: rgba(242,237,228,0.4);
+  letter-spacing: 0.1em;
+}
+
+/* ── CV CYCLE ── */
+.cv-cycle-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(242,237,228,0.08);
+}
+
+.cv-cycle-item {
+  background: var(--char);
+  padding: 24px 20px;
+}
+
+.cv-cycle-num {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--green);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.cv-cycle-title {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--cream);
+  margin-bottom: 10px;
+  letter-spacing: 0.03em;
+}
+
+.cv-cycle-body {
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: rgba(242,237,228,0.5);
+}
+
+@media (max-width: 768px) {
+  .cv-cycle-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .cv-cycle-item {
+    padding: 20px 16px;
+  }
+  .cv-cycle-title {
+    font-size: 14px;
+  }
+}
+
+/* ── CAMPAIGN ── */
+.campaign { background: var(--chalk); padding-top: 0; }
+
+.camp-box {
+  border: 1px solid rgba(154,112,64,0.3);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 48px;
+  align-items: center;
+  padding: 48px 52px;
+  position: relative;
+  overflow: hidden;
+}
+.camp-box::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 0% 50%, rgba(154,112,64,0.05), transparent 60%); pointer-events:none; }
+
+.camp-badge { font-family:'Cormorant Garamond',serif; font-weight:300; font-style:italic; font-size:10px; letter-spacing:0.24em; color:var(--gold); border:1px solid rgba(154,112,64,0.3); padding:4px 14px; display:inline-block; margin-bottom:20px; }
+.camp-title { font-family:'Cormorant Garamond',serif; font-weight:300; font-size:26px; letter-spacing:0.03em; line-height:1.4; color:var(--char); margin-bottom:12px; }
+.camp-desc { font-size:13px; font-weight:300; line-height:2.1; color:var(--mid); letter-spacing:0.05em; }
+.camp-right { text-align:right; flex-shrink:0; }
+.camp-orig { font-size:12px; color:var(--muted); text-decoration:line-through; letter-spacing:0.05em; margin-bottom:6px; }
+.camp-price { font-family:'Cormorant Garamond',serif; font-weight:300; font-size:50px; letter-spacing:0.02em; color:var(--gold); line-height:1; }
+.camp-until { font-size:9px; letter-spacing:0.2em; color:var(--muted); margin-top:8px; text-transform:uppercase; }
+
+/* ── CTA ── */
+.cta { background: var(--char); padding: 96px 7vw; text-align:center; }
+
+.cta-body { font-size:14px; font-weight:300; line-height:2.2; color:rgba(242,237,228,0.75); letter-spacing:0.06em; margin:0 auto 44px; max-width:500px; word-break:keep-all; overflow-wrap:break-word; }
+
+.btn-cta {
+  font-size:10px; letter-spacing:0.2em; color:var(--char); background:var(--cream);
+  padding:16px 52px; text-decoration:none; display:inline-block; text-transform:uppercase; font-weight:400;
+  transition:background 0.2s, color 0.2s;
+}
+.btn-cta:hover { background:var(--green); color:var(--cream); }
+
+/* ── FOOTER ── */
+footer {
+  background: #0E0C09;
+  padding: 36px 7vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(242,237,228,0.05);
+}
+.footer-logo { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:16px; letter-spacing:0.22em; color:rgba(242,237,228,0.8); }
+.footer-logo em { font-style:italic; color:var(--green); }
+.footer-sub { font-size:10px; letter-spacing:0.12em; color:rgba(242,237,228,0.35); margin-top:5px; }
+.footer-copy { font-size:10px; letter-spacing:0.08em; color:rgba(242,237,228,0.25); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  body { font-size: 13px; }
+  .sec { padding: 56px 5vw; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+  .hero-left { padding: 72px 5vw 60px; }
+
+  /* 見出し全般：小さく・改行制御 */
+  .hdg {
+    font-size: 22px !important;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    line-height: 1.4;
+    letter-spacing: 0.01em;
+  }
+  h1.hero-title {
+    font-size: 28px !important;
+    word-break: keep-all;
+    line-height: 1.4;
+  }
+  .hero-subtitle { font-size: 13px; }
+  .hero-body { font-size: 13px; line-height: 2; }
+
+  /* コンセプト */
+  .concept-grid { grid-template-columns:1fr; }
+  .concept-left { margin-bottom: 32px; }
+  .concept-main-copy {
+    font-size: 17px !important;
+    word-break: keep-all;
+    line-height: 1.9;
+  }
+
+  /* ミッション */
+  .mission-copy {
+    font-size: 18px !important;
+    word-break: keep-all;
+  }
+
+  /* バリュー・プロブレム */
+  .val-grid { grid-template-columns:1fr; }
+  .prob-grid { grid-template-columns: 1fr; }
+
+  /* サービス */
+  .svc-row { grid-template-columns: 24px 1fr; gap: 10px; }
+  .svc-desc, .svc-price { grid-column: 2; }
+  .svc-price { text-align:left; }
+  .svc-row:hover { margin:0; padding:20px 0; }
+  .svc-highlight { padding-left:0 !important; }
+  .svc-cat-title { font-size: 17px; }
+  .svc-name { font-size: 16px; }
+  .svc-main-col { grid-column: 2; }
+  .svc-price-wrap { margin-top: 12px; }
+
+  /* キャンペーン */
+  .camp-box { grid-template-columns:1fr; padding:24px; gap:12px; }
+  .camp-right { text-align:left; }
+  .camp-title {
+    font-size: 18px !important;
+    word-break: keep-all;
+    line-height: 1.5;
+  }
+  .camp-price { font-size: 38px; }
+  .camp-orig { font-size: 12px; }
+  .camp-until { font-size: 11px; }
+
+  /* CTA本文 */
+  .cta-body {
+    font-size: 13px;
+    word-break: keep-all;
+  }
+
+  /* フロー */
+  .flow-grid { grid-template-columns:1fr; }
+
+  /* パートナー */
+  .partner-inner { grid-template-columns:1fr; }
+  .partner-card { padding: 24px 20px; }
+  .partner-card-title {
+    font-size: 14px;
+    word-break: keep-all;
+  }
+
+  /* ナビ・フッター */
+  nav .nav-links { display:none; }
+  footer { flex-direction:column; gap:16px; text-align:center; }
+
+  /* テーブル */
+  .data-table { font-size: 11px; }
+  .data-table th, .data-table td { padding: 8px 6px; }
+
+  /* 比較表 */
+  .compare-table { display: none; }
+  .compare-cards { display: flex !important; flex-direction: column; gap: 12px; margin-top: 28px; }
+}
+
+@media (min-width: 769px) {
+  .compare-cards { display: none; }
+  .prose { font-size: 15px; }
+  .val-body { font-size: 14px; }
+  .svc-desc { font-size: 14px; }
+  .prob-body { font-size: 14px; }
+  .flow-body { font-size: 13px; }
+  .concept-card-body { font-size: 14px; }
+  .mission-body { font-size: 15px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Shima <em>Lab</em></a>
+  <ul class="nav-links">
+    <li><a href="#concept">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#flow">Flow</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="https://line.me/R/ti/p/%40009yvklo" class="nav-cta" target="_blank" rel="noopener">無料相談（LINE）</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-overline">
+      <span>Shima Lab &nbsp;/&nbsp; 島ラボ</span>
+    </div>
+    <h1 class="hero-title">
+      あなたのブランドを<br>
+      一緒に育てていく<br>
+      パートナー。
+    </h1>
+    <p class="hero-subtitle">作ったあとも、一緒に考え続ける。</p>
+    <p class="hero-body">
+      撮影・映像・Web制作。窓口は一つで完結。作って終わりじゃない。あなたのビジネスに並走する、クリエイティブパートナー。
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-fill">まず、話しましょう</a>
+      <a href="#services" class="btn-outline">サービスを見る</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-inner">
+      <span class="hero-jp">島ラボ</span>
+      <div class="hero-id">
+        <div class="hero-name-en">Kota Uezu</div>
+        <div class="hero-name-jp">上江洌 孝太</div>
+        <div class="hero-role">Creative Partner</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="strip-inner">
+    Photography &nbsp;—&nbsp; Videography &nbsp;—&nbsp; LP Design &nbsp;—&nbsp; Corporate Site &nbsp;—&nbsp; Creative Partner &nbsp;—&nbsp; Okinawa &nbsp;—&nbsp;
+    Photography &nbsp;—&nbsp; Videography &nbsp;—&nbsp; LP Design &nbsp;—&nbsp; Corporate Site &nbsp;—&nbsp; Creative Partner &nbsp;—&nbsp; Okinawa &nbsp;—&nbsp;
+  </div>
+</div>
+
+<!-- CONCEPT -->
+<section class="concept sec" id="concept">
+  <div class="eyebrow ey-light">Concept</div>
+  <h2 class="hdg hdg-light">Shima Labが存在する理由</h2>
+
+  <div class="concept-grid">
+    <div class="concept-left">
+      <div class="concept-main-copy">
+        あなたのブランドを、<br>一緒に育てていくパートナー。
+      </div>
+      <p class="concept-sub-copy">
+        撮影した素材がWebに活かされない。業者が変わるたびに説明からやり直し。作って終わり、の繰り返し。<br><br>
+        Shima Labは違います。撮影からWeb制作まで一社が統括するから、コストが下がり、ブランドに統一感が生まれる。そして、作ったあとも一緒に考え続けます。
+      </p>
+    </div>
+
+    <div class="concept-right">
+      <div class="concept-card">
+        <div class="concept-card-num">01</div>
+        <div class="concept-card-title">窓口は、一つ</div>
+        <div class="concept-card-body">撮影・映像・Web制作を一社が統括。業者間の連携コストがなくなり、ブランドに一貫した統一感が生まれる。</div>
+      </div>
+      <div class="concept-card">
+        <div class="concept-card-num">02</div>
+        <div class="concept-card-title">作って、終わらない</div>
+        <div class="concept-card-body">納品がゴールではない。月1ミーティングで現状を確認し、ブランドの次の一手を一緒に考え続ける。</div>
+      </div>
+      <div class="concept-card">
+        <div class="concept-card-num">03</div>
+        <div class="concept-card-title">ずっと、同じ目線で</div>
+        <div class="concept-card-body">担当が変わらないから、毎回説明しなくていい。あなたのビジネスを一番理解しているパートナーが、ずっと隣にいる。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="mission sec">
+  <div class="eyebrow ey-dark">Mission</div>
+  <h2 class="hdg hdg-dark">島のいいものを、<em>ちゃんと伝える。</em></h2>
+  <div class="mission-copy" style="word-break:keep-all;overflow-wrap:break-word;font-size:18px;">
+    島には、まだ伝わっていない本物の価値がある。
+  </div>
+  <p class="mission-body">
+    沖縄・離島にある施設や事業には、都市では出せない空気感や魅力がある。それが古い写真や機能しないWebサイトのせいで、正しく届いていない。Shima Labは「見た目の課題」を根ごと解決し、島の本物の価値を世に届ける。
+  </p>
+</section>
+
+<!-- COMPARE -->
+<section class="compare sec">
+  <div class="eyebrow ey-dark">Why Shima Lab</div>
+  <h2 class="hdg hdg-dark">他の選択肢と、<em>何が違うのか。</em></h2>
+
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>比較項目</th>
+        <th class="th-other">カメラマン</th>
+        <th class="th-other">Web制作会社</th>
+        <th class="th-other">制作会社<br><span style="font-size:9px;">（撮影＋Web）</span></th>
+        <th class="th-shima">Shima Lab</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>撮影・映像制作</td>
+        <td><span class="check">✓</span></td>
+        <td><span class="cross">—</span></td>
+        <td><span class="partial">外注対応</span></td>
+        <td class="td-shima"><span class="check">✓</span></td>
+      </tr>
+      <tr>
+        <td>LP・Web制作</td>
+        <td><span class="cross">—</span></td>
+        <td><span class="check">✓</span></td>
+        <td><span class="check">✓</span></td>
+        <td class="td-shima"><span class="check">✓</span></td>
+      </tr>
+      <tr>
+        <td>素材からWebまで一気通貫</td>
+        <td><span class="cross">—</span></td>
+        <td><span class="cross">—</span></td>
+        <td><span class="partial">連携が必要</span></td>
+        <td class="td-shima"><span class="check">✓</span></td>
+      </tr>
+      <tr>
+        <td>担当者が変わらない</td>
+        <td><span class="check">✓</span></td>
+        <td><span class="partial">場合による</span></td>
+        <td><span class="cross">—</span></td>
+        <td class="td-shima"><span class="check">✓</span></td>
+      </tr>
+      <tr>
+        <td>納品後の継続サポート</td>
+        <td><span class="cross">—</span></td>
+        <td><span class="partial">有償対応</span></td>
+        <td><span class="partial">有償対応</span></td>
+        <td class="td-shima"><span class="check">✓ 月1MTG込み</span></td>
+      </tr>
+      <tr>
+        <td>ブランドを一緒に育てる</td>
+        <td><span class="cross">—</span></td>
+        <td><span class="cross">—</span></td>
+        <td><span class="cross">—</span></td>
+        <td class="td-shima"><span class="check">✓</span></td>
+      </tr>
+      <tr>
+        <td>大規模・複数同時案件</td>
+        <td><span class="partial">撮影のみ可</span></td>
+        <td><span class="check">✓</span></td>
+        <td><span class="check">✓</span></td>
+        <td class="td-shima"><span class="cross">—</span></td>
+      </tr>
+      <tr>
+        <td>短納期での大量制作</td>
+        <td><span class="partial">場合による</span></td>
+        <td><span class="check">✓</span></td>
+        <td><span class="check">✓</span></td>
+        <td class="td-shima"><span class="cross">—</span></td>
+      </tr>
+      <tr>
+        <td>コスト感</td>
+        <td>中</td>
+        <td>中〜高</td>
+        <td>高</td>
+        <td class="td-shima" style="color:var(--green);font-weight:400;">一社統括で適正価格</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- スマホ用カード表示 -->
+  <div class="compare-cards">
+    <div style="background:rgba(42,92,63,0.06);border-left:3px solid var(--green);padding:20px;">
+      <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--green);margin-bottom:16px;">Shima Labにできること</div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(42,92,63,0.1);"><span style="font-size:13px;color:var(--char);">撮影・映像制作</span><span class="check">✓</span></div>
+        <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(42,92,63,0.1);"><span style="font-size:13px;color:var(--char);">LP・Web制作</span><span class="check">✓</span></div>
+        <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(42,92,63,0.1);"><span style="font-size:13px;color:var(--char);">素材からWebまで一気通貫</span><span class="check">✓</span></div>
+        <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(42,92,63,0.1);"><span style="font-size:13px;color:var(--char);">担当者が変わらない</span><span class="check">✓</span></div>
+        <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(42,92,63,0.1);"><span style="font-size:13px;color:var(--char);">納品後も月1MTGで継続サポート</span><span class="check">✓</span></div>
+        <div style="display:flex;justify-content:space-between;padding:8px 0;"><span style="font-size:13px;color:var(--char);">ブランドを一緒に育てる</span><span class="check">✓</span></div>
+      </div>
+    </div>
+    <div style="background:rgba(28,26,23,0.04);border-left:3px solid var(--line);padding:20px;">
+      <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;">Shima Labに向かない案件</div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line);"><span style="font-size:13px;color:var(--mid);">大規模・複数同時案件</span><span class="cross">—</span></div>
+        <div style="display:flex;justify-content:space-between;padding:8px 0;"><span style="font-size:13px;color:var(--mid);">短納期での大量制作</span><span class="cross">—</span></div>
+      </div>
+      <div style="font-size:11px;color:var(--muted);margin-top:14px;line-height:1.9;">少数のクライアントと深く長く関わることを大切にしています。</div>
+    </div>
+  </div>
+
+  <p style="margin-top:20px;font-size:12px;color:var(--muted);letter-spacing:0.06em;line-height:1.9;display:none;" class="compare-note-desktop">
+    Shima Labは大規模案件や短納期での大量制作には対応できません。その分、少数のクライアントと深く長く関わることを大切にしています。
+  </p>
+</section>
+
+<!-- VALUE -->
+<section class="value sec">
+  <div class="eyebrow ey-dark">Value</div>
+  <h2 class="hdg hdg-dark">大切にしていること</h2>
+
+  <div class="val-grid">
+    <div class="val-item">
+      <div class="val-num">01</div>
+      <div class="val-title">ありのままを映す</div>
+      <div class="val-body">加工で盛らない。その場の空気感と本物の魅力をそのまま伝える。それが一番強い。</div>
+    </div>
+    <div class="val-item">
+      <div class="val-num">02</div>
+      <div class="val-title">一つの窓口</div>
+      <div class="val-body">クリエイティブの窓口が一つであることが、時間とお金を守り、信頼を生む。</div>
+    </div>
+    <div class="val-item">
+      <div class="val-num">03</div>
+      <div class="val-title">島の事業を動かす</div>
+      <div class="val-body">離島にある本物の価値を、クリエイティブで世に届ける。</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem sec">
+  <div class="eyebrow ey-light">Problem We Solve</div>
+  <h2 class="hdg hdg-light">こんな課題、<em>抱えていませんか。</em></h2>
+
+  <div class="prob-grid">
+    <div class="prob-card" data-n="01">
+      <div class="prob-title">素材がない・古い</div>
+      <div class="prob-body">開業時の写真をずっと使っている。スタッフが変わっても、メニューが変わっても更新されていない。</div>
+      <div class="prob-solve">→ 定期撮影で常に新鮮な素材を供給</div>
+    </div>
+    <div class="prob-card" data-n="02">
+      <div class="prob-title">Webが集客に繋がらない</div>
+      <div class="prob-body">サイトはあるが問い合わせが来ない。スマホ対応していない。更新のたびに費用がかかる。</div>
+      <div class="prob-solve">→ LP・コーポレートサイトを制作・保守</div>
+    </div>
+    <div class="prob-card" data-n="03">
+      <div class="prob-title">業者がバラバラ</div>
+      <div class="prob-body">カメラマン・Web制作会社それぞれに発注。撮影した写真がWebに活かされない。統一感がない。</div>
+      <div class="prob-solve">→ 一つの窓口で撮影〜Web制作を完結</div>
+    </div>
+    <div class="prob-card" data-n="04">
+      <div class="prob-title">作って終わり、の繰り返し</div>
+      <div class="prob-body">納品されたら終わり。ブランドが育っていかない。次に何をすればいいかわからない。</div>
+      <div class="prob-solve">→ パートナー契約で継続的に並走</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services sec" id="services">
+  <div class="eyebrow ey-dark">Services</div>
+  <h2 class="hdg hdg-dark">提供サービス</h2>
+
+  <!-- カテゴリ01: 撮影 -->
+  <div class="svc-category">
+    <div class="svc-cat-header">
+      <div class="svc-cat-num">01</div>
+      <div class="svc-cat-title">撮影</div>
+      <div class="svc-cat-desc">素材を作る</div>
+    </div>
+    <div class="svc-list">
+      <div class="svc-row">
+        <div class="svc-idx">—</div>
+        <div>
+          <div class="svc-name">スチル撮影</div>
+          <div class="svc-tag">Photography</div>
+        </div>
+        <div class="svc-desc">施設・商品・スタッフ撮影。現像・編集込み、全データ納品。Web・SNSに即活用できる素材を提供。</div>
+        <div class="svc-price">¥30,000<small>〜</small></div>
+      </div>
+      <div class="svc-row">
+        <div class="svc-idx">—</div>
+        <div>
+          <div class="svc-name">スナップムービー</div>
+          <div class="svc-tag">Videography</div>
+        </div>
+        <div class="svc-desc">その場の空気感をそのまま閉じ込めた2〜3分の映像制作。過剰編集せず、見た人が「行きたい」と思う映像を届ける。</div>
+        <div class="svc-price">¥45,000<small>〜</small></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- カテゴリ02: LP・サイト制作 -->
+  <div class="svc-category">
+    <div class="svc-cat-header">
+      <div class="svc-cat-num">02</div>
+      <div class="svc-cat-title">LP・サイト制作</div>
+      <div class="svc-cat-desc">集客の入口を作る</div>
+    </div>
+    <div class="svc-list">
+      <div class="svc-row">
+        <div class="svc-idx">—</div>
+        <div>
+          <div class="svc-name">LP制作</div>
+          <div class="svc-tag">Web Design</div>
+        </div>
+        <div class="svc-desc">構成・コピー・デザイン一気通貫。1ページ完結型。修正2回まで。</div>
+        <div class="svc-price">¥200,000</div>
+      </div>
+      <div class="svc-row">
+        <div class="svc-idx">—</div>
+        <div>
+          <div class="svc-name">コーポレートサイト</div>
+          <div class="svc-tag">Web Design</div>
+        </div>
+        <div class="svc-desc">5〜8ページ構成。会社の顔となる複数ページWebサイト。修正3回まで。</div>
+        <div class="svc-price">¥350,000</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- カテゴリ03: 撮影〜制作込み -->
+  <div class="svc-category">
+    <div class="svc-cat-header">
+      <div class="svc-cat-num">03</div>
+      <div class="svc-cat-title">撮影〜制作込み</div>
+      <div class="svc-cat-desc">Shima Labにしかできないパッケージ</div>
+    </div>
+    <div class="svc-list">
+      <div class="svc-row svc-highlight">
+        <div class="svc-idx">—</div>
+        <div class="svc-main-col">
+          <div class="svc-name" style="font-family:'Cormorant Garamond',serif;font-size:19px;vertical-align:baseline;line-height:1.3;">撮影 4h + LP制作</div>
+          <div class="svc-tag">Recommended</div>
+          <div class="svc-desc" style="margin-top:8px;">撮影素材をそのままLPへ。構成・コピー・素材・Web、すべて一社完結。</div>
+          <div class="svc-price-wrap">
+            <div style="font-size:12px;color:var(--muted);text-decoration:line-through;font-family:'Noto Sans JP',sans-serif;font-weight:300;">¥230,000</div>
+            <div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;">
+              <span class="svc-price">¥200,000</span>
+              <span style="color:var(--gold);font-size:11px;font-weight:400;letter-spacing:0.06em;white-space:nowrap;">7月末まで</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="svc-row svc-highlight">
+        <div class="svc-idx">—</div>
+        <div>
+          <div class="svc-name">クリエイティブパートナー契約</div>
+          <div class="svc-tag" style="color:var(--gold);">10社限定</div>
+        </div>
+        <div class="svc-desc">月1MTG＋数字確認＋改善実行。撮影・LP・SNSの改善を継続的に並走。<br><span style="font-size:11px;color:var(--muted);">※ 撮影・LP制作のご依頼後にご案内します</span></div>
+        <div class="svc-price">¥15,000<small>/月</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICE CONTEXT -->
+<section class="sec" style="background:var(--cream2);">
+  <div class="eyebrow ey-dark">Price</div>
+  <h2 class="hdg hdg-dark">適正価格の、<em>根拠。</em></h2>
+
+  <p style="font-size:14px;font-weight:300;line-height:2.2;color:var(--mid);letter-spacing:0.06em;margin-bottom:40px;max-width:600px;">
+    Shima Labの価格は市場相場と同等かそれ以下です。さらに撮影素材の準備・構成・コピーまで含めて対応するため、クライアント側の手間とコストをさらに削減できます。
+  </p>
+
+  <!-- 相場比較 -->
+  <table class="data-table" style="margin-bottom:52px;">
+    <thead>
+      <tr>
+        <th>サービス</th>
+        <th>国内相場（制作会社）</th>
+        <th>国内相場（フリーランス）</th>
+        <th style="color:var(--green);">Shima Lab</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>施設撮影（4h）</td>
+        <td>¥50,000〜100,000</td>
+        <td>¥20,000〜50,000</td>
+        <td style="color:var(--green);font-weight:400;">¥30,000〜</td>
+      </tr>
+      <tr>
+        <td>LP制作<br><span style="font-size:11px;color:var(--muted);font-weight:300;">構成・コピー・デザイン込み</span></td>
+        <td>¥300,000〜600,000</td>
+        <td>¥50,000〜300,000</td>
+        <td style="color:var(--green);font-weight:400;">¥200,000</td>
+      </tr>
+      <tr>
+        <td>コーポレートサイト</td>
+        <td>¥500,000〜1,000,000+</td>
+        <td>¥200,000〜500,000</td>
+        <td style="color:var(--green);font-weight:400;">¥350,000</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 業者別コスト比較 -->
+  <div style="font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:13px;letter-spacing:0.12em;color:var(--char);margin-bottom:24px;">窓口をまとめると、何が変わるか。</div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);">
+    <!-- 別々のケース -->
+    <div style="background:var(--chalk);padding:28px 20px;">
+      <div style="font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;font-weight:400;">バラバラに依頼した場合</div>
+
+      <div style="display:flex;flex-direction:column;gap:0;">
+        <div style="padding:12px 0;border-bottom:1px solid var(--line);">
+          <div style="font-size:12px;font-weight:400;color:var(--char);">カメラマン（施設撮影）</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px;">
+            <div style="font-size:10px;color:var(--muted);">撮影のみ。Web活用は自社で</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--char);white-space:nowrap;margin-left:8px;">¥50,000〜</div>
+          </div>
+        </div>
+        <div style="padding:12px 0;border-bottom:1px solid var(--line);">
+          <div style="font-size:12px;font-weight:400;color:var(--char);">Web制作会社（LP）</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px;">
+            <div style="font-size:10px;color:var(--muted);">素材・原稿は自社で用意が前提</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--char);white-space:nowrap;margin-left:8px;">¥300,000〜</div>
+          </div>
+        </div>
+        <div style="padding:12px 0;border-bottom:1px solid var(--line);">
+          <div style="font-size:12px;font-weight:400;color:var(--char);">業者間の調整</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px;">
+            <div style="font-size:10px;color:var(--muted);">あなたの時間と労力</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--muted);white-space:nowrap;margin-left:8px;">別途発生</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="padding-top:16px;border-top:2px solid var(--line);margin-top:16px;">
+        <div style="font-size:9px;letter-spacing:0.14em;color:var(--muted);margin-bottom:4px;text-transform:uppercase;">初期費用合計</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--char);">¥350,000〜</div>
+        <div style="font-size:10px;color:var(--muted);margin-top:6px;line-height:1.9;">+ 修正のたびに保守費用が発生<br>+ 調整の手間<br>+ 統一感のなさによる機会損失</div>
+      </div>
+    </div>
+
+    <!-- Shima Labのケース -->
+    <div style="background:rgba(42,92,63,0.04);padding:28px 20px;border-left:3px solid var(--green);">
+      <div style="font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--green);margin-bottom:16px;font-weight:400;">Shima Labに依頼した場合</div>
+
+      <div style="display:flex;flex-direction:column;gap:0;">
+        <div style="padding:12px 0;border-bottom:1px solid rgba(42,92,63,0.1);">
+          <div style="font-size:12px;font-weight:400;color:var(--char);">撮影 4h + LP制作</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px;">
+            <div style="font-size:10px;color:var(--mid);">構成・コピー・素材・Web、すべて込み</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--green);white-space:nowrap;margin-left:8px;">¥200,000</div>
+          </div>
+        </div>
+        <div style="padding:12px 0;border-bottom:1px solid rgba(42,92,63,0.1);">
+          <div style="font-size:12px;font-weight:400;color:var(--char);">クリエイティブパートナー契約</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px;">
+            <div style="font-size:10px;color:var(--mid);">月1MTG＋数字確認＋改善実行</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--green);white-space:nowrap;margin-left:8px;">¥15,000/月〜</div>
+          </div>
+        </div>
+        <div style="padding:12px 0;border-bottom:1px solid rgba(42,92,63,0.1);">
+          <div style="font-size:12px;font-weight:400;color:var(--char);">業者間の調整</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px;">
+            <div style="font-size:10px;color:var(--mid);">窓口一つ。調整は不要</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--green);white-space:nowrap;margin-left:8px;">¥0</div>
+          </div>
+        </div>
+        <div style="padding:12px 0;border-bottom:1px solid rgba(42,92,63,0.1);">
+          <div style="font-size:12px;font-weight:400;color:var(--char);">ブランドの統一感</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px;">
+            <div style="font-size:10px;color:var(--mid);">素材からWebまで一社が担保</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--green);white-space:nowrap;margin-left:8px;">込み</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="padding-top:16px;border-top:2px solid var(--green);margin-top:16px;">
+        <div style="font-size:9px;letter-spacing:0.14em;color:var(--green);margin-bottom:8px;text-transform:uppercase;">初期費用合計</div>
+        <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:4px;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--muted);text-decoration:line-through;">¥230,000</div>
+          <div style="font-size:9px;letter-spacing:0.1em;color:var(--muted);">正規価格</div>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:10px;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--green);">¥200,000</div>
+          <div style="font-size:9px;letter-spacing:0.1em;color:var(--gold);font-weight:400;">7月末まで限定</div>
+        </div>
+        <div style="font-size:10px;color:var(--mid);margin-top:10px;line-height:1.9;">+ 月¥15,000〜でブランドを継続改善<br>+ 統一感のあるブランドが育っていく</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLOW -->
+<section class="flow sec" id="flow">
+  <div class="eyebrow ey-dark">Flow</div>
+  <h2 class="hdg hdg-dark">ご依頼の流れ</h2>
+
+  <div class="flow-grid">
+    <div class="flow-step">
+      <div class="flow-dot">1</div>
+      <div class="flow-title">無料相談</div>
+      <div class="flow-body">現状の課題・ご要望をヒアリング。オンライン・対面どちらでも対応。</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-dot">2</div>
+      <div class="flow-title">お見積もり</div>
+      <div class="flow-body">内容・規模に応じてお見積もりをご提案。明確な価格でご提示。</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-dot">3</div>
+      <div class="flow-title">撮影・制作</div>
+      <div class="flow-body">撮影からWeb制作まで一貫対応。進捗はこまめにご共有。</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-dot">4</div>
+      <div class="flow-title">並走・継続</div>
+      <div class="flow-body">納品後もパートナーとして継続サポート。数字を見ながら一緒に改善し続ける。</div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNER -->
+<section class="partner sec">
+  <div class="eyebrow ey-light">Creative Partner</div>
+  <h2 class="hdg hdg-light">作ったあとも、<em>一緒に考え続ける。</em></h2>
+
+  <div class="partner-inner">
+    <div class="partner-card">
+      <div class="partner-card-label">月次パートナーMTGでやること</div>
+      <div class="partner-card-title">数字を見て、原因を探し、次の一手を実行する。</div>
+      <div class="partner-card-body">
+        GA4でセッション数・直帰率・問い合わせ数を確認。Clarityでユーザーの動きを把握。「なぜ動かないか」を一緒に言語化し、撮影素材の更新・LP改善・SNS連動のどこから手をつけるかを即決して実行します。
+      </div>
+      <div class="partner-price-box">
+        <div class="partner-price">¥15,000</div>
+        <div class="partner-price-unit">/ 月〜</div>
+      </div>
+    </div>
+    <div class="partner-card">
+      <div class="partner-card-label">Shima Labにしかできない理由</div>
+      <div class="partner-card-title">撮影・LP・SNSを、一社で即動かせる。</div>
+      <div class="partner-card-body">
+        制作会社はLP作ったら終わり。広告代理店は広告運用のみ。Shima Labは数字を確認した翌週に撮影素材を更新し、LPのコピーを直し、SNSの訴求を変えられる。このサイクルを一社で回せることが、クライアントの売上を動かす最短ルートです。
+      </div>
+    </div>
+  </div>
+
+  <!-- CV改善サイクル -->
+  <div style="margin-top:1px; background:rgba(242,237,228,0.04); padding:40px 36px;">
+    <div style="font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:11px;letter-spacing:0.2em;color:var(--green);margin-bottom:20px;">CV改善サイクル</div>
+    <div class="cv-cycle-grid">
+      <div class="cv-cycle-item">
+        <div class="cv-cycle-num">01 計測</div>
+        <div class="cv-cycle-title">数字を見る</div>
+        <div class="cv-cycle-body">GA4・Clarityで問い合わせ数・離脱箇所・ユーザー行動を毎月確認する</div>
+      </div>
+      <div class="cv-cycle-item">
+        <div class="cv-cycle-num">02 分析</div>
+        <div class="cv-cycle-title">原因を探す</div>
+        <div class="cv-cycle-body">写真が古いのか、コピーが刺さっていないのか、CTAの位置が悪いのかを特定する</div>
+      </div>
+      <div class="cv-cycle-item">
+        <div class="cv-cycle-num">03 改善</div>
+        <div class="cv-cycle-title">即実行する</div>
+        <div class="cv-cycle-body">撮影素材の更新・LPの修正・SNS訴求の変更を、一社でまとめて動かす</div>
+      </div>
+      <div class="cv-cycle-item">
+        <div class="cv-cycle-num">04 継続</div>
+        <div class="cv-cycle-title">また数字を見る</div>
+        <div class="cv-cycle-body">改善結果を翌月のMTGで確認。このサイクルを回し続けることでCV率が上がっていく</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAMPAIGN -->
+<section class="campaign sec">
+  <div class="eyebrow ey-gold">Limited Offer</div>
+  <div class="camp-box">
+    <div>
+      <div class="camp-badge">2026年7月末まで限定</div>
+      <div class="camp-title" style="font-size:16px !important;word-break:keep-all;line-height:1.6;">撮影&thinsp;4h&thinsp;+&thinsp;LP制作&thinsp;ワンストップパック</div>
+      <div class="camp-desc">撮影した素材をそのままLPへ。撮影とWeb制作が同一の窓口だからこそできる、一貫したブランディング。並走が必要な場合はパートナー契約（¥15,000/月）を追加できます。</div>
+    </div>
+    <div class="camp-right">
+      <div class="camp-orig">正規価格 ¥230,000</div>
+      <div class="camp-price">¥200,000</div>
+      <div class="camp-until" style="color:var(--gold);font-weight:400;font-size:11px;letter-spacing:0.08em;">7月末まで ¥30,000 OFF</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <div class="eyebrow ey-light" style="justify-content:center;">Contact</div>
+  <h2 class="hdg hdg-light" style="text-align:center; margin-bottom:18px;">まず、話しましょう。</h2>
+  <p class="cta-body" style="word-break:keep-all;overflow-wrap:break-word;padding:0 5vw;">「何から始めればいいかわからない」でも大丈夫です。<br>現状のヒアリングから、無料で対応します。</p>
+  <a href="https://line.me/R/ti/p/%40009yvklo" class="btn-cta" target="_blank" rel="noopener">LINE で無料相談する</a>
+  <p style="margin-top:20px;font-size:11px;letter-spacing:0.14em;color:rgba(242,237,228,0.3);">LINE ID：@009yvklo</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">Shima <em>Lab</em> &nbsp;<span style="font-family:'Noto Serif JP',serif;font-weight:300;font-size:13px;color:rgba(242,237,228,0.25);letter-spacing:0.14em;">島ラボ</span></div>
+    <div class="footer-sub">Kota Uezu / 上江洌 孝太 &nbsp;—&nbsp; LINE: @009yvklo</div>
+  </div>
+  <div class="footer-copy">© 2026 Shima Lab. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
