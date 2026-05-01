@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Kota Uezu — Shima Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+JP:wght@200;300;400&family=Noto+Serif+JP:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{
+  min-height:100vh;
+  background:#1C1A17;
+  font-family:'Noto Sans JP',sans-serif;
+  -webkit-font-smoothing:antialiased;
+  color:#F2EDE4;
+}
+
+/* ── 上部ヒーロー ── */
+.hero{
+  background:#1C1A17;
+  padding:64px 32px 48px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  border-bottom:1px solid rgba(242,237,228,0.07);
+}
+.hero::before{
+  content:'島';
+  position:absolute;
+  right:-20px;bottom:-30px;
+  font-family:'Noto Serif JP',serif;
+  font-weight:200;
+  font-size:200px;
+  color:rgba(242,237,228,0.04);
+  pointer-events:none;
+}
+.hero-green-line{
+  width:2px;height:48px;
+  background:#2A5C3F;
+  margin:0 auto 28px;
+}
+.hero-logo{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:400;
+  font-size:24px;
+  letter-spacing:0.22em;
+  color:rgba(242,237,228,0.9);
+  margin-bottom:4px;
+}
+.hero-logo em{font-style:italic;color:#2A5C3F;}
+.hero-logo-jp{
+  font-family:'Noto Serif JP',serif;
+  font-weight:200;
+  font-size:11px;
+  letter-spacing:0.28em;
+  color:rgba(242,237,228,0.25);
+  margin-bottom:32px;
+}
+.hero-name{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:400;
+  font-size:32px;
+  letter-spacing:0.12em;
+  color:#F2EDE4;
+  margin-bottom:6px;
+}
+.hero-name-jp{
+  font-size:13px;
+  letter-spacing:0.18em;
+  color:rgba(242,237,228,0.4);
+  font-weight:300;
+  margin-bottom:16px;
+}
+.hero-role{
+  display:inline-block;
+  font-size:9px;
+  letter-spacing:0.24em;
+  text-transform:uppercase;
+  color:#2A5C3F;
+  border:1px solid rgba(42,92,63,0.45);
+  padding:5px 16px;
+  margin-bottom:0;
+}
+
+/* ── サービス ── */
+.services{
+  padding:40px 32px;
+  border-bottom:1px solid rgba(242,237,228,0.07);
+  display:flex;
+  justify-content:center;
+  gap:32px;
+}
+.service-item{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+}
+.service-icon{
+  width:1px;height:20px;
+  background:#2A5C3F;
+}
+.service-label{
+  font-size:8px;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:rgba(242,237,228,0.3);
+  font-weight:300;
+}
+
+/* ── コピー ── */
+.copy-section{
+  padding:48px 32px;
+  text-align:center;
+  border-bottom:1px solid rgba(242,237,228,0.07);
+}
+.copy-main{
+  font-family:'Noto Serif JP',serif;
+  font-weight:300;
+  font-size:16px;
+  line-height:2.2;
+  color:rgba(242,237,228,0.7);
+  letter-spacing:0.08em;
+  margin-bottom:4px;
+}
+.copy-main strong{
+  font-weight:400;
+  color:rgba(242,237,228,0.9);
+}
+
+/* ── 連絡先 ── */
+.contacts{
+  padding:40px 32px;
+  display:flex;
+  flex-direction:column;
+  gap:0;
+  border-bottom:1px solid rgba(242,237,228,0.07);
+}
+.contact-item{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:16px 0;
+  border-bottom:1px solid rgba(242,237,228,0.05);
+  text-decoration:none;
+  transition:opacity 0.2s;
+}
+.contact-item:last-child{border-bottom:none;}
+.contact-item:hover{opacity:0.7;}
+.contact-label{
+  font-size:8px;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:#2A5C3F;
+  font-weight:400;
+  width:36px;
+  flex-shrink:0;
+}
+.contact-value{
+  font-size:13px;
+  letter-spacing:0.06em;
+  color:rgba(242,237,228,0.65);
+  font-weight:300;
+}
+
+/* ── CTA ── */
+.cta-section{
+  padding:48px 32px;
+  text-align:center;
+  border-bottom:1px solid rgba(242,237,228,0.07);
+}
+.cta-btn{
+  display:block;
+  background:#2A5C3F;
+  color:#F2EDE4;
+  text-decoration:none;
+  font-size:11px;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  padding:18px 40px;
+  font-weight:400;
+  margin-bottom:16px;
+  transition:opacity 0.2s;
+}
+.cta-btn:hover{opacity:0.85;}
+.cta-sub{
+  font-size:10px;
+  letter-spacing:0.1em;
+  color:rgba(242,237,228,0.25);
+}
+
+/* ── QR ── */
+.qr-section{
+  padding:48px 32px;
+  text-align:center;
+  border-bottom:1px solid rgba(242,237,228,0.07);
+}
+.qr-label{
+  font-size:9px;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:rgba(242,237,228,0.3);
+  margin-bottom:20px;
+  font-weight:300;
+}
+.qr-img{
+  width:96px;height:96px;
+  background:#FAF8F4;
+  padding:6px;
+  margin:0 auto 16px;
+  display:block;
+}
+.qr-url{
+  font-size:9px;
+  letter-spacing:0.1em;
+  color:rgba(242,237,228,0.25);
+}
+
+/* ── フッター ── */
+footer{
+  padding:32px;
+  text-align:center;
+}
+.footer-logo{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:400;
+  font-size:14px;
+  letter-spacing:0.22em;
+  color:rgba(242,237,228,0.4);
+}
+.footer-logo em{font-style:italic;color:rgba(42,92,63,0.6);}
+.footer-copy{
+  font-size:9px;
+  letter-spacing:0.08em;
+  color:rgba(242,237,228,0.15);
+  margin-top:8px;
+}
+</style>
+</head>
+<body>
+
+<!-- ヒーロー -->
+<div class="hero">
+  <div class="hero-green-line"></div>
+  <div class="hero-logo">Shima <em>Lab</em></div>
+  <div class="hero-logo-jp">島ラボ</div>
+  <div class="hero-name">Kota Uezu</div>
+  <div class="hero-name-jp">上江洌 孝太</div>
+  <div class="hero-role">Creative Partner</div>
+</div>
+
+<!-- サービス -->
+<div class="services">
+  <div class="service-item">
+    <div class="service-icon"></div>
+    <div class="service-label">Photography</div>
+  </div>
+  <div class="service-item">
+    <div class="service-icon"></div>
+    <div class="service-label">Videography</div>
+  </div>
+  <div class="service-item">
+    <div class="service-icon"></div>
+    <div class="service-label">Web Design</div>
+  </div>
+</div>
+
+<!-- コピー -->
+<div class="copy-section">
+  <div class="copy-main">
+    あなたのブランドを、<br>
+    <strong>一緒に育てていく</strong><br>
+    パートナー。
+  </div>
+</div>
+
+<!-- 連絡先 -->
+<div class="contacts">
+  <a href="https://line.me/R/ti/p/%40009yvklo" class="contact-item" target="_blank">
+    <span class="contact-label">LINE</span>
+    <span class="contact-value">@009yvklo（タップで追加）</span>
+  </a>
+  <a href="mailto:shimalab24@gmail.com" class="contact-item">
+    <span class="contact-label">Mail</span>
+    <span class="contact-value">shimalab24@gmail.com</span>
+  </a>
+  <a href="https://shimalab24.github.io/shimalab/" class="contact-item" target="_blank">
+    <span class="contact-label">Web</span>
+    <span class="contact-value">shimalab24.github.io/shimalab</span>
+  </a>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <a href="https://line.me/R/ti/p/%40009yvklo" class="cta-btn" target="_blank">LINE で無料相談する</a>
+  <div class="cta-sub">まずは話だけでも大丈夫です</div>
+</div>
+
+<!-- QR -->
+<div class="qr-section">
+  <div class="qr-label">Website QR</div>
+  <img class="qr-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAIAAAAG+WgKAAAEHUlEQVR4nO3dQY4TMRRAQUCcBO5/JOYULEaz4gCWwLKe7c5QtU4ygTxZ+upu++vH++8v0Pl2+wvw2UiKmKSISYqYpIhJipikiEmKmKSISYqYpIh9n3nRjx8/d3+Pv3h7+/XP14zfcHzX2mvWvs9o5q+vfc5JM9/ZKkVMUsQkRUxSxCRFbGriG61NKzNmJpqT01M1b+5z97cYWaWISYqYpIhJipikiC1OfKO16aCaVtZmrrtX6/Z98t3fwipFTFLEJEVMUsQkRSyb+D6Htat+1bXCk1cG97FKEZMUMUkRkxQxSRF7yYnv5PN3+9617zvfZZUiJilikiImKWKSIpZNfK84m8yYudOymgqrXVnu/hZWKWKSIiYpYpIiJiliixPf3R0j9+3MuTaFVX9rzd3fYmSVIiYpYpIiJilikiI2NfF91ut3J1XP8T3/t7BKEZMUMUkRkxQxSRFbPI/v5IkAd89HWJvCnnY+4MndO61SxCRFTFLEJEVMUsQed1fnvqfb1u7PnDHzZN++mWvf/qJrrFLEJEVMUsQkRUxSxLK7OqtrcyefSqvmoGqaO7l7576rtFYpYpIiJilikiImKWKLd3VW7zo5S548nWF0crY9uW/MyCpFTFLEJEVMUsQkRWzxrs6T+0xW893Ju0P3XYk7+UTe2pxolSImKWKSIiYpYpIilp3Hd/Isubv7tMx4/ukVM+9aY5UiJilikiImKWKSIrb4HF+1W8i+T67eVbl7qsLJ65JWKWKSIiYpYpIiJili2ekM1Uwx88kn7+EcVXdIVp+87/u4q5NHkBQxSRGTFDFJEfv68f574W1371rcd/5d5fnfZ+QaHw8lKWKSIiYpYpIiNjXxnXwubN+TdHfv6pxx8n91369jlSImKWKSIiYpYpIitjjxjfbtqHl3v8rRK86So3075FiliEmKmKSISYqYpIhl1/j27dVZ3f34tDstRyfvvdzHKkVMUsQkRUxSxCRFLDudYcbdkxdmVDPgvn+Fuzr570iKmKSISYqYpIgt7txy18lrYXfPfXjavqAzrFLEJEVMUsQkRUxSxBZPZzhpnE1OPjO47+rY2uecvMd1jVWKmKSISYqYpIhJitjiXZ13zxGo3rX2yWunCs685vln9rmrkwskRUxSxCRFTFLEsuf47u6fWX3yvutudyfZk09HWqWISYqYpIhJipikiB3duWWfaseVmc+ZmcL2Pf1XTbLu6uRlSIqYpIhJipikiH2Sia+awu6eBljNm2uqGdAqRUxSxCRFTFLEJEUsm/iedk7c2u4ud/96tW/Mvnd5jo8LJEVMUsQkRUxSxBYnvru7d97d5bL6W9VM+rSzIaxSxCRFTFLEJEVMUsRe8jw+nswqRUxSxCRFTFLEJEVMUsQkRUxSxCRFTFLEJEXsD0fnDRgdUvt8AAAAAElFTkSuQmCC" alt="Shima Lab QR">
+  <div class="qr-url">shimalab24.github.io/shimalab</div>
+</div>
+
+<!-- フッター -->
+<footer>
+  <div class="footer-logo">Shima <em>Lab</em></div>
+  <div class="footer-copy">© 2026 Shima Lab. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
