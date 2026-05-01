@@ -200,7 +200,9 @@ h1.hero-title {
   display: block;
   margin-bottom: 36px;
   writing-mode: vertical-rl;
-  height: 150px;
+  text-orientation: upright;
+  height: auto;
+  max-height: 200px;
 }
 
 .hero-id {
@@ -476,7 +478,7 @@ h1.hero-title {
 .svc-row:hover { background:rgba(28,26,23,0.025); padding-left:10px; padding-right:10px; margin:0 -10px; }
 
 .svc-idx { font-family:'Cormorant Garamond',serif; font-weight:300; font-style:italic; font-size:22px; color:rgba(28,26,23,0.12); line-height:1; }
-.svc-name { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:19px; letter-spacing:0.04em; color:var(--char); margin-bottom:4px; }
+.svc-name { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:19px; letter-spacing:0.04em; color:var(--char); margin-bottom:4px; vertical-align:baseline; line-height:1.3; }
 .svc-tag { font-size:10px; letter-spacing:0.14em; color:var(--green); font-weight:400; }
 .svc-desc { font-size: 13px; font-weight:300; line-height:2; color:var(--mid); letter-spacing:0.05em; }
 .svc-price { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:20px; letter-spacing:0.04em; color:var(--char); white-space:nowrap; text-align:right; }
@@ -779,47 +781,102 @@ footer {
 
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
-  body { font-size: 14px; }
-  .sec { padding: 64px 5vw; }
+  body { font-size: 13px; }
+  .sec { padding: 56px 5vw; }
   .hero { grid-template-columns: 1fr; }
   .hero-right { display: none; }
   .hero-left { padding: 72px 5vw 60px; }
-  .hero-title { font-size: 32px; line-height: 1.35; }
-  .hero-subtitle { font-size: 14px; }
-  .hero-body { font-size: 13px; }
-  .concept-grid, .val-grid, .prob-grid, .flow-grid, .partner-inner { grid-template-columns:1fr; }
+
+  /* 見出し全般：小さく・改行制御 */
+  .hdg {
+    font-size: 22px !important;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    line-height: 1.4;
+    letter-spacing: 0.01em;
+  }
+  h1.hero-title {
+    font-size: 28px !important;
+    word-break: keep-all;
+    line-height: 1.4;
+  }
+  .hero-subtitle { font-size: 13px; }
+  .hero-body { font-size: 13px; line-height: 2; }
+
+  /* コンセプト */
+  .concept-grid { grid-template-columns:1fr; }
   .concept-left { margin-bottom: 32px; }
-  .concept-main-copy { font-size: 20px; }
-  .svc-row { grid-template-columns: 28px 1fr; gap: 12px; }
+  .concept-main-copy {
+    font-size: 17px !important;
+    word-break: keep-all;
+    line-height: 1.9;
+  }
+
+  /* ミッション */
+  .mission-copy {
+    font-size: 18px !important;
+    word-break: keep-all;
+  }
+
+  /* バリュー・プロブレム */
+  .val-grid { grid-template-columns:1fr; }
+  .prob-grid { grid-template-columns: 1fr; }
+
+  /* サービス */
+  .svc-row { grid-template-columns: 24px 1fr; gap: 10px; }
   .svc-desc, .svc-price { grid-column: 2; }
   .svc-price { text-align:left; }
   .svc-row:hover { margin:0; padding:20px 0; }
   .svc-highlight { padding-left:0 !important; }
-  .svc-cat-title { font-size: 18px; }
-  .camp-box { grid-template-columns:1fr; padding:28px; gap:16px; }
+  .svc-cat-title { font-size: 17px; }
+  .svc-name { font-size: 16px; }
+  .svc-main-col { grid-column: 2; }
+  .svc-price-wrap { margin-top: 12px; }
+
+  /* キャンペーン */
+  .camp-box { grid-template-columns:1fr; padding:24px; gap:12px; }
   .camp-right { text-align:left; }
-  .camp-price { font-size: 42px; }
-  .camp-orig { font-size: 13px; }
-  .camp-until { font-size: 11px; letter-spacing: 0.08em; }
+  .camp-title {
+    font-size: 18px !important;
+    word-break: keep-all;
+    line-height: 1.5;
+  }
+  .camp-price { font-size: 38px; }
+  .camp-orig { font-size: 12px; }
+  .camp-until { font-size: 11px; }
+
+  /* CTA本文 */
+  .cta-body {
+    font-size: 13px;
+    word-break: keep-all;
+  }
+
+  /* フロー */
+  .flow-grid { grid-template-columns:1fr; }
+
+  /* パートナー */
+  .partner-inner { grid-template-columns:1fr; }
+  .partner-card { padding: 24px 20px; }
+  .partner-card-title {
+    font-size: 14px;
+    word-break: keep-all;
+  }
+
+  /* ナビ・フッター */
   nav .nav-links { display:none; }
-  .data-table { font-size: 11px; }
-  .data-table th, .data-table td { padding: 10px 8px; }
-  .partner-card { padding: 28px 24px; }
   footer { flex-direction:column; gap:16px; text-align:center; }
-  .mission-copy { font-size: 22px; }
 
-  /* 見出しの改行制御 */
-  .hdg { font-size: 26px; word-break: keep-all; overflow-wrap: break-word; line-height: 1.3; }
+  /* テーブル */
+  .data-table { font-size: 11px; }
+  .data-table th, .data-table td { padding: 8px 6px; }
 
-  /* 比較表をスマホではカード形式に切り替え */
+  /* 比較表 */
   .compare-table { display: none; }
   .compare-cards { display: flex !important; flex-direction: column; gap: 12px; margin-top: 28px; }
 }
 
 @media (min-width: 769px) {
   .compare-cards { display: none; }
-
-  /* デスクトップ：文字サイズを少し大きく */
   .prose { font-size: 15px; }
   .val-body { font-size: 14px; }
   .svc-desc { font-size: 14px; }
@@ -1169,14 +1226,17 @@ footer {
     <div class="svc-list">
       <div class="svc-row svc-highlight">
         <div class="svc-idx">—</div>
-        <div>
-          <div class="svc-name">撮影&nbsp;4h&nbsp;+&nbsp;LP制作</div>
+        <div class="svc-main-col">
+          <div class="svc-name">撮影 <span style="font-family:'Cormorant Garamond',serif;font-size:19px;vertical-align:baseline;">4h + LP制作</span></div>
           <div class="svc-tag">Recommended</div>
-        </div>
-        <div class="svc-desc">撮影素材をそのままLPへ。構成・コピー・素材・Web、すべて一社完結。</div>
-        <div>
-          <div class="svc-price" style="text-decoration:line-through;font-size:13px;color:var(--muted);font-family:'Noto Sans JP',sans-serif;font-weight:300;">¥230,000</div>
-          <div class="svc-price">¥200,000<small style="color:var(--gold);font-weight:400;letter-spacing:0.06em;font-size:10px;display:block;margin-top:2px;">7月末まで</small></div>
+          <div class="svc-desc" style="margin-top:8px;">撮影素材をそのままLPへ。構成・コピー・素材・Web、すべて一社完結。</div>
+          <div class="svc-price-wrap">
+            <div style="font-size:12px;color:var(--muted);text-decoration:line-through;font-family:'Noto Sans JP',sans-serif;font-weight:300;">¥230,000</div>
+            <div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;">
+              <span class="svc-price">¥200,000</span>
+              <span style="color:var(--gold);font-size:11px;font-weight:400;letter-spacing:0.06em;white-space:nowrap;">7月末まで</span>
+            </div>
+          </div>
         </div>
       </div>
       <div class="svc-row svc-highlight">
@@ -1412,7 +1472,7 @@ footer {
   <div class="camp-box">
     <div>
       <div class="camp-badge">2026年7月末まで限定</div>
-      <div class="camp-title">撮影&nbsp;4h&nbsp;+&nbsp;LP制作 ワンストップパック</div>
+      <div class="camp-title">撮影 4h + LP制作 ワンストップパック</div>
       <div class="camp-desc">撮影した素材をそのままLPへ。撮影とWeb制作が同一の窓口だからこそできる、一貫したブランディング。並走が必要な場合はパートナー契約（¥15,000/月）を追加できます。</div>
     </div>
     <div class="camp-right">
@@ -1427,10 +1487,7 @@ footer {
 <section class="cta" id="contact">
   <div class="eyebrow ey-light" style="justify-content:center;">Contact</div>
   <h2 class="hdg hdg-light" style="text-align:center; margin-bottom:18px;">まず、話しましょう。</h2>
-  <p class="cta-body">
-    「何から始めればいいかわからない」でも大丈夫です。<br>
-    現状のヒアリングから、無料で対応します。
-  </p>
+  <p class="cta-body">「何から始めればいいかわからない」でも大丈夫です。現状のヒアリングから、無料で対応します。</p>
   <a href="https://line.me/R/ti/p/%40009yvklo" class="btn-cta" target="_blank" rel="noopener">LINE で無料相談する</a>
   <p style="margin-top:20px;font-size:11px;letter-spacing:0.14em;color:rgba(242,237,228,0.3);">LINE ID：@009yvklo</p>
 </section>
