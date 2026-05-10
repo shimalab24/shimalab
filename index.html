@@ -730,11 +730,11 @@ h1.hero-title {
   }
 }
 
-/* ── CAMPAIGN ── */
-.campaign { background: var(--chalk); padding-top: 0; }
+/* ── PACKAGE ── */
+.package { background: var(--chalk); padding-top: 0; }
 
-.camp-box {
-  border: 1px solid rgba(154,112,64,0.3);
+.pack-box {
+  border: 1px solid rgba(42,92,63,0.25);
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 48px;
@@ -743,15 +743,14 @@ h1.hero-title {
   position: relative;
   overflow: hidden;
 }
-.camp-box::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 0% 50%, rgba(154,112,64,0.05), transparent 60%); pointer-events:none; }
+.pack-box::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 0% 50%, rgba(42,92,63,0.04), transparent 60%); pointer-events:none; }
 
-.camp-badge { font-family:'Cormorant Garamond',serif; font-weight:300; font-style:italic; font-size:10px; letter-spacing:0.24em; color:var(--gold); border:1px solid rgba(154,112,64,0.3); padding:4px 14px; display:inline-block; margin-bottom:20px; }
-.camp-title { font-family:'Cormorant Garamond',serif; font-weight:300; font-size:26px; letter-spacing:0.03em; line-height:1.4; color:var(--char); margin-bottom:12px; }
-.camp-desc { font-size:13px; font-weight:300; line-height:2.1; color:var(--mid); letter-spacing:0.05em; }
-.camp-right { text-align:right; flex-shrink:0; }
-.camp-orig { font-size:12px; color:var(--muted); text-decoration:line-through; letter-spacing:0.05em; margin-bottom:6px; }
-.camp-price { font-family:'Cormorant Garamond',serif; font-weight:300; font-size:50px; letter-spacing:0.02em; color:var(--gold); line-height:1; }
-.camp-until { font-size:9px; letter-spacing:0.2em; color:var(--muted); margin-top:8px; text-transform:uppercase; }
+.pack-label { font-family:'Cormorant Garamond',serif; font-weight:300; font-style:italic; font-size:10px; letter-spacing:0.24em; color:var(--green); border:1px solid rgba(42,92,63,0.25); padding:4px 14px; display:inline-block; margin-bottom:20px; }
+.pack-title { font-family:'Cormorant Garamond',serif; font-weight:300; font-size:26px; letter-spacing:0.03em; line-height:1.4; color:var(--char); margin-bottom:12px; }
+.pack-desc { font-size:13px; font-weight:300; line-height:2.1; color:var(--mid); letter-spacing:0.05em; }
+.pack-right { text-align:right; flex-shrink:0; }
+.pack-price { font-family:'Cormorant Garamond',serif; font-weight:300; font-size:50px; letter-spacing:0.02em; color:var(--green); line-height:1; }
+.pack-note { font-size:10px; letter-spacing:0.14em; color:var(--muted); margin-top:8px; }
 
 /* ── CTA ── */
 .cta { background: var(--char); padding: 96px 7vw; text-align:center; }
@@ -787,7 +786,6 @@ footer {
   .hero-right { display: none; }
   .hero-left { padding: 72px 5vw 60px; }
 
-  /* 見出し全般：小さく・改行制御 */
   .hdg {
     font-size: 22px !important;
     word-break: keep-all;
@@ -803,7 +801,6 @@ footer {
   .hero-subtitle { font-size: 13px; }
   .hero-body { font-size: 13px; line-height: 2; }
 
-  /* コンセプト */
   .concept-grid { grid-template-columns:1fr; }
   .concept-left { margin-bottom: 32px; }
   .concept-main-copy {
@@ -812,17 +809,14 @@ footer {
     line-height: 1.9;
   }
 
-  /* ミッション */
   .mission-copy {
     font-size: 18px !important;
     word-break: keep-all;
   }
 
-  /* バリュー・プロブレム */
   .val-grid { grid-template-columns:1fr; }
   .prob-grid { grid-template-columns: 1fr; }
 
-  /* サービス */
   .svc-row { grid-template-columns: 24px 1fr; gap: 10px; }
   .svc-desc, .svc-price { grid-column: 2; }
   .svc-price { text-align:left; }
@@ -833,28 +827,21 @@ footer {
   .svc-main-col { grid-column: 2; }
   .svc-price-wrap { margin-top: 12px; }
 
-  /* キャンペーン */
-  .camp-box { grid-template-columns:1fr; padding:24px; gap:12px; }
-  .camp-right { text-align:left; }
-  .camp-title {
+  .pack-box { grid-template-columns:1fr; padding:24px; gap:12px; }
+  .pack-right { text-align:left; }
+  .pack-title {
     font-size: 18px !important;
     word-break: keep-all;
     line-height: 1.5;
   }
-  .camp-price { font-size: 38px; }
-  .camp-orig { font-size: 12px; }
-  .camp-until { font-size: 11px; }
+  .pack-price { font-size: 38px; }
 
-  /* CTA本文 */
   .cta-body {
     font-size: 13px;
     word-break: keep-all;
   }
 
-  /* フロー */
   .flow-grid { grid-template-columns:1fr; }
-
-  /* パートナー */
   .partner-inner { grid-template-columns:1fr; }
   .partner-card { padding: 24px 20px; }
   .partner-card-title {
@@ -862,15 +849,12 @@ footer {
     word-break: keep-all;
   }
 
-  /* ナビ・フッター */
   nav .nav-links { display:none; }
   footer { flex-direction:column; gap:16px; text-align:center; }
 
-  /* テーブル */
   .data-table { font-size: 11px; }
   .data-table th, .data-table td { padding: 8px 6px; }
 
-  /* 比較表 */
   .compare-table { display: none; }
   .compare-cards { display: flex !important; flex-direction: column; gap: 12px; margin-top: 28px; }
 }
@@ -1098,10 +1082,6 @@ footer {
       <div style="font-size:11px;color:var(--muted);margin-top:14px;line-height:1.9;">少数のクライアントと深く長く関わることを大切にしています。</div>
     </div>
   </div>
-
-  <p style="margin-top:20px;font-size:12px;color:var(--muted);letter-spacing:0.06em;line-height:1.9;display:none;" class="compare-note-desktop">
-    Shima Labは大規模案件や短納期での大量制作には対応できません。その分、少数のクライアントと深く長く関わることを大切にしています。
-  </p>
 </section>
 
 <!-- VALUE -->
@@ -1206,7 +1186,7 @@ footer {
           <div class="svc-tag">Web Design</div>
         </div>
         <div class="svc-desc">構成・コピー・デザイン一気通貫。1ページ完結型。修正2回まで。</div>
-        <div class="svc-price">¥200,000</div>
+        <div class="svc-price">¥150,000</div>
       </div>
       <div class="svc-row">
         <div class="svc-idx">—</div>
@@ -1215,7 +1195,7 @@ footer {
           <div class="svc-tag">Web Design</div>
         </div>
         <div class="svc-desc">5〜8ページ構成。会社の顔となる複数ページWebサイト。修正3回まで。</div>
-        <div class="svc-price">¥350,000</div>
+        <div class="svc-price">¥250,000</div>
       </div>
     </div>
   </div>
@@ -1263,11 +1243,7 @@ footer {
           <div class="svc-tag">Recommended</div>
           <div class="svc-desc" style="margin-top:8px;">撮影素材をそのままLPへ。構成・コピー・素材・Web、すべて一社完結。</div>
           <div class="svc-price-wrap">
-            <div style="font-size:12px;color:var(--muted);text-decoration:line-through;font-family:'Noto Sans JP',sans-serif;font-weight:300;">¥230,000</div>
-            <div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;">
-              <span class="svc-price">¥200,000</span>
-              <span style="color:var(--gold);font-size:11px;font-weight:400;letter-spacing:0.06em;white-space:nowrap;">7月末まで</span>
-            </div>
+            <div class="svc-price" style="margin-top:8px;">¥180,000</div>
           </div>
         </div>
       </div>
@@ -1278,7 +1254,7 @@ footer {
           <div class="svc-tag" style="color:var(--gold);">10社限定</div>
         </div>
         <div class="svc-desc">月1MTG＋数字確認＋改善実行。撮影・LP・SNSの改善を継続的に並走。<br><span style="font-size:11px;color:var(--muted);">※ 撮影・LP制作のご依頼後にご案内します</span></div>
-        <div class="svc-price">¥15,000<small>/月</small></div>
+        <div class="svc-price">¥20,000<small>/月</small></div>
       </div>
     </div>
   </div>
@@ -1314,13 +1290,13 @@ footer {
         <td>LP制作<br><span style="font-size:11px;color:var(--muted);font-weight:300;">構成・コピー・デザイン込み</span></td>
         <td>¥300,000〜600,000</td>
         <td>¥50,000〜300,000</td>
-        <td style="color:var(--green);font-weight:400;">¥200,000</td>
+        <td style="color:var(--green);font-weight:400;">¥150,000</td>
       </tr>
       <tr>
         <td>コーポレートサイト</td>
         <td>¥500,000〜1,000,000+</td>
         <td>¥200,000〜500,000</td>
-        <td style="color:var(--green);font-weight:400;">¥350,000</td>
+        <td style="color:var(--green);font-weight:400;">¥250,000</td>
       </tr>
     </tbody>
   </table>
@@ -1373,14 +1349,14 @@ footer {
           <div style="font-size:12px;font-weight:400;color:var(--char);">撮影 4h + LP制作</div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px;">
             <div style="font-size:10px;color:var(--mid);">構成・コピー・素材・Web、すべて込み</div>
-            <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--green);white-space:nowrap;margin-left:8px;">¥200,000</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--green);white-space:nowrap;margin-left:8px;">¥180,000</div>
           </div>
         </div>
         <div style="padding:12px 0;border-bottom:1px solid rgba(42,92,63,0.1);">
           <div style="font-size:12px;font-weight:400;color:var(--char);">クリエイティブパートナー契約</div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px;">
             <div style="font-size:10px;color:var(--mid);">月1MTG＋数字確認＋改善実行</div>
-            <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--green);white-space:nowrap;margin-left:8px;">¥15,000/月〜</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--green);white-space:nowrap;margin-left:8px;">¥20,000/月〜</div>
           </div>
         </div>
         <div style="padding:12px 0;border-bottom:1px solid rgba(42,92,63,0.1);">
@@ -1401,15 +1377,8 @@ footer {
 
       <div style="padding-top:16px;border-top:2px solid var(--green);margin-top:16px;">
         <div style="font-size:9px;letter-spacing:0.14em;color:var(--green);margin-bottom:8px;text-transform:uppercase;">初期費用合計</div>
-        <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:4px;">
-          <div style="font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--muted);text-decoration:line-through;">¥230,000</div>
-          <div style="font-size:9px;letter-spacing:0.1em;color:var(--muted);">正規価格</div>
-        </div>
-        <div style="display:flex;align-items:baseline;gap:10px;">
-          <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--green);">¥200,000</div>
-          <div style="font-size:9px;letter-spacing:0.1em;color:var(--gold);font-weight:400;">7月末まで限定</div>
-        </div>
-        <div style="font-size:10px;color:var(--mid);margin-top:10px;line-height:1.9;">+ 月¥15,000〜でブランドを継続改善<br>+ 統一感のあるブランドが育っていく</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--green);">¥180,000</div>
+        <div style="font-size:10px;color:var(--mid);margin-top:10px;line-height:1.9;">+ 月¥20,000〜でブランドを継続改善<br>+ 統一感のあるブランドが育っていく</div>
       </div>
     </div>
   </div>
@@ -1457,7 +1426,7 @@ footer {
         GA4でセッション数・直帰率・問い合わせ数を確認。Clarityでユーザーの動きを把握。「なぜ動かないか」を一緒に言語化し、撮影素材の更新・LP改善・SNS連動のどこから手をつけるかを即決して実行します。
       </div>
       <div class="partner-price-box">
-        <div class="partner-price">¥15,000</div>
+        <div class="partner-price">¥20,000</div>
         <div class="partner-price-unit">/ 月〜</div>
       </div>
     </div>
@@ -1498,19 +1467,18 @@ footer {
   </div>
 </section>
 
-<!-- CAMPAIGN -->
-<section class="campaign sec">
-  <div class="eyebrow ey-gold">Limited Offer</div>
-  <div class="camp-box">
+<!-- PACKAGE -->
+<section class="package sec">
+  <div class="eyebrow ey-dark">Package</div>
+  <div class="pack-box">
     <div>
-      <div class="camp-badge">2026年7月末まで限定</div>
-      <div class="camp-title" style="font-size:16px !important;word-break:keep-all;line-height:1.6;">撮影&thinsp;4h&thinsp;+&thinsp;LP制作&thinsp;ワンストップパック</div>
-      <div class="camp-desc">撮影した素材をそのままLPへ。撮影とWeb制作が同一の窓口だからこそできる、一貫したブランディング。並走が必要な場合はパートナー契約（¥15,000/月）を追加できます。</div>
+      <div class="pack-label">Recommended</div>
+      <div class="pack-title">撮影&thinsp;4h&thinsp;+&thinsp;LP制作&thinsp;ワンストップパック</div>
+      <div class="pack-desc">撮影した素材をそのままLPへ。撮影とWeb制作が同一の窓口だからこそできる、一貫したブランディング。並走が必要な場合はパートナー契約（¥20,000/月）を追加できます。</div>
     </div>
-    <div class="camp-right">
-      <div class="camp-orig">正規価格 ¥230,000</div>
-      <div class="camp-price">¥200,000</div>
-      <div class="camp-until" style="color:var(--gold);font-weight:400;font-size:11px;letter-spacing:0.08em;">7月末まで ¥30,000 OFF</div>
+    <div class="pack-right">
+      <div class="pack-price">¥180,000</div>
+      <div class="pack-note">撮影4h + LP制作 込み</div>
     </div>
   </div>
 </section>
