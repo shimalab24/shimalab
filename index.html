@@ -30,6 +30,10 @@ body {
   font-weight: 300;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  line-height: 1.75;
+  letter-spacing: 0.02em;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 /* ── NAV ── */
@@ -78,6 +82,10 @@ nav {
   transition: background 0.25s;
   text-transform: uppercase;
   font-weight: 400;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
 }
 .nav-cta:hover { background: var(--green); }
 
@@ -159,7 +167,10 @@ h1.hero-title {
   transition: background 0.2s, color 0.2s;
   text-transform: uppercase;
   font-weight: 400;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
 }
 .btn-fill:hover { background: var(--green); color: var(--cream); }
 
@@ -471,17 +482,17 @@ h1.hero-title {
   gap: 28px;
   padding: 28px 0;
   border-bottom: 1px solid var(--line);
-  transition: background 0.18s, padding 0.18s;
+  transition: background 0.18s, border-color 0.18s, box-shadow 0.18s, padding 0.18s;
   cursor: default;
 }
 .svc-row:first-child { border-top: 1px solid var(--line); }
-.svc-row:hover { background:rgba(28,26,23,0.025); padding-left:10px; padding-right:10px; margin:0 -10px; }
+.svc-row:hover { background:rgba(42,92,63,0.035); border-color:rgba(42,92,63,0.18); box-shadow:inset 3px 0 0 rgba(42,92,63,0.28); padding-left:12px; padding-right:12px; margin:0 -12px; }
 
 .svc-idx { font-family:'Cormorant Garamond',serif; font-weight:300; font-style:italic; font-size:22px; color:rgba(28,26,23,0.12); line-height:1; }
 .svc-name { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:19px; letter-spacing:0.04em; color:var(--char); margin-bottom:4px; vertical-align:baseline; line-height:1.3; }
 .svc-tag { font-size:10px; letter-spacing:0.14em; color:var(--green); font-weight:400; }
-.svc-desc { font-size: 13px; font-weight:300; line-height:2; color:var(--mid); letter-spacing:0.05em; }
-.svc-price { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:20px; letter-spacing:0.04em; color:var(--char); white-space:nowrap; text-align:right; }
+.svc-desc { font-size: 13px; font-weight:300; line-height:2.05; color:var(--mid); letter-spacing:0.045em; }
+.svc-price { font-family:'Cormorant Garamond',serif; font-weight:500; font-size:23px; letter-spacing:0.03em; color:var(--green); white-space:nowrap; text-align:right; }
 .svc-price small { font-family:'Noto Sans JP',sans-serif; font-size:10px; font-weight:300; color:var(--muted); letter-spacing:0.04em; }
 
 .svc-highlight {
@@ -546,7 +557,8 @@ h1.hero-title {
 
 .compare-table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   margin-top: 52px;
   font-size: 13px;
 }
@@ -562,8 +574,10 @@ h1.hero-title {
 }
 
 .compare-table th:first-child { text-align: left; }
-.compare-table th.th-shima { background: rgba(42,92,63,0.06); color: var(--green); border-bottom-color: var(--green); }
+.compare-table th.th-shima { background: rgba(42,92,63,0.1); color: var(--green); border-bottom-color: var(--green); box-shadow:inset 0 2px 0 var(--green); }
 .compare-table th.th-other { color: var(--muted); }
+
+.compare-table tbody tr:nth-child(even) td { background: rgba(28,26,23,0.018); }
 
 .compare-table td {
   padding: 18px 20px;
@@ -581,7 +595,7 @@ h1.hero-title {
   font-size: 13px;
 }
 
-.compare-table td.td-shima { background: rgba(42,92,63,0.04); }
+.compare-table td.td-shima { background: rgba(42,92,63,0.075) !important; color: var(--green); font-weight:400; }
 
 .compare-table tr:last-child td { border-bottom: none; }
 
@@ -614,6 +628,10 @@ h1.hero-title {
   color: var(--mid);
 }
 .data-table td:first-child { font-weight: 400; color: var(--char); }
+.data-table tbody tr:nth-child(even) td { background: rgba(28,26,23,0.018); }
+.data-table th:last-child,
+.data-table td:last-child { background: rgba(42,92,63,0.055); color: var(--green); }
+.data-table td:last-child { font-weight: 400; }
 
 /* ── PARTNER ── */
 .partner { background: var(--char); }
@@ -734,7 +752,7 @@ h1.hero-title {
 .package { background: var(--chalk); padding-top: 0; }
 
 .pack-box {
-  border: 1px solid rgba(42,92,63,0.25);
+  border: 1px solid rgba(42,92,63,0.32);
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 48px;
@@ -747,9 +765,9 @@ h1.hero-title {
 
 .pack-label { font-family:'Cormorant Garamond',serif; font-weight:300; font-style:italic; font-size:10px; letter-spacing:0.24em; color:var(--green); border:1px solid rgba(42,92,63,0.25); padding:4px 14px; display:inline-block; margin-bottom:20px; }
 .pack-title { font-family:'Cormorant Garamond',serif; font-weight:300; font-size:26px; letter-spacing:0.03em; line-height:1.4; color:var(--char); margin-bottom:12px; }
-.pack-desc { font-size:13px; font-weight:300; line-height:2.1; color:var(--mid); letter-spacing:0.05em; }
+.pack-desc { font-size:13px; font-weight:300; line-height:2.15; color:var(--mid); letter-spacing:0.045em; }
 .pack-right { text-align:right; flex-shrink:0; }
-.pack-price { font-family:'Cormorant Garamond',serif; font-weight:300; font-size:50px; letter-spacing:0.02em; color:var(--green); line-height:1; }
+.pack-price { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:58px; letter-spacing:0.01em; color:var(--green); line-height:1; }
 .pack-note { font-size:10px; letter-spacing:0.14em; color:var(--muted); margin-top:8px; }
 
 /* ── CTA ── */
@@ -759,7 +777,7 @@ h1.hero-title {
 
 .btn-cta {
   font-size:10px; letter-spacing:0.2em; color:var(--char); background:var(--cream);
-  padding:16px 52px; text-decoration:none; display:inline-block; text-transform:uppercase; font-weight:400;
+  padding:16px 52px; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; min-height:48px; text-transform:uppercase; font-weight:400;
   transition:background 0.2s, color 0.2s;
 }
 .btn-cta:hover { background:var(--green); color:var(--cream); }
@@ -820,7 +838,7 @@ footer {
   .svc-row { grid-template-columns: 24px 1fr; gap: 10px; }
   .svc-desc, .svc-price { grid-column: 2; }
   .svc-price { text-align:left; }
-  .svc-row:hover { margin:0; padding:20px 0; }
+  .svc-row:hover { margin:0; padding:28px 0; box-shadow:none; }
   .svc-highlight { padding-left:0 !important; }
   .svc-cat-title { font-size: 17px; }
   .svc-name { font-size: 16px; }
@@ -834,7 +852,7 @@ footer {
     word-break: keep-all;
     line-height: 1.5;
   }
-  .pack-price { font-size: 38px; }
+  .pack-price { font-size: 44px; }
 
   .cta-body {
     font-size: 13px;
@@ -1186,7 +1204,7 @@ footer {
           <div class="svc-tag">Web Design</div>
         </div>
         <div class="svc-desc">構成・コピー・デザイン一気通貫。1ページ完結型。修正2回まで。</div>
-        <div class="svc-price">¥150,000</div>
+        <div class="svc-price">¥100,000</div>
       </div>
       <div class="svc-row">
         <div class="svc-idx">—</div>
@@ -1195,7 +1213,7 @@ footer {
           <div class="svc-tag">Web Design</div>
         </div>
         <div class="svc-desc">5〜8ページ構成。会社の顔となる複数ページWebサイト。修正3回まで。</div>
-        <div class="svc-price">¥250,000</div>
+        <div class="svc-price">¥200,000<small>〜</small></div>
       </div>
     </div>
   </div>
@@ -1223,7 +1241,7 @@ footer {
           </span>
           <span style="font-size:11px;color:var(--muted);display:block;margin-top:6px;">※ 単体での提供は行っていません</span>
         </div>
-        <div class="svc-price">¥100,000</div>
+        <div class="svc-price">¥80,000</div>
       </div>
     </div>
   </div>
@@ -1239,11 +1257,11 @@ footer {
       <div class="svc-row svc-highlight">
         <div class="svc-idx">—</div>
         <div class="svc-main-col">
-          <div class="svc-name" style="font-family:'Cormorant Garamond',serif;font-size:19px;vertical-align:baseline;line-height:1.3;">撮影 4h + LP制作</div>
+          <div class="svc-name" style="font-family:'Cormorant Garamond',serif;font-size:19px;vertical-align:baseline;line-height:1.3;">写真撮影 4h + LP制作</div>
           <div class="svc-tag">Recommended</div>
           <div class="svc-desc" style="margin-top:8px;">撮影素材をそのままLPへ。構成・コピー・素材・Web、すべて一社完結。</div>
           <div class="svc-price-wrap">
-            <div class="svc-price" style="margin-top:8px;">¥180,000</div>
+            <div class="svc-price" style="margin-top:8px;">¥130,000</div>
           </div>
         </div>
       </div>
@@ -1253,7 +1271,7 @@ footer {
           <div class="svc-name">クリエイティブパートナー契約</div>
           <div class="svc-tag" style="color:var(--gold);">10社限定</div>
         </div>
-        <div class="svc-desc">月1MTG＋数字確認＋改善実行。撮影・LP・SNSの改善を継続的に並走。<br><span style="font-size:11px;color:var(--muted);">※ 撮影・LP制作のご依頼後にご案内します</span></div>
+        <div class="svc-desc">月1MTG＋数字確認＋改善実行。<br><span style="font-size:11px;color:var(--muted);">※ 撮影・LP制作のご依頼後にご案内します</span></div>
         <div class="svc-price">¥20,000<small>/月</small></div>
       </div>
     </div>
@@ -1290,13 +1308,13 @@ footer {
         <td>LP制作<br><span style="font-size:11px;color:var(--muted);font-weight:300;">構成・コピー・デザイン込み</span></td>
         <td>¥300,000〜600,000</td>
         <td>¥50,000〜300,000</td>
-        <td style="color:var(--green);font-weight:400;">¥150,000</td>
+        <td style="color:var(--green);font-weight:400;">¥100,000</td>
       </tr>
       <tr>
         <td>コーポレートサイト</td>
         <td>¥500,000〜1,000,000+</td>
         <td>¥200,000〜500,000</td>
-        <td style="color:var(--green);font-weight:400;">¥250,000</td>
+        <td style="color:var(--green);font-weight:400;">¥200,000<small>〜</small></td>
       </tr>
     </tbody>
   </table>
@@ -1336,7 +1354,7 @@ footer {
       <div style="padding-top:16px;border-top:2px solid var(--line);margin-top:16px;">
         <div style="font-size:9px;letter-spacing:0.14em;color:var(--muted);margin-bottom:4px;text-transform:uppercase;">初期費用合計</div>
         <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--char);">¥350,000〜</div>
-        <div style="font-size:10px;color:var(--muted);margin-top:6px;line-height:1.9;">+ 修正のたびに保守費用が発生<br>+ 調整の手間<br>+ 統一感のなさによる機会損失</div>
+        <div style="font-size:10px;color:var(--muted);margin-top:6px;line-height:1.9;">+ 保守費用は別途（月¥5,000〜30,000が相場）<br>+ 業者間の調整コスト<br>+ 統一感のなさによる機会損失</div>
       </div>
     </div>
 
@@ -1346,10 +1364,10 @@ footer {
 
       <div style="display:flex;flex-direction:column;gap:0;">
         <div style="padding:12px 0;border-bottom:1px solid rgba(42,92,63,0.1);">
-          <div style="font-size:12px;font-weight:400;color:var(--char);">撮影 4h + LP制作</div>
+          <div style="font-size:12px;font-weight:400;color:var(--char);">写真撮影 4h + LP制作</div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px;">
             <div style="font-size:10px;color:var(--mid);">構成・コピー・素材・Web、すべて込み</div>
-            <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--green);white-space:nowrap;margin-left:8px;">¥180,000</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--green);white-space:nowrap;margin-left:8px;">¥130,000</div>
           </div>
         </div>
         <div style="padding:12px 0;border-bottom:1px solid rgba(42,92,63,0.1);">
@@ -1377,8 +1395,8 @@ footer {
 
       <div style="padding-top:16px;border-top:2px solid var(--green);margin-top:16px;">
         <div style="font-size:9px;letter-spacing:0.14em;color:var(--green);margin-bottom:8px;text-transform:uppercase;">初期費用合計</div>
-        <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--green);">¥180,000</div>
-        <div style="font-size:10px;color:var(--mid);margin-top:10px;line-height:1.9;">+ 月¥20,000〜でブランドを継続改善<br>+ 統一感のあるブランドが育っていく</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--green);">¥130,000</div>
+        <div style="font-size:10px;color:var(--mid);margin-top:10px;line-height:1.9;">+ 保守込み（月¥20,000〜のパートナー契約）<br>+ 修正・改善をワンストップで継続対応<br>+ 統一感のあるブランドが育っていく</div>
       </div>
     </div>
   </div>
@@ -1473,12 +1491,18 @@ footer {
   <div class="pack-box">
     <div>
       <div class="pack-label">Recommended</div>
-      <div class="pack-title">撮影&thinsp;4h&thinsp;+&thinsp;LP制作&thinsp;ワンストップパック</div>
+      <div class="pack-title">写真撮影&thinsp;4h&thinsp;+&thinsp;LP制作&thinsp;ワンストップパック</div>
       <div class="pack-desc">撮影した素材をそのままLPへ。撮影とWeb制作が同一の窓口だからこそできる、一貫したブランディング。並走が必要な場合はパートナー契約（¥20,000/月）を追加できます。</div>
     </div>
     <div class="pack-right">
-      <div class="pack-price">¥180,000</div>
-      <div class="pack-note">撮影4h + LP制作 込み</div>
+      <div style="margin-bottom:8px;">
+        <div class="pack-price">¥130,000</div>
+        <div class="pack-note">写真撮影4h + LP制作</div>
+      </div>
+      <div style="border-top:1px solid rgba(42,92,63,0.2);padding-top:12px;margin-top:4px;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--green);">¥150,000</div>
+        <div style="font-size:11px;color:var(--mid);margin-top:4px;letter-spacing:0.04em;">クリエイティブパートナー契約（¥20,000/月）込み</div>
+      </div>
     </div>
   </div>
 </section>
