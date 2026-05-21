@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -33,6 +34,7 @@ body {
   line-height: 1.75;
   letter-spacing: 0.02em;
   word-break: keep-all;
+  line-break: strict;
   overflow-wrap: break-word;
 }
 
@@ -195,6 +197,34 @@ h1.hero-title {
   padding: 80px 4vw;
 }
 
+.hero-photo-panel {
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+}
+.hero-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  min-height: calc(100vh - 68px);
+  opacity: 0.85;
+}
+.hero-photo-id {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  border: 1px solid rgba(242,237,228,0.2);
+  padding: 12px 18px;
+  text-align: center;
+  background: rgba(28,26,23,0.5);
+  backdrop-filter: blur(8px);
+}
+.hero-photo-id .hero-name-en { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:15px; letter-spacing:0.22em; color:var(--cream); margin-bottom:5px; display:block; }
+.hero-photo-id .hero-name-jp { font-size:10px; letter-spacing:0.18em; color:rgba(242,237,228,0.5); margin-bottom:8px; font-weight:300; display:block; }
+.hero-photo-id .hero-role { font-size:10px; letter-spacing:0.24em; color:var(--green); text-transform:uppercase; font-weight:400; display:block; }
+
 .hero-right-inner {
   text-align: center;
   display: flex;
@@ -289,7 +319,7 @@ h1.hero-title {
   letter-spacing: 0.02em;
   margin-bottom: 20px;
   word-break: keep-all;
-  overflow-wrap: break-word;
+  overflow-wrap: normal;
 }
 .hdg em { font-style: italic; }
 .hdg-light { color: var(--cream); }
@@ -376,6 +406,173 @@ h1.hero-title {
   line-height: 1.9;
   color: rgba(242,237,228,0.72);
   letter-spacing: 0.04em;
+}
+
+/* ── KOTA ── */
+.kota { background: var(--cream); }
+
+.kota-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.kota-photo-col {}
+
+.kota-photo {
+  width: 100%;
+  aspect-ratio: 3/2;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.kota-text-col {}
+
+.kota-body {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 2.3;
+  color: var(--mid);
+  letter-spacing: 0.06em;
+  margin-top: 28px;
+  margin-bottom: 36px;
+  word-break: keep-all;
+}
+.kota-body p { margin-bottom: 20px; }
+.kota-body p:last-child { margin-bottom: 0; }
+
+.kota-profile-line {
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.kota-name {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 300;
+  font-size: 15px;
+  color: var(--char);
+  letter-spacing: 0.06em;
+}
+.kota-location {
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+}
+.kota-title-text {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--green);
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+/* ── WORKS ── */
+.works { background: var(--char2); }
+
+.works-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+}
+.works-grid img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+}
+
+.works-caption {
+  margin-top: 20px;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: rgba(242,237,228,0.35);
+  font-weight: 300;
+}
+
+/* ── WORKS SLIDER ── */
+.works-slider {
+  position: relative;
+  overflow: hidden;
+  margin-top: 52px;
+}
+.works-slides {
+  display: flex;
+  transition: transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+.works-slide {
+  flex: 0 0 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: var(--char);
+}
+.works-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 1s ease;
+}
+.works-slide-full {
+  background: #060404;
+}
+.works-slide-full img {
+  object-fit: contain;
+}
+.works-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(28,26,23,0.5);
+  color: rgba(242,237,228,0.75);
+  border: 1px solid rgba(242,237,228,0.12);
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 22px;
+  line-height: 1;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.works-btn:hover { background: var(--green); color: var(--cream); border-color: transparent; }
+.works-btn-prev { left: 24px; }
+.works-btn-next { right: 24px; }
+.works-dots {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+.works-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(242,237,228,0.28);
+  cursor: pointer;
+  transition: background 0.25s, transform 0.25s;
+}
+.works-dot.active {
+  background: var(--cream);
+  transform: scale(1.45);
+}
+@media (max-width: 768px) {
+  .works-slide { aspect-ratio: 4/3; }
+  .works-btn { width: 40px; height: 40px; font-size: 18px; }
+  .works-btn-prev { left: 10px; }
+  .works-btn-next { right: 10px; }
 }
 
 /* ── VALUE ── */
@@ -512,6 +709,7 @@ h1.hero-title {
   position: relative;
 }
 .flow-grid::before { content:''; position:absolute; top:17px; left:12%; right:12%; height:1px; background:var(--line); }
+.flow-grid-5 { grid-template-columns: repeat(5, 1fr); }
 
 .flow-step { padding: 0 14px; text-align:center; }
 .flow-dot {
@@ -528,6 +726,13 @@ h1.hero-title {
 }
 .flow-title { font-size:12px; font-weight:400; letter-spacing:0.1em; margin-bottom:10px; color:var(--char); }
 .flow-body { font-size:12px; font-weight:300; line-height:2; color:var(--mid); letter-spacing:0.05em; }
+.flow-note {
+  display: block;
+  margin-top: 10px;
+  font-size: 11px;
+  color: var(--green);
+  letter-spacing: 0.06em;
+}
 
 /* ── MISSION ── */
 .mission { background: var(--cream2); }
@@ -773,7 +978,7 @@ h1.hero-title {
 /* ── CTA ── */
 .cta { background: var(--char); padding: 96px 7vw; text-align:center; }
 
-.cta-body { font-size:14px; font-weight:300; line-height:2.2; color:rgba(242,237,228,0.75); letter-spacing:0.06em; margin:0 auto 44px; max-width:500px; word-break:keep-all; overflow-wrap:break-word; }
+.cta-body { font-size:14px; font-weight:300; line-height:2.2; color:rgba(242,237,228,0.75); letter-spacing:0.06em; margin:0 auto 44px; max-width:500px; word-break:keep-all; }
 
 .btn-cta {
   font-size:10px; letter-spacing:0.2em; color:var(--char); background:var(--cream);
@@ -796,18 +1001,54 @@ footer {
 .footer-sub { font-size:10px; letter-spacing:0.12em; color:rgba(242,237,228,0.35); margin-top:5px; }
 .footer-copy { font-size:10px; letter-spacing:0.08em; color:rgba(242,237,228,0.25); }
 
+/* ── HERO LOAD ANIMATION ── */
+.hero-left > * {
+  opacity: 0;
+  transform: translateY(26px);
+  animation: heroUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.hero-overline   { animation-delay: 0.08s; }
+h1.hero-title    { animation-delay: 0.22s; }
+.hero-subtitle   { animation-delay: 0.36s; }
+.hero-body       { animation-delay: 0.48s; }
+.hero-actions    { animation-delay: 0.60s; }
+@keyframes heroUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-photo {
+  opacity: 0;
+  transform: scale(1.05);
+  animation: heroPan 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
+}
+@keyframes heroPan {
+  to { opacity: 0.85; transform: scale(1); }
+}
+
+/* ── KOTA SCROLL ANIMATION ── */
+.kota-photo-col,
+.kota-text-col {
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.kota-photo-col { transform: translateX(-28px); }
+.kota-text-col  { transform: translateX(28px); transition-delay: 0.12s; }
+.kota-photo-col.in-view,
+.kota-text-col.in-view { opacity: 1; transform: translateX(0); }
+
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   body { font-size: 13px; }
   .sec { padding: 56px 5vw; }
   .hero { grid-template-columns: 1fr; }
-  .hero-right { display: none; }
+  .hero-photo-panel { display: block; height: 260px; }
+  .hero-photo { min-height: 260px; }
+  .hero-photo-id { bottom: 16px; right: 16px; padding: 12px 16px; }
   .hero-left { padding: 72px 5vw 60px; }
 
   .hdg {
     font-size: 22px !important;
     word-break: keep-all;
-    overflow-wrap: break-word;
+    overflow-wrap: normal;
     line-height: 1.4;
     letter-spacing: 0.01em;
   }
@@ -817,7 +1058,7 @@ footer {
     line-height: 1.4;
   }
   .hero-subtitle { font-size: 13px; }
-  .hero-body { font-size: 13px; line-height: 2; }
+  .hero-body { font-size: 14px; line-height: 2; }
 
   .concept-grid { grid-template-columns:1fr; }
   .concept-left { margin-bottom: 32px; }
@@ -833,7 +1074,15 @@ footer {
   }
 
   .val-grid { grid-template-columns:1fr; }
+  .kota-grid { grid-template-columns: 1fr; gap: 32px; }
+  .kota-photo { aspect-ratio: 3/2; }
+  .kota-body { font-size: 14px; }
+  .works-grid { grid-template-columns: 1fr; }
+  .works-grid img { aspect-ratio: 4/3; }
   .prob-grid { grid-template-columns: 1fr; }
+  .flow-body { font-size: 13px; }
+  .prob-body { font-size: 13px; }
+  .concept-card-body { font-size: 13px; }
 
   .svc-row { grid-template-columns: 24px 1fr; gap: 10px; }
   .svc-desc, .svc-price { grid-column: 2; }
@@ -855,11 +1104,12 @@ footer {
   .pack-price { font-size: 44px; }
 
   .cta-body {
-    font-size: 13px;
+    font-size: 14px;
     word-break: keep-all;
   }
 
   .flow-grid { grid-template-columns:1fr; }
+  .flow-grid-5 { grid-template-columns: 1fr; }
   .partner-inner { grid-template-columns:1fr; }
   .partner-card { padding: 24px 20px; }
   .partner-card-title {
@@ -910,27 +1160,24 @@ footer {
       <span>Shima Lab &nbsp;/&nbsp; 島ラボ</span>
     </div>
     <h1 class="hero-title">
-      あなたのブランドを<br>
-      一緒に育てていく<br>
-      パートナー。
+      口コミに書いてもらえる施設が、<wbr>Webでは選ばれていない。
     </h1>
-    <p class="hero-subtitle">作ったあとも、一緒に考え続ける。</p>
+    <p class="hero-subtitle">沖縄・離島の事業者に、ちゃんとしたWebを。</p>
     <p class="hero-body">
-      撮影・映像・Web制作。窓口は一つで完結。作って終わりじゃない。あなたのビジネスに並走する、クリエイティブパートナー。
+      まず、構成案をお渡しします。<br>
+      どんなLPになるか確認してから、進めるかどうかを決めてください。
     </p>
     <div class="hero-actions">
       <a href="#contact" class="btn-fill">まず、話しましょう</a>
       <a href="#services" class="btn-outline">サービスを見る</a>
     </div>
   </div>
-  <div class="hero-right">
-    <div class="hero-right-inner">
-      <span class="hero-jp">島ラボ</span>
-      <div class="hero-id">
-        <div class="hero-name-en">Kota Uezu</div>
-        <div class="hero-name-jp">上江洌 孝太</div>
-        <div class="hero-role">Creative Partner</div>
-      </div>
+  <div class="hero-right hero-photo-panel">
+    <img src="img/profile-face.jpg" alt="上江洌孝太 / Kota Uezu" class="hero-photo">
+    <div class="hero-photo-id">
+      <div class="hero-name-en">Kota Uezu</div>
+      <div class="hero-name-jp">上江洌 孝太</div>
+      <div class="hero-role">Creative Partner</div>
     </div>
   </div>
   <div class="hero-scroll">Scroll</div>
@@ -952,7 +1199,7 @@ footer {
   <div class="concept-grid">
     <div class="concept-left">
       <div class="concept-main-copy">
-        あなたのブランドを、<br>一緒に育てていくパートナー。
+        あなたの施設の本物の価値を、<wbr>Webでちゃんと伝える。
       </div>
       <p class="concept-sub-copy">
         撮影した素材がWebに活かされない。業者が変わるたびに説明からやり直し。作って終わり、の繰り返し。<br><br>
@@ -983,8 +1230,8 @@ footer {
 <!-- MISSION -->
 <section class="mission sec">
   <div class="eyebrow ey-dark">Mission</div>
-  <h2 class="hdg hdg-dark">島のいいものを、<em>ちゃんと伝える。</em></h2>
-  <div class="mission-copy" style="word-break:keep-all;overflow-wrap:break-word;font-size:18px;">
+  <h2 class="hdg hdg-dark">島のいいものを、<wbr><em>ちゃんと伝える。</em></h2>
+  <div class="mission-copy" style="word-break:keep-all;font-size:18px;">
     島には、まだ伝わっていない本物の価値がある。
   </div>
   <p class="mission-body">
@@ -995,7 +1242,7 @@ footer {
 <!-- COMPARE -->
 <section class="compare sec">
   <div class="eyebrow ey-dark">Why Shima Lab</div>
-  <h2 class="hdg hdg-dark">他の選択肢と、<em>何が違うのか。</em></h2>
+  <h2 class="hdg hdg-dark">他の選択肢と、<wbr><em>何が違うのか。</em></h2>
 
   <table class="compare-table">
     <thead>
@@ -1102,6 +1349,58 @@ footer {
   </div>
 </section>
 
+<!-- KOTA -->
+<section class="kota sec" id="about">
+  <div class="kota-grid">
+    <div class="kota-photo-col">
+      <img src="img/profile-face.jpg" alt="上江洌孝太" class="kota-photo">
+    </div>
+    <div class="kota-text-col">
+      <div class="eyebrow ey-dark">About</div>
+      <h2 class="hdg hdg-dark">私は、元理学療法士です。</h2>
+      <div class="kota-body">
+        <p>元々、医療従事者でした。</p>
+        <p>理学療法士として約5年間、患者さんの状態を診て、<br>治療して、また確認する仕事をしていました。</p>
+        <p>今もやっていることは、変わっていません。<br>施設のWebの課題を診て、制作して、数字で確認する。</p>
+        <p>担当が変わらないことに、意味がある。<br>毎月同じ人間が数字を見て、次の一手を考える。<br>それが「パートナー契約」です。</p>
+      </div>
+      <div class="kota-profile-line">
+        <span class="kota-name">上江洌 孝太（うえずこうた）</span>
+        <span class="kota-title-text">Shima Lab 代表</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKS -->
+<section class="works sec">
+  <div class="eyebrow ey-light">Works</div>
+  <h2 class="hdg hdg-light">撮影の質感。</h2>
+
+  <div class="works-slider" id="worksSlider">
+    <div class="works-slides">
+      <div class="works-slide"><img src="img/work-01.jpg" alt="果報バンタ — 沖縄の海"></div>
+      <div class="works-slide"><img src="img/work-02.jpg" alt="宿のテラス空間"></div>
+      <div class="works-slide works-slide-full"><img src="img/work-03.jpg" alt="星空とヒルギ — 天の川と夜の海"></div>
+      <div class="works-slide"><img src="img/work-04.jpg" alt="希望が丘ビーチ"></div>
+      <div class="works-slide"><img src="img/work-05.jpg" alt="津堅島への橋 — 夕暮れの海"></div>
+      <div class="works-slide"><img src="img/work-06.jpg" alt="海への階段 — 沖縄の浜辺"></div>
+      <div class="works-slide"><img src="img/work-07.jpg" alt="グスク城跡 — 沖縄の石積み文化"></div>
+    </div>
+    <button class="works-btn works-btn-prev" aria-label="前の写真">&#8592;</button>
+    <button class="works-btn works-btn-next" aria-label="次の写真">&#8594;</button>
+    <div class="works-dots">
+      <span class="works-dot active" data-index="0"></span>
+      <span class="works-dot" data-index="1"></span>
+      <span class="works-dot" data-index="2"></span>
+      <span class="works-dot" data-index="3"></span>
+      <span class="works-dot" data-index="4"></span>
+      <span class="works-dot" data-index="5"></span>
+      <span class="works-dot" data-index="6"></span>
+    </div>
+  </div>
+</section>
+
 <!-- VALUE -->
 <section class="value sec">
   <div class="eyebrow ey-dark">Value</div>
@@ -1129,28 +1428,28 @@ footer {
 <!-- PROBLEM -->
 <section class="problem sec">
   <div class="eyebrow ey-light">Problem We Solve</div>
-  <h2 class="hdg hdg-light">こんな課題、<em>抱えていませんか。</em></h2>
+  <h2 class="hdg hdg-light">こんな課題、<wbr><em>抱えていませんか。</em></h2>
 
   <div class="prob-grid">
     <div class="prob-card" data-n="01">
-      <div class="prob-title">素材がない・古い</div>
-      <div class="prob-body">開業時の写真をずっと使っている。スタッフが変わっても、メニューが変わっても更新されていない。</div>
-      <div class="prob-solve">→ 定期撮影で常に新鮮な素材を供給</div>
+      <div class="prob-title">素材が古い</div>
+      <div class="prob-body">開業当時の写真を、今も使っている。スタッフが変わっても、メニューが変わっても、HPの写真だけ変わっていない。</div>
+      <div class="prob-solve">→ 定期撮影で、常に新鮮な素材を。</div>
     </div>
     <div class="prob-card" data-n="02">
-      <div class="prob-title">Webが集客に繋がらない</div>
-      <div class="prob-body">サイトはあるが問い合わせが来ない。スマホ対応していない。更新のたびに費用がかかる。</div>
-      <div class="prob-solve">→ LP・コーポレートサイトを制作・保守</div>
+      <div class="prob-title">Webが機能していない</div>
+      <div class="prob-body">予約サイトには載っている。でも、自社サイトは機能していない。検索しても出てこない。スマホで開くと崩れる。</div>
+      <div class="prob-solve">→ LP・サイトを制作・保守。月次で数字を確認する。</div>
     </div>
     <div class="prob-card" data-n="03">
       <div class="prob-title">業者がバラバラ</div>
-      <div class="prob-body">カメラマン・Web制作会社それぞれに発注。撮影した写真がWebに活かされない。統一感がない。</div>
-      <div class="prob-solve">→ 一つの窓口で撮影〜Web制作を完結</div>
+      <div class="prob-body">カメラマンに頼んだ写真が、Web業者には使えないと言われた。別々に頼むたびに、また説明からやり直す。</div>
+      <div class="prob-solve">→ 撮影からLP制作まで、私一人が担当する。</div>
     </div>
     <div class="prob-card" data-n="04">
       <div class="prob-title">作って終わり、の繰り返し</div>
-      <div class="prob-body">納品されたら終わり。ブランドが育っていかない。次に何をすればいいかわからない。</div>
-      <div class="prob-solve">→ パートナー契約で継続的に並走</div>
+      <div class="prob-body">2年前に作り直した。でも今また同じ状態になっている。作ったあと、誰も見ていなかった。</div>
+      <div class="prob-solve">→ パートナー契約で継続的に並走する。</div>
     </div>
   </div>
 </section>
@@ -1281,7 +1580,7 @@ footer {
 <!-- PRICE CONTEXT -->
 <section class="sec" style="background:var(--cream2);">
   <div class="eyebrow ey-dark">Price</div>
-  <h2 class="hdg hdg-dark">適正価格の、<em>根拠。</em></h2>
+  <h2 class="hdg hdg-dark">適正価格の、<wbr><em>根拠。</em></h2>
 
   <p style="font-size:14px;font-weight:300;line-height:2.2;color:var(--mid);letter-spacing:0.06em;margin-bottom:40px;max-width:600px;">
     Shima Labの価格は市場相場と同等かそれ以下です。さらに撮影素材の準備・構成・コピーまで含めて対応するため、クライアント側の手間とコストをさらに削減できます。
@@ -1405,28 +1704,33 @@ footer {
 <!-- FLOW -->
 <section class="flow sec" id="flow">
   <div class="eyebrow ey-dark">Flow</div>
-  <h2 class="hdg hdg-dark">ご依頼の流れ</h2>
+  <h2 class="hdg hdg-dark">DMを受け取ってから、<wbr>始まるまで。</h2>
 
-  <div class="flow-grid">
+  <div class="flow-grid flow-grid-5">
     <div class="flow-step">
       <div class="flow-dot">1</div>
-      <div class="flow-title">無料相談</div>
-      <div class="flow-body">現状の課題・ご要望をヒアリング。オンライン・対面どちらでも対応。</div>
+      <div class="flow-title">無料相談（30分）</div>
+      <div class="flow-body">まず、LINEかZoomで話しましょう。施設の現状・課題・やりたいことを聞かせてください。</div>
     </div>
     <div class="flow-step">
       <div class="flow-dot">2</div>
-      <div class="flow-title">お見積もり</div>
-      <div class="flow-body">内容・規模に応じてお見積もりをご提案。明確な価格でご提示。</div>
+      <div class="flow-title">構成案をお見せします</div>
+      <div class="flow-body">御社の施設を分析して、LP構成案と訴求軸をまとめます。作る前に「どんなものができるか」を確認してください。</div>
     </div>
     <div class="flow-step">
       <div class="flow-dot">3</div>
-      <div class="flow-title">撮影・制作</div>
-      <div class="flow-body">撮影からWeb制作まで一貫対応。進捗はこまめにご共有。</div>
+      <div class="flow-title">LP制作</div>
+      <div class="flow-body">構成案に合意いただいたら、LP制作を開始します。PC・スマホ両対応、修正2回まで対応します。</div>
     </div>
     <div class="flow-step">
       <div class="flow-dot">4</div>
-      <div class="flow-title">並走・継続</div>
-      <div class="flow-body">納品後もパートナーとして継続サポート。数字を見ながら一緒に改善し続ける。</div>
+      <div class="flow-title">確認・公開</div>
+      <div class="flow-body">2回の修正まで対応します。公開後、数字を確認します。</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-dot">5</div>
+      <div class="flow-title">パートナー契約 or ここで終了</div>
+      <div class="flow-body">続けるかどうかは、公開後に判断してください。「よかった、続けたい」と思ったときに、パートナー契約の話をしましょう。<span class="flow-note">パートナー契約 ¥20,000/月 — 月1MTG・数字確認・改善提案込み</span></div>
     </div>
   </div>
 </section>
@@ -1434,7 +1738,7 @@ footer {
 <!-- PARTNER -->
 <section class="partner sec">
   <div class="eyebrow ey-light">Creative Partner</div>
-  <h2 class="hdg hdg-light">作ったあとも、<em>一緒に考え続ける。</em></h2>
+  <h2 class="hdg hdg-light">作ったあとも、<wbr><em>一緒に考え続ける。</em></h2>
 
   <div class="partner-inner">
     <div class="partner-card">
@@ -1510,9 +1814,14 @@ footer {
 <!-- CTA -->
 <section class="cta" id="contact">
   <div class="eyebrow ey-light" style="justify-content:center;">Contact</div>
-  <h2 class="hdg hdg-light" style="text-align:center; margin-bottom:18px;">まず、話しましょう。</h2>
-  <p class="cta-body" style="word-break:keep-all;overflow-wrap:break-word;padding:0 5vw;">「何から始めればいいかわからない」でも大丈夫です。<br>現状のヒアリングから、無料で対応します。</p>
+  <h2 class="hdg hdg-light" style="text-align:center; margin-bottom:18px;">まず、<wbr>話しましょう。</h2>
+  <p class="cta-body" style="word-break:keep-all;padding:0 5vw;">
+    難しいことはありません。<br>
+    今どんな状態で、何に困っているか。<br>
+    それだけ聞かせてください。
+  </p>
   <a href="https://line.me/R/ti/p/%40009yvklo" class="btn-cta" target="_blank" rel="noopener">LINE で無料相談する</a>
+  <p style="margin-top:16px;font-size:11px;letter-spacing:0.12em;color:rgba(242,237,228,0.3);">返信は24時間以内 / 無理な営業はしません</p>
   <p style="margin-top:20px;font-size:11px;letter-spacing:0.14em;color:rgba(242,237,228,0.3);">LINE ID：@009yvklo</p>
 </section>
 
@@ -1524,6 +1833,49 @@ footer {
   </div>
   <div class="footer-copy">© 2026 Shima Lab. All rights reserved.</div>
 </footer>
+
+<script>
+// Works slider
+(function(){
+  var slider = document.getElementById('worksSlider');
+  if(!slider) return;
+  var track = slider.querySelector('.works-slides');
+  var dots  = slider.querySelectorAll('.works-dot');
+  var total = slider.querySelectorAll('.works-slide').length;
+  var cur   = 0;
+  var timer;
+  function goTo(n) {
+    cur = ((n % total) + total) % total;
+    track.style.transform = 'translateX(-' + (cur * 100) + '%)';
+    dots.forEach(function(d,i){ d.classList.toggle('active', i === cur); });
+  }
+  slider.querySelector('.works-btn-prev').addEventListener('click', function(){ goTo(cur-1); reset(); });
+  slider.querySelector('.works-btn-next').addEventListener('click', function(){ goTo(cur+1); reset(); });
+  dots.forEach(function(d){ d.addEventListener('click', function(){ goTo(+d.dataset.index); reset(); }); });
+  var sx = 0;
+  slider.addEventListener('touchstart', function(e){ sx = e.touches[0].clientX; }, {passive:true});
+  slider.addEventListener('touchend',   function(e){
+    var dx = e.changedTouches[0].clientX - sx;
+    if(Math.abs(dx) > 40){ goTo(dx < 0 ? cur+1 : cur-1); reset(); }
+  });
+  function startAuto(){ timer = setInterval(function(){ goTo(cur+1); }, 4500); }
+  function reset(){ clearInterval(timer); startAuto(); }
+  startAuto();
+})();
+
+// Scroll animations
+(function(){
+  var els = document.querySelectorAll('.kota-photo-col, .kota-text-col');
+  if(!window.IntersectionObserver){
+    els.forEach(function(el){ el.classList.add('in-view'); });
+    return;
+  }
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('in-view'); });
+  }, { threshold: 0.12 });
+  els.forEach(function(el){ obs.observe(el); });
+})();
+</script>
 
 </body>
 </html>
