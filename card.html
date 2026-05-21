@@ -505,17 +505,23 @@ h1.hero-title {
 }
 .works-slide {
   flex: 0 0 100%;
-  aspect-ratio: 16/9;
+  position: relative;
   overflow: hidden;
   background: var(--char);
 }
+.works-slide::before {
+  content: '';
+  display: block;
+  padding-top: 56.25%; /* 16:9 */
+}
 .works-slide img {
+  position: absolute;
+  top: 0; left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
   display: block;
-  transition: transform 1s ease;
 }
 .works-slide-full {
   background: #060404;
@@ -568,7 +574,7 @@ h1.hero-title {
   transform: scale(1.45);
 }
 @media (max-width: 768px) {
-  .works-slide { aspect-ratio: 4/3; }
+  .works-slide::before { padding-top: 75%; } /* 4:3 */
   .works-btn { width: 40px; height: 40px; font-size: 18px; }
   .works-btn-prev { left: 10px; }
   .works-btn-next { right: 10px; }
@@ -1136,6 +1142,21 @@ h1.hero-title    { animation-delay: 0.22s; }
   .concept-card-body { font-size: 14px; }
   .mission-body { font-size: 15px; }
 }
+
+/* ── PRICE SPLIT GRID ── */
+.price-split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--line);
+}
+@media (max-width: 768px) {
+  .price-split-grid { grid-template-columns: 1fr; }
+  .data-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .svc-row { grid-template-columns: 1fr; gap: 8px; }
+  .svc-idx { display: none; }
+  .svc-desc, .svc-price { grid-column: 1; }
+}
 </style>
 </head>
 <body>
@@ -1356,9 +1377,8 @@ h1.hero-title    { animation-delay: 0.22s; }
     </div>
     <div class="kota-text-col">
       <div class="eyebrow ey-dark">About</div>
-      <h2 class="hdg hdg-dark">私は、元理学療法士です。</h2>
+      <h2 class="hdg hdg-dark">元々、医療従事者でした。</h2>
       <div class="kota-body">
-        <p>元々、医療従事者でした。</p>
         <p>理学療法士として約5年間、患者さんの状態を診て、<br>治療して、また確認する仕事をしていました。</p>
         <p>今もやっていることは、変わっていません。<br>施設のWebの課題を診て、制作して、数字で確認する。</p>
         <p>担当が変わらないことに、意味がある。<br>毎月同じ人間が数字を見て、次の一手を考える。<br>それが「パートナー契約」です。</p>
@@ -1473,7 +1493,7 @@ h1.hero-title    { animation-delay: 0.22s; }
           <div class="svc-tag">Photography</div>
         </div>
         <div class="svc-desc">施設・商品・スタッフ撮影。現像・編集込み、全データ納品。Web・SNSに即活用できる素材を提供。</div>
-        <div class="svc-price">¥30,000<small>〜</small></div>
+        <div class="svc-price">¥30,000<small>〜 / 4h</small></div>
       </div>
       <div class="svc-row">
         <div class="svc-idx">—</div>
@@ -1502,7 +1522,7 @@ h1.hero-title    { animation-delay: 0.22s; }
           <div class="svc-tag">Web Design</div>
         </div>
         <div class="svc-desc">構成・コピー・デザイン一気通貫。1ページ完結型。修正2回まで。</div>
-        <div class="svc-price">¥100,000</div>
+        <div class="svc-price">¥80,000</div>
       </div>
       <div class="svc-row">
         <div class="svc-idx">—</div>
@@ -1511,7 +1531,7 @@ h1.hero-title    { animation-delay: 0.22s; }
           <div class="svc-tag">Web Design</div>
         </div>
         <div class="svc-desc">5〜8ページ構成。会社の顔となる複数ページWebサイト。修正3回まで。</div>
-        <div class="svc-price">¥200,000<small>〜</small></div>
+        <div class="svc-price">¥150,000<small>〜</small></div>
       </div>
     </div>
   </div>
@@ -1559,7 +1579,7 @@ h1.hero-title    { animation-delay: 0.22s; }
           <div class="svc-tag">Recommended</div>
           <div class="svc-desc" style="margin-top:8px;">撮影素材をそのままLPへ。構成・コピー・素材・Web、すべて一社完結。</div>
           <div class="svc-price-wrap">
-            <div class="svc-price" style="margin-top:8px;">¥130,000</div>
+            <div class="svc-price" style="margin-top:8px;">¥110,000</div>
           </div>
         </div>
       </div>
@@ -1606,13 +1626,13 @@ h1.hero-title    { animation-delay: 0.22s; }
         <td>LP制作<br><span style="font-size:11px;color:var(--muted);font-weight:300;">構成・コピー・デザイン込み</span></td>
         <td>¥300,000〜600,000</td>
         <td>¥50,000〜300,000</td>
-        <td style="color:var(--green);font-weight:400;">¥100,000</td>
+        <td style="color:var(--green);font-weight:400;">¥80,000</td>
       </tr>
       <tr>
         <td>コーポレートサイト</td>
         <td>¥500,000〜1,000,000+</td>
         <td>¥200,000〜500,000</td>
-        <td style="color:var(--green);font-weight:400;">¥200,000<small>〜</small></td>
+        <td style="color:var(--green);font-weight:400;">¥150,000<small>〜</small></td>
       </tr>
     </tbody>
   </table>
@@ -1620,7 +1640,7 @@ h1.hero-title    { animation-delay: 0.22s; }
   <!-- 業者別コスト比較 -->
   <div style="font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:13px;letter-spacing:0.12em;color:var(--char);margin-bottom:24px;">窓口をまとめると、何が変わるか。</div>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);">
+  <div class="price-split-grid">
     <!-- 別々のケース -->
     <div style="background:var(--chalk);padding:28px 20px;">
       <div style="font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;font-weight:400;">バラバラに依頼した場合</div>
@@ -1665,7 +1685,7 @@ h1.hero-title    { animation-delay: 0.22s; }
           <div style="font-size:12px;font-weight:400;color:var(--char);">写真撮影 4h + LP制作</div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px;">
             <div style="font-size:10px;color:var(--mid);">構成・コピー・素材・Web、すべて込み</div>
-            <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--green);white-space:nowrap;margin-left:8px;">¥130,000</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--green);white-space:nowrap;margin-left:8px;">¥110,000</div>
           </div>
         </div>
         <div style="padding:12px 0;border-bottom:1px solid rgba(42,92,63,0.1);">
@@ -1693,7 +1713,7 @@ h1.hero-title    { animation-delay: 0.22s; }
 
       <div style="padding-top:16px;border-top:2px solid var(--green);margin-top:16px;">
         <div style="font-size:9px;letter-spacing:0.14em;color:var(--green);margin-bottom:8px;text-transform:uppercase;">初期費用合計</div>
-        <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--green);">¥130,000</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--green);">¥110,000</div>
         <div style="font-size:10px;color:var(--mid);margin-top:10px;line-height:1.9;">+ 保守込み（月¥20,000〜のパートナー契約）<br>+ 修正・改善をワンストップで継続対応<br>+ 統一感のあるブランドが育っていく</div>
       </div>
     </div>
@@ -1799,11 +1819,11 @@ h1.hero-title    { animation-delay: 0.22s; }
     </div>
     <div class="pack-right">
       <div style="margin-bottom:8px;">
-        <div class="pack-price">¥130,000</div>
+        <div class="pack-price">¥110,000</div>
         <div class="pack-note">写真撮影4h + LP制作</div>
       </div>
       <div style="border-top:1px solid rgba(42,92,63,0.2);padding-top:12px;margin-top:4px;">
-        <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--green);">¥150,000</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--green);">¥130,000</div>
         <div style="font-size:11px;color:var(--mid);margin-top:4px;letter-spacing:0.04em;">クリエイティブパートナー契約（¥20,000/月）込み</div>
       </div>
     </div>
@@ -1842,24 +1862,20 @@ h1.hero-title    { animation-delay: 0.22s; }
   var dots  = slider.querySelectorAll('.works-dot');
   var total = slider.querySelectorAll('.works-slide').length;
   var cur   = 0;
-  var timer;
   function goTo(n) {
     cur = ((n % total) + total) % total;
     track.style.transform = 'translateX(-' + (cur * 100) + '%)';
     dots.forEach(function(d,i){ d.classList.toggle('active', i === cur); });
   }
-  slider.querySelector('.works-btn-prev').addEventListener('click', function(){ goTo(cur-1); reset(); });
-  slider.querySelector('.works-btn-next').addEventListener('click', function(){ goTo(cur+1); reset(); });
-  dots.forEach(function(d){ d.addEventListener('click', function(){ goTo(+d.dataset.index); reset(); }); });
+  slider.querySelector('.works-btn-prev').addEventListener('click', function(){ goTo(cur-1); });
+  slider.querySelector('.works-btn-next').addEventListener('click', function(){ goTo(cur+1); });
+  dots.forEach(function(d){ d.addEventListener('click', function(){ goTo(+d.dataset.index); }); });
   var sx = 0;
   slider.addEventListener('touchstart', function(e){ sx = e.touches[0].clientX; }, {passive:true});
   slider.addEventListener('touchend',   function(e){
     var dx = e.changedTouches[0].clientX - sx;
-    if(Math.abs(dx) > 40){ goTo(dx < 0 ? cur+1 : cur-1); reset(); }
-  });
-  function startAuto(){ timer = setInterval(function(){ goTo(cur+1); }, 4500); }
-  function reset(){ clearInterval(timer); startAuto(); }
-  startAuto();
+    if(Math.abs(dx) > 40){ goTo(dx < 0 ? cur+1 : cur-1); }
+  }, {passive:true});
 })();
 
 // Scroll animations
