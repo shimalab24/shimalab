@@ -1220,6 +1220,29 @@ h1.hero-title    { animation-delay: 0.22s; }
   .works-btn-prev { left: 8px !important; }
   .works-btn-next { right: 8px !important; }
 
+  /* Text overflow fix */
+  body { word-break: normal !important; overflow-wrap: break-word !important; line-break: auto !important; }
+  section, .sec { overflow-x: hidden !important; max-width: 100vw !important; }
+  p, li, span,
+  .concept-sub-copy, .concept-card-body, .concept-main-copy,
+  .val-body, .val-lead,
+  .svc-desc, .svc-cat-desc,
+  .kota-body, .kota-body p,
+  .partner-card, .partner-body,
+  .flow-card-body, .flow-num-body,
+  .pack-desc, .pack-meta,
+  .prob-body, .prob-lead,
+  .cta-body, .hero-body, .hero-subtitle {
+    max-width: 100% !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+    overflow-x: hidden !important;
+  }
+  .hero-photo-id { max-width: calc(100% - 24px) !important; overflow: hidden !important; }
+  .hero-photo-id .hero-name-en { font-size: 12px !important; letter-spacing: 0.1em !important; }
+  .svc-cat-desc { font-size: 11px !important; letter-spacing: 0.02em !important; }
+  .concept-sub-copy { letter-spacing: 0.03em !important; }
+
   /* Footer */
   footer { flex-direction: column !important; gap: 16px !important; text-align: center !important; }
 }
@@ -1439,7 +1462,7 @@ h1.hero-title    { animation-delay: 0.22s; }
 <section class="kota sec" id="about">
   <div class="kota-grid">
     <div class="kota-photo-col">
-      <img src="profile-face.jpg" alt="上江洌孝太" class="kota-photo">
+      <img src="profile-back.jpg" alt="上江洌孝太" class="kota-photo">
     </div>
     <div class="kota-text-col">
       <div class="eyebrow ey-dark">About</div>
@@ -1460,7 +1483,6 @@ h1.hero-title    { animation-delay: 0.22s; }
 <!-- WORKS -->
 <section class="works sec">
   <div class="eyebrow ey-light">Works</div>
-  <h2 class="hdg hdg-light">撮影の質感。</h2>
 
   <div class="works-slider" id="worksSlider">
     <div class="works-slides">
@@ -1960,3 +1982,4 @@ h1.hero-title    { animation-delay: 0.22s; }
 
 </body>
 </html>
+
