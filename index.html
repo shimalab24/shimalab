@@ -1157,6 +1157,72 @@ h1.hero-title    { animation-delay: 0.22s; }
   .svc-idx { display: none; }
   .svc-desc, .svc-price { grid-column: 1; }
 }
+
+/* ── MOBILE COMPREHENSIVE OVERRIDE ── */
+@media screen and (max-width: 820px) {
+  html, body { overflow-x: hidden !important; max-width: 100% !important; }
+
+  /* Hero */
+  .hero { grid-template-columns: 1fr !important; min-height: auto !important; }
+  .hero-left { padding: 80px 6vw 48px !important; border-right: none !important; }
+  .hero-right { height: 260px !important; padding: 0 !important; }
+  .hero-photo { min-height: 260px !important; height: 100% !important; }
+  .hero-photo-id { bottom: 12px !important; right: 12px !important; }
+
+  /* All 2+ column grids → 1 column */
+  .concept-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+  .kota-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+  .val-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+  .prob-grid { grid-template-columns: 1fr !important; gap: 1px !important; }
+  .flow-grid, .flow-grid-5 { grid-template-columns: 1fr !important; gap: 24px !important; }
+  .flow-grid::before { display: none !important; }
+  .partner-inner { grid-template-columns: 1fr !important; }
+  .price-split-grid { grid-template-columns: 1fr !important; }
+  .cv-cycle-grid { grid-template-columns: 1fr 1fr !important; }
+  .pack-box { grid-template-columns: 1fr !important; padding: 24px !important; gap: 16px !important; }
+
+  /* Services */
+  .svc-row {
+    grid-template-columns: 1fr !important;
+    gap: 6px !important;
+    padding: 20px 0 !important;
+  }
+  .svc-idx { display: none !important; }
+  .svc-desc { grid-column: 1 !important; }
+  .svc-price { grid-column: 1 !important; text-align: left !important; white-space: nowrap !important; }
+  .svc-row:hover { margin: 0 !important; padding: 20px 0 !important; box-shadow: none !important; }
+  .svc-highlight { padding-left: 12px !important; }
+
+  /* Text sizes */
+  .hdg { font-size: 20px !important; line-height: 1.45 !important; }
+  h1.hero-title { font-size: 24px !important; line-height: 1.4 !important; }
+  .concept-main-copy { font-size: 16px !important; }
+  .mission-copy { font-size: 17px !important; }
+  .pack-title { font-size: 17px !important; }
+  .pack-price { font-size: 40px !important; }
+  .pack-right { text-align: left !important; }
+
+  /* Section padding */
+  .sec { padding: 52px 5vw !important; }
+  .partner-card { padding: 24px 18px !important; }
+
+  /* Nav */
+  .nav-links { display: none !important; }
+
+  /* Tables */
+  .compare-table { display: none !important; }
+  .compare-cards { display: flex !important; flex-direction: column !important; gap: 12px !important; margin-top: 24px !important; }
+  .data-table { display: block !important; overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; white-space: nowrap !important; }
+
+  /* Works slider */
+  .works-slide::before { padding-top: 75% !important; }
+  .works-btn { width: 40px !important; height: 40px !important; font-size: 18px !important; }
+  .works-btn-prev { left: 8px !important; }
+  .works-btn-next { right: 8px !important; }
+
+  /* Footer */
+  footer { flex-direction: column !important; gap: 16px !important; text-align: center !important; }
+}
 </style>
 </head>
 <body>
@@ -1403,8 +1469,8 @@ h1.hero-title    { animation-delay: 0.22s; }
       <div class="works-slide works-slide-full"><img src="work-03.jpg" alt="星空とヒルギ — 天の川と夜の海"></div>
       <div class="works-slide"><img src="work-04.jpg" alt="希望が丘ビーチ"></div>
       <div class="works-slide"><img src="work-05.jpg" alt="津堅島への橋 — 夕暮れの海"></div>
-      <div class="works-slide"><img src="work-06.jpg" alt="海への階段 — 沖縄の浜辺"></div>
-      <div class="works-slide"><img src="work-07.jpg" alt="グスク城跡 — 沖縄の石積み文化"></div>
+      <div class="works-slide works-slide-full"><img src="work-06.jpg" alt="海への階段 — 沖縄の浜辺"></div>
+      <div class="works-slide works-slide-full"><img src="work-07.jpg" alt="グスク城跡 — 沖縄の石積み文化"></div>
     </div>
     <button class="works-btn works-btn-prev" aria-label="前の写真">&#8592;</button>
     <button class="works-btn works-btn-next" aria-label="次の写真">&#8594;</button>
