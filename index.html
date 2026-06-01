@@ -2068,14 +2068,6 @@ function scaleSnapFrame(){
   var s = Math.min(maxW/1080, maxH/607, 1);
   stage.style.transform = 'scale(' + s + ')';
 }
-(function(){
-  var m = document.getElementById('snapModal');
-  if(!m) return;
-  m.addEventListener('click', function(e){ if(e.target === m) closeSnapModal(); });
-  m.querySelector('.snap-modal-close').addEventListener('click', closeSnapModal);
-  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeSnapModal(); });
-  window.addEventListener('resize', scaleSnapFrame);
-})();
 </script>
 
 <!-- SNAP MODAL -->
@@ -2085,6 +2077,16 @@ function scaleSnapFrame(){
     <iframe id="snapFrame" class="snap-modal-frame" title="スナップ素材サブスク" scrolling="no"></iframe>
   </div>
 </div>
+<script>
+(function(){
+  var m = document.getElementById('snapModal');
+  if(!m) return;
+  m.addEventListener('click', function(e){ if(e.target === m) closeSnapModal(); });
+  m.querySelector('.snap-modal-close').addEventListener('click', closeSnapModal);
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeSnapModal(); });
+  window.addEventListener('resize', scaleSnapFrame);
+})();
+</script>
 
 </body>
 </html>
