@@ -519,9 +519,10 @@ h1.hero-title {
   top: 0; left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   display: block;
+  background: #060404;
 }
 .works-slide-full {
   background: #060404;
@@ -1949,7 +1950,7 @@ h1.hero-title    { animation-delay: 0.22s; }
   var track = slider.querySelector('.works-slides');
   var dots  = slider.querySelectorAll('.works-dot');
   var total = slider.querySelectorAll('.works-slide').length;
-  var cur   = 0;
+  var cur   = Math.floor(Math.random() * total);
   function goTo(n) {
     cur = ((n % total) + total) % total;
     track.style.transform = 'translateX(-' + (cur * 100) + '%)';
@@ -1964,6 +1965,7 @@ h1.hero-title    { animation-delay: 0.22s; }
     var dx = e.changedTouches[0].clientX - sx;
     if(Math.abs(dx) > 40){ goTo(dx < 0 ? cur+1 : cur-1); }
   }, {passive:true});
+  goTo(cur);
 })();
 
 // Scroll animations
