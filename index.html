@@ -3,2048 +3,1109 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shima Lab | 島ラボ — Kota Uezu</title>
+<title>Shima Lab | 島ラボ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500&family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-:root {
-  --cream:  #F2EDE4;
-  --cream2: #E8E2D8;
-  --chalk:  #FAF8F4;
-  --char:   #1C1A17;
-  --char2:  #2E2B27;
-  --mid:    #3D3A36;
-  --muted:  #6B6660;
-  --green:  #2A5C3F;
-  --gold:   #9A7040;
-  --line:   rgba(28,26,23,0.12);
-}
-
-*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior: smooth; }
-
-body {
-  background: var(--cream);
-  color: var(--char);
-  font-family: 'Noto Sans JP', sans-serif;
-  font-weight: 300;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-  line-height: 1.75;
-  letter-spacing: 0.02em;
-  word-break: keep-all;
-  line-break: strict;
-  overflow-wrap: break-word;
-}
-
-/* ── NAV ── */
-nav {
-  position: fixed;
-  top:0; left:0; right:0;
-  z-index: 200;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 7vw;
-  height: 68px;
-  background: rgba(242,237,228,0.97);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--line);
-}
-
-.nav-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 400;
-  font-size: 17px;
-  letter-spacing: 0.24em;
-  color: var(--char);
-  text-decoration: none;
-}
-.nav-logo em { font-style: italic; color: var(--green); }
-
-.nav-links { display:flex; gap:36px; list-style:none; }
-.nav-links a {
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  color: var(--mid);
-  text-decoration: none;
-  transition: color 0.2s;
-  text-transform: uppercase;
-}
-.nav-links a:hover { color: var(--char); }
-
-.nav-cta {
-  font-size: 10px;
-  letter-spacing: 0.18em;
-  color: var(--chalk);
-  background: var(--char);
-  padding: 11px 24px;
-  text-decoration: none;
-  transition: background 0.25s;
-  text-transform: uppercase;
-  font-weight: 400;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 48px;
-}
-.nav-cta:hover { background: var(--green); }
-
-/* ── HERO ── */
-.hero {
-  min-height: 100vh;
-  background: var(--char);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding-top: 68px;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 100% 0%, rgba(42,92,63,0.14) 0%, transparent 55%);
-  pointer-events: none;
-}
-
-.hero-left {
-  position: relative; z-index: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 80px 6vw 80px 7vw;
-  border-right: 1px solid rgba(242,237,228,0.08);
-}
-
-.hero-overline {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 44px;
-}
-.hero-overline::before { content:''; width:24px; height:1px; background:var(--green); flex-shrink:0; }
-.hero-overline span { font-size: 10px; letter-spacing: 0.28em; color: var(--green); text-transform: uppercase; font-weight: 400; }
-
-h1.hero-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 300;
-  font-size: clamp(38px, 4.8vw, 62px);
-  line-height: 1.3;
-  letter-spacing: 0.02em;
-  color: var(--cream);
-  margin-bottom: 20px;
-}
-
-.hero-subtitle {
-  font-family: 'Noto Serif JP', serif;
-  font-weight: 400;
-  font-size: clamp(17px, 2vw, 24px);
-  line-height: 1.5;
-  color: var(--green);
-  letter-spacing: 0.08em;
-  margin-bottom: 36px;
-}
-
-.hero-body {
-  font-size: 15px;
-  font-weight: 300;
-  line-height: 2.2;
-  color: rgba(242,237,228,0.75);
-  letter-spacing: 0.07em;
-  margin-bottom: 52px;
-  max-width: 400px;
-}
-
-.hero-actions { display:flex; gap:16px; align-items:center; flex-wrap:wrap; }
-
-.btn-fill {
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  color: var(--char);
-  background: var(--cream);
-  padding: 14px 32px;
-  text-decoration: none;
-  transition: background 0.2s, color 0.2s;
-  text-transform: uppercase;
-  font-weight: 400;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 48px;
-}
-.btn-fill:hover { background: var(--green); color: var(--cream); }
-
-.btn-outline {
-  font-size: 10px;
-  letter-spacing: 0.18em;
-  color: rgba(242,237,228,0.6);
-  text-decoration: none;
-  text-transform: uppercase;
-  border-bottom: 1px solid rgba(242,237,228,0.25);
-  padding-bottom: 2px;
-  transition: color 0.2s, border-color 0.2s;
-}
-.btn-outline:hover { color: var(--cream); border-color: rgba(242,237,228,0.6); }
-
-.hero-right {
-  position: relative; z-index: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 80px 4vw;
-}
-
-.hero-photo-panel {
-  position: relative;
-  padding: 0;
-  overflow: hidden;
-}
-.hero-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  display: block;
-  min-height: calc(100vh - 68px);
-  opacity: 0.85;
-}
-.hero-photo-id {
-  position: absolute;
-  bottom: 40px;
-  right: 40px;
-  border: 1px solid rgba(242,237,228,0.2);
-  padding: 12px 18px;
-  text-align: center;
-  background: rgba(28,26,23,0.5);
-  backdrop-filter: blur(8px);
-}
-.hero-photo-id .hero-name-en { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:15px; letter-spacing:0.22em; color:var(--cream); margin-bottom:5px; display:block; }
-.hero-photo-id .hero-name-jp { font-size:10px; letter-spacing:0.18em; color:rgba(242,237,228,0.5); margin-bottom:8px; font-weight:300; display:block; }
-.hero-photo-id .hero-role { font-size:10px; letter-spacing:0.24em; color:var(--green); text-transform:uppercase; font-weight:400; display:block; text-shadow: 0 1px 6px rgba(0,0,0,0.7); }
-
-.hero-right-inner {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.hero-jp {
-  font-family: 'Noto Serif JP', serif;
-  font-weight: 300;
-  font-size: clamp(26px, 3.2vw, 44px);
-  color: rgba(242,237,228,0.15);
-  letter-spacing: 0.4em;
-  display: block;
-  margin-bottom: 36px;
-  writing-mode: vertical-rl;
-  text-orientation: upright;
-  height: auto;
-  max-height: 200px;
-}
-
-.hero-id {
-  border: 1px solid rgba(242,237,228,0.12);
-  padding: 28px 36px;
-  display: inline-block;
-}
-.hero-name-en { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:19px; letter-spacing:0.22em; color:var(--cream); margin-bottom:8px; }
-.hero-name-jp { font-size:12px; letter-spacing:0.18em; color:rgba(242,237,228,0.5); margin-bottom:14px; font-weight:300; }
-.hero-role { font-size:10px; letter-spacing:0.24em; color:var(--green); text-transform:uppercase; font-weight:400; text-shadow: 0 1px 6px rgba(0,0,0,0.7); }
-
-.hero-scroll {
-  position: absolute;
-  bottom: 36px; left: 7vw;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 9px;
-  letter-spacing: 0.24em;
-  color: rgba(242,237,228,0.25);
-  text-transform: uppercase;
-}
-.hero-scroll::before { content:''; width:1px; height:30px; background:rgba(242,237,228,0.15); animation:blink 2.5s ease-in-out infinite; }
-@keyframes blink { 0%,100%{opacity:0.3} 50%{opacity:1} }
-
-/* ── STRIP ── */
-.strip {
-  background: var(--char2);
-  padding: 14px 0;
-  overflow: hidden;
-  white-space: nowrap;
-  border-top: 1px solid rgba(242,237,228,0.05);
-  border-bottom: 1px solid rgba(242,237,228,0.05);
-}
-.strip-inner {
-  display: inline-block;
-  animation: run 28s linear infinite;
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 300;
-  font-style: italic;
-  font-size: 13px;
-  letter-spacing: 0.28em;
-  color: rgba(242,237,228,0.35);
-}
-@keyframes run { from{transform:translateX(0)} to{transform:translateX(-50%)} }
-
-/* ── SHARED ── */
-.sec { padding: 96px 7vw; }
-
-.eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 10px;
-  letter-spacing: 0.26em;
-  text-transform: uppercase;
-  font-weight: 400;
-  margin-bottom: 16px;
-}
-.eyebrow::before { content:''; width:16px; height:1px; flex-shrink:0; }
-.ey-dark  { color: var(--green); }
-.ey-dark::before  { background: var(--green); }
-.ey-light { color: rgba(242,237,228,0.5); }
-.ey-light::before { background: rgba(242,237,228,0.3); }
-.ey-gold  { color: var(--gold); }
-.ey-gold::before  { background: var(--gold); }
-
-.hdg {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 300;
-  font-size: clamp(28px, 3.6vw, 44px);
-  line-height: 1.25;
-  letter-spacing: 0.02em;
-  margin-bottom: 20px;
-  word-break: keep-all;
-  overflow-wrap: normal;
-}
-.hdg em { font-style: italic; }
-.hdg-light { color: var(--cream); }
-.hdg-light em { color: rgba(242,237,228,0.5); }
-.hdg-dark  { color: var(--char); }
-.hdg-dark em  { color: var(--green); }
-
-.prose {
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 2.2;
-  letter-spacing: 0.06em;
-}
-.prose-light { color: rgba(242,237,228,0.8); }
-.prose-dark  { color: var(--mid); }
-
-/* ── CONCEPT ── */
-.concept { background: var(--char); }
-
-.concept-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  margin-top: 52px;
-  align-items: start;
-}
-
-.concept-left {}
-
-.concept-main-copy {
-  font-family: 'Noto Serif JP', serif;
-  font-weight: 300;
-  font-size: clamp(18px, 2.2vw, 26px);
-  line-height: 2.1;
-  color: var(--cream);
-  letter-spacing: 0.06em;
-  margin-bottom: 20px;
-  border-left: 3px solid var(--green);
-  padding-left: 24px;
-}
-
-.concept-sub-copy {
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 2.2;
-  color: rgba(242,237,228,0.75);
-  letter-spacing: 0.07em;
-  padding-left: 27px;
-}
-
-.concept-right {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-  background: rgba(242,237,228,0.06);
-}
-
-.concept-card {
-  background: var(--char);
-  padding: 28px 30px;
-}
-
-.concept-card-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 300;
-  font-style: italic;
-  font-size: 11px;
-  letter-spacing: 0.2em;
-  color: var(--green);
-  margin-bottom: 10px;
-}
-
-.concept-card-title {
-  font-size: 14px;
-  font-weight: 400;
-  color: var(--cream);
-  margin-bottom: 8px;
-  letter-spacing: 0.04em;
-}
-
-.concept-card-body {
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 1.9;
-  color: rgba(242,237,228,0.72);
-  letter-spacing: 0.04em;
-}
-
-/* ── KOTA ── */
-.kota { background: var(--cream); }
-
-.kota-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: center;
-}
-
-.kota-photo-col {}
-
-.kota-photo {
-  width: 100%;
-  aspect-ratio: 3/2;
-  object-fit: cover;
-  object-position: center top;
-  display: block;
-}
-
-.kota-text-col {}
-
-.kota-body {
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 2.3;
-  color: var(--mid);
-  letter-spacing: 0.06em;
-  margin-top: 28px;
-  margin-bottom: 36px;
-  word-break: keep-all;
-}
-.kota-body p { margin-bottom: 20px; }
-.kota-body p:last-child { margin-bottom: 0; }
-
-.kota-profile-line {
-  padding-top: 24px;
-  border-top: 1px solid var(--line);
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-.kota-name {
-  font-family: 'Noto Serif JP', serif;
-  font-weight: 300;
-  font-size: 15px;
-  color: var(--char);
-  letter-spacing: 0.06em;
-}
-.kota-location {
-  font-size: 12px;
-  color: var(--muted);
-  letter-spacing: 0.08em;
-}
-.kota-title-text {
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  color: var(--green);
-  text-transform: uppercase;
-  font-weight: 400;
-}
-
-/* ── WORKS ── */
-.works { background: var(--char2); }
-
-.works-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4px;
-}
-.works-grid img {
-  width: 100%;
-  aspect-ratio: 4/3;
-  object-fit: cover;
-  display: block;
-}
-
-.works-caption {
-  margin-top: 20px;
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  color: rgba(242,237,228,0.35);
-  font-weight: 300;
-}
-
-/* ── WORKS SLIDER ── */
-.works-slider {
-  position: relative;
-  overflow: hidden;
-  margin-top: 52px;
-}
-.works-slides {
-  display: flex;
-  transition: transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  will-change: transform;
-}
-.works-slide {
-  flex: 0 0 100%;
-  position: relative;
-  overflow: hidden;
-  background: var(--char);
-}
-.works-slide::before {
-  content: '';
-  display: block;
-  padding-top: 56.25%; /* 16:9 */
-}
-.works-slide img {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center;
-  display: block;
-  background: #060404;
-}
-.works-slide-full {
-  background: #060404;
-}
-.works-slide-full img {
-  object-fit: contain;
-}
-.works-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(28,26,23,0.5);
-  color: rgba(242,237,228,0.75);
-  border: 1px solid rgba(242,237,228,0.12);
-  width: 52px;
-  height: 52px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: 22px;
-  line-height: 1;
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
-  z-index: 10;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-.works-btn:hover { background: var(--green); color: var(--cream); border-color: transparent; }
-.works-btn-prev { left: 24px; }
-.works-btn-next { right: 24px; }
-.works-dots {
-  position: absolute;
-  bottom: 18px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-  z-index: 10;
-}
-.works-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: rgba(242,237,228,0.28);
-  cursor: pointer;
-  transition: background 0.25s, transform 0.25s;
-}
-.works-dot.active {
-  background: var(--cream);
-  transform: scale(1.45);
-}
-@media (max-width: 768px) {
-  .works-slide::before { padding-top: 75%; } /* 4:3 */
-  .works-btn { width: 40px; height: 40px; font-size: 18px; }
-  .works-btn-prev { left: 10px; }
-  .works-btn-next { right: 10px; }
-}
-
-/* ── VALUE ── */
-.value { background: var(--cream); }
-
-.val-grid {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 40px;
-  margin-top: 52px;
-}
-
-.val-item {
-  padding-top: 24px;
-  border-top: 1px solid var(--line);
-}
-
-.val-num { font-family:'Cormorant Garamond',serif; font-weight:300; font-style:italic; font-size:12px; letter-spacing:0.2em; color:var(--muted); margin-bottom:14px; }
-.val-title { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:22px; letter-spacing:0.04em; color:var(--char); margin-bottom:12px; }
-.val-body { font-size: 15px; font-weight:300; line-height:2.1; color:var(--mid); letter-spacing:0.05em; }
-
-/* ── PROBLEM ── */
-.problem { background: var(--char2); }
-
-.prob-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1px;
-  background: rgba(242,237,228,0.07);
-  margin-top: 52px;
-}
-
-.prob-card {
-  background: var(--char2);
-  padding: 36px 32px;
-  position: relative;
-  overflow: hidden;
-}
-
-.prob-card::after {
-  content: attr(data-n);
-  position: absolute;
-  right: 20px; top: 12px;
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 300;
-  font-style: italic;
-  font-size: 52px;
-  color: rgba(242,237,228,0.04);
-  line-height: 1;
-  pointer-events: none;
-}
-
-.prob-title { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:18px; letter-spacing:0.04em; color:var(--cream); margin-bottom:12px; }
-.prob-body { font-size: 15px; font-weight:300; line-height:2.1; color:rgba(242,237,228,0.75); letter-spacing:0.05em; }
-.prob-solve { margin-top:16px; font-size:12px; font-weight:400; color:var(--green); letter-spacing:0.1em; }
-
-/* ── SERVICE CATEGORY ── */
-.svc-category {
-  margin-top: 48px;
-}
-
-.svc-cat-header {
-  display: flex;
-  align-items: baseline;
-  gap: 16px;
-  padding-bottom: 16px;
-  border-bottom: 2px solid var(--char);
-  margin-bottom: 0;
-}
-
-.svc-cat-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 300;
-  font-style: italic;
-  font-size: 13px;
-  letter-spacing: 0.2em;
-  color: var(--green);
-}
-
-.svc-cat-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 400;
-  font-size: 22px;
-  letter-spacing: 0.05em;
-  color: var(--char);
-}
-
-.svc-cat-desc {
-  font-size: 11px;
-  color: var(--muted);
-  letter-spacing: 0.1em;
-  font-weight: 300;
-}
-
-/* ── SERVICES ── */
-.services { background: var(--chalk); }
-
-.svc-list { margin-top: 52px; }
-
-.svc-row {
-  display: grid;
-  grid-template-columns: 52px 1fr 1.4fr auto;
-  align-items: center;
-  gap: 28px;
-  padding: 28px 0;
-  border-bottom: 1px solid var(--line);
-  transition: background 0.18s, border-color 0.18s, box-shadow 0.18s, padding 0.18s;
-  cursor: default;
-}
-.svc-row:first-child { border-top: 1px solid var(--line); }
-.svc-row:hover { background:rgba(42,92,63,0.035); border-color:rgba(42,92,63,0.18); box-shadow:inset 3px 0 0 rgba(42,92,63,0.28); padding-left:12px; padding-right:12px; margin:0 -12px; }
-
-.svc-idx { font-family:'Cormorant Garamond',serif; font-weight:300; font-style:italic; font-size:22px; color:rgba(28,26,23,0.12); line-height:1; }
-.svc-name { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:19px; letter-spacing:0.04em; color:var(--char); margin-bottom:4px; vertical-align:baseline; line-height:1.3; }
-.svc-tag { font-size:10px; letter-spacing:0.14em; color:var(--green); font-weight:400; }
-.svc-desc { font-size: 15px; font-weight:300; line-height:2.05; color:var(--mid); letter-spacing:0.045em; }
-.svc-price { font-family:'Cormorant Garamond',serif; font-weight:500; font-size:23px; letter-spacing:0.03em; color:var(--green); white-space:nowrap; text-align:right; }
-.svc-price small { font-family:'Noto Sans JP',sans-serif; font-size:10px; font-weight:300; color:var(--muted); letter-spacing:0.04em; }
-
-.svc-highlight {
-  background: rgba(42,92,63,0.04);
-  border-left: 3px solid var(--green);
-  padding-left: 16px !important;
-  margin-left: 0 !important;
-}
-
-/* ── FLOW ── */
-.flow { background: var(--cream2); }
-
-.flow-grid {
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  margin-top: 52px;
-  position: relative;
-}
-.flow-grid::before { content:''; position:absolute; top:17px; left:12%; right:12%; height:1px; background:var(--line); }
-.flow-grid-5 { grid-template-columns: repeat(5, 1fr); }
-
-.flow-step { padding: 0 14px; text-align:center; }
-.flow-dot {
-  width:34px; height:34px;
-  border:1px solid var(--green);
+:root{
+  --bg:#1C1A17;
+  --bg-2:#23211D;
+  --bg-3:#2E2B27;
+  --fg:#F2EDE4;
+  --fg-dim:#A8A199;
+  --line:rgba(242,237,228,0.14);
+  --accent:#B07A36;
+  --accent-2:#3E7A56;
+  --cream:#F2EDE4;
+  --cream-2:#E8E1D5;
+  --ink:#1C1A17;
+  --ink-dim:#5A554E;
+  --line-ink:rgba(28,26,23,0.12);
+  --t-label:12px;
+  --t-body:clamp(1.06rem,1rem + .4vw,1.2rem);
+  --t-h3:clamp(1.3rem,1.1rem + .7vw,1.62rem);
+  --t-h2:clamp(1.9rem,1.4rem + 1.9vw,2.8rem);
+  --t-h1:clamp(2.45rem,1.8rem + 3vw,4rem);
+  --t-num:14px;
+  --pad-section:clamp(88px,11vw,148px);
+  --col:34em;
+  --container:1180px;
+}
+
+*,*::before,*::after{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--fg);
+  font-family:"Noto Sans JP",sans-serif;
+  font-size:var(--t-body);
+  font-weight:300;
+  line-height:1.95;
+  letter-spacing:.035em;
+  word-break:keep-all;
+  line-break:strict;
+  overflow-wrap:anywhere;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,p{margin:0}
+h1,h2{overflow-wrap:normal;font-feature-settings:"palt" 1}
+.nowrap{display:inline-block;white-space:nowrap}
+button,input,textarea,select{font:inherit}
+
+.site-header{
+  position:fixed;
+  inset:0 0 auto;
+  z-index:50;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,max-content) minmax(0,max-content);
+  align-items:center;
+  gap:28px;
+  min-height:72px;
+  padding:0 clamp(18px,5vw,64px);
+  border-bottom:1px solid var(--line);
+  background:rgba(28,26,23,.78);
+  backdrop-filter:blur(18px);
+}
+.brand{
+  font-family:"Archivo",sans-serif;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+}
+.nav-links{
+  display:flex;
+  gap:28px;
+  align-items:center;
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+.nav-links a,.label,.btn,.text-link{
+  font-family:"Archivo",sans-serif;
+  font-size:var(--t-label);
+  font-weight:500;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+}
+.nav-links a{color:var(--fg-dim)}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:52px;
+  padding:14px 24px;
+  border:1px solid transparent;
+  border-radius:2px;
+  cursor:pointer;
+}
+.btn-primary{background:var(--accent);color:var(--ink)}
+.btn-secondary{border-color:rgba(242,237,228,.32);color:var(--fg)}
+.text-link{color:var(--fg-dim);border-bottom:1px solid currentColor;padding-bottom:4px}
+
+.section{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  padding:var(--pad-section) clamp(18px,5vw,64px);
+}
+.container{
+  width:min(100%,var(--container));
+  margin:0 auto;
+}
+.kicker{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:18px;
+  color:var(--accent);
+}
+.kicker::before{
+  content:"";
+  width:28px;
+  height:1px;
+  background:var(--accent);
+  flex:0 0 auto;
+}
+.kicker.center{justify-content:center}
+.kicker.center::after{
+  content:"";
+  width:28px;
+  height:1px;
+  background:var(--accent);
+  flex:0 0 auto;
+}
+.section-head{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  margin-bottom:clamp(34px,5vw,64px);
+}
+.section-title{
+  max-width:18em;
+  color:var(--fg);
+  font-family:"Shippori Mincho",serif;
+  font-size:var(--t-h2);
+  font-weight:700;
+  line-height:1.45;
+  letter-spacing:.02em;
+}
+.problem-title,.concept-title,.section-title{
+  overflow-wrap:normal;
+  word-break:keep-all;
+}
+.section-title.center{margin-inline:auto;text-align:center}
+.lead,.body-copy{
+  max-width:var(--col);
+  color:var(--fg-dim);
+  line-height:1.95;
+}
+.index{
+  font-family:"Archivo",sans-serif;
+  font-size:var(--t-num);
+  letter-spacing:.18em;
+  color:var(--accent);
+}
+
+.hero{
+  position:relative;
+  min-height:100svh;
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  align-items:end;
+  overflow:hidden;
+  padding:clamp(120px,15vw,190px) clamp(18px,5vw,64px) clamp(56px,7vw,90px);
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg,rgba(28,26,23,.82) 0%,rgba(28,26,23,.55) 44%,rgba(28,26,23,.16) 100%),
+    linear-gradient(0deg,rgba(28,26,23,.80) 0%,rgba(28,26,23,.04) 50%);
+  z-index:1;
+}
+.hero-bg{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+}
+.hero-inner{
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  gap:32px;
+  width:min(100%,var(--container));
+  margin:0 auto;
+}
+.hero h1{
+  max-width:12em;
+  font-family:"Shippori Mincho",serif;
+  font-size:var(--t-h1);
+  font-weight:700;
+  line-height:1.42;
+  letter-spacing:.02em;
+}
+.hero-subtitle{
+  max-width:34em;
+  color:var(--fg);
+  font-family:"Zen Kaku Gothic New",sans-serif;
+  font-size:var(--t-h3);
+  font-weight:500;
+  line-height:1.7;
+  word-break:normal;
+  overflow-wrap:anywhere;
+}
+.hero-body{max-width:var(--col);color:var(--fg-dim)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.hero-id{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  gap:4px;
+  padding-top:28px;
+  border-top:1px solid var(--line);
+  max-width:360px;
+}
+.hero-id strong{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:500}
+.hero-id span{color:var(--fg-dim);font-size:.98rem;line-height:1.8}
+.strip{
+  overflow:hidden;
+  border-block:1px solid var(--line);
+  background:var(--bg-2);
+  white-space:nowrap;
+}
+.strip-inner{
+  display:inline-block;
+  padding:12px 0;
+  animation:marquee 30s linear infinite;
+  color:rgba(242,237,228,.44);
+  font-family:"Archivo",sans-serif;
+  font-size:12px;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+.problem{background:var(--bg-2)}
+.problem-list{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  border-top:1px solid var(--line);
+}
+.problem-item{
+  display:grid;
+  grid-template-columns:minmax(0,.18fr) minmax(0,.32fr) minmax(0,1fr) minmax(0,.5fr);
+  gap:24px;
+  padding:28px 0;
+  border-bottom:1px solid var(--line);
+}
+.problem-title,.concept-title,.service-name,.flow-title,.partner-title{
+  color:var(--fg);
+  font-family:"Zen Kaku Gothic New",sans-serif;
+  font-size:var(--t-h3);
+  font-weight:500;
+  line-height:1.55;
+}
+.problem-body,.problem-solve{color:var(--fg-dim)}
+.problem-solve{font-size:.98rem;line-height:1.9}
+
+.concept-grid{
+  display:grid;
+  grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);
+  gap:clamp(48px,8vw,104px);
+  align-items:start;
+}
+.concept-lead{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  gap:22px;
+}
+.concept-main{
+  max-width:22em;
+  color:var(--fg);
+  font-family:"Shippori Mincho",serif;
+  font-size:var(--t-h3);
+  font-weight:700;
+  line-height:1.9;
+  border-left:1px solid var(--accent);
+  padding-left:24px;
+}
+.concept-list{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  border-top:1px solid var(--line);
+}
+.concept-item{
+  display:grid;
+  grid-template-columns:minmax(0,.1fr) minmax(0,.5fr) minmax(0,1.1fr);
+  gap:clamp(20px,3vw,32px);
+  padding:clamp(30px,4vw,44px) 0;
+  border-bottom:1px solid var(--line);
+}
+.mission-inset{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  gap:14px;
+  margin-top:32px;
+  padding:24px;
+  border:1px solid var(--line);
+}
+.mission-inset .section-title{font-size:var(--t-h3)}
+
+.about{
+  background:var(--cream);
+  color:var(--ink);
+}
+.about .kicker,.about .index{color:var(--accent)}
+.about .kicker::before{background:var(--accent)}
+.about .section-title,.about .problem-title{color:var(--ink)}
+.about .lead,.about .body-copy{color:var(--ink-dim)}
+.about-portrait{
+  width:100%;
+  aspect-ratio:3/2;
+  object-fit:cover;
+  object-position:center;
+  background:var(--cream-2);
+  margin-bottom:clamp(34px,5vw,60px);
+}
+.about-text{max-width:var(--container)}
+.about-body{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  gap:20px;
+  max-width:var(--col);
+  color:var(--ink-dim);
+}
+.profile-line{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  gap:4px;
+  margin-top:28px;
+  padding-top:24px;
+  border-top:1px solid var(--line-ink);
+}
+.profile-line strong{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:500;color:var(--ink)}
+.profile-line span{color:var(--ink-dim);font-size:.98rem;line-height:1.8}
+.about-band{
+  display:block;
+  width:100%;
+  aspect-ratio:2/1;
+  min-height:300px;
+  object-fit:cover;
+  object-position:center 100%;
+  background:var(--cream-2);
+  margin-top:clamp(48px,7vw,88px);
+}
+
+.why{background:var(--bg)}
+.compare-wrap{display:grid;grid-template-columns:minmax(0,1fr);gap:28px}
+.compare-table{
+  width:100%;
+  border-collapse:collapse;
+  color:var(--fg-dim);
+}
+.compare-table th{
+  color:var(--accent);
+  font-family:"Archivo",sans-serif;
+  font-size:12px;
+  font-weight:500;
+  letter-spacing:.18em;
+  text-align:left;
+  text-transform:uppercase;
+}
+.compare-table th,.compare-table td{
+  padding:18px 16px;
+  border-bottom:1px solid var(--line);
+  vertical-align:top;
+}
+.compare-table td:first-child{color:var(--fg);font-family:"Zen Kaku Gothic New",sans-serif;font-weight:500}
+.compare-table td:last-child{color:var(--fg)}
+.note{max-width:var(--col);color:var(--fg-dim);font-size:.98rem;line-height:1.9}
+.why-panels{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:1px;
+  margin-top:14px;
+  background:var(--line);
+}
+.why-panel{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  gap:14px;
+  background:var(--bg);
+  padding:24px;
+}
+.why-panel-title{color:var(--accent);font-family:"Archivo",sans-serif;font-size:12px;letter-spacing:.18em;text-transform:uppercase}
+.why-panel p{color:var(--fg-dim)}
+
+.works{background:var(--bg-2);padding-inline:0}
+.works .section-head{padding-inline:clamp(18px,5vw,64px)}
+.mini-gallery{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.mini-gallery a{display:block;height:210px;overflow:hidden;background:#0b0a09}
+.mini-gallery img{height:100%;width:auto;display:block}
+.mini-gallery-cta{margin-top:28px;text-align:center}
+
+.services{background:var(--bg-2)}
+.service-category{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  border-top:1px solid var(--line);
+}
+.service-head{
+  display:grid;
+  grid-template-columns:minmax(0,72px) minmax(0,1fr) minmax(0,.8fr);
+  gap:18px;
+  align-items:baseline;
+  padding:26px 0;
+  border-bottom:1px solid var(--line);
+}
+.service-name-line{
+  display:flex;
+  align-items:baseline;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.snap-detail-link{
+  color:var(--accent);
+  font-family:"Archivo",sans-serif;
+  font-size:12px;
+  font-weight:500;
+  letter-spacing:.16em;
+  white-space:nowrap;
+  cursor:pointer;
+  border-bottom:1px solid rgba(176,122,54,.45);
+  padding-bottom:2px;
+}
+.service-desc{color:var(--fg-dim);font-size:.98rem;line-height:1.9}
+.service-row{
+  display:grid;
+  grid-template-columns:minmax(0,72px) minmax(0,.65fr) minmax(0,1.2fr) minmax(0,.28fr);
+  gap:18px;
+  align-items:start;
+  padding:24px 0;
+  border-bottom:1px solid var(--line);
+}
+.service-tag,.service-price small{
+  color:var(--fg-dim);
+  font-family:"Archivo",sans-serif;
+  font-size:11px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.service-price{
+  color:var(--accent);
+  font-family:"Archivo",sans-serif;
+  font-size:1.25rem;
+  font-weight:500;
+  letter-spacing:.04em;
+  text-align:right;
+  white-space:nowrap;
+}
+.snap-service .service-head{align-items:start}
+.snap-service .service-desc{grid-column:2 / -1}
+.service-detail{color:var(--fg-dim);font-size:.98rem;line-height:1.9}
+.service-detail span{display:block;margin-top:8px;font-size:.98rem;line-height:1.8}
+
+.partner{background:var(--bg)}
+.partner-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:1px;
+  background:var(--line);
+}
+.partner-card,.cycle-card,.value-card{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  gap:14px;
+  background:var(--bg);
+  padding:clamp(24px,4vw,42px);
+}
+.partner-price{
+  color:var(--accent);
+  font-family:"Archivo",sans-serif;
+  font-size:2rem;
+  letter-spacing:.04em;
+  white-space:nowrap;
+}
+.cycle-grid,.value-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:1px;
+  margin-top:1px;
+  background:var(--line);
+}
+.value-grid{grid-template-columns:repeat(3,minmax(0,1fr));margin-top:28px}
+.cycle-title,.value-title{color:var(--fg);font-family:"Zen Kaku Gothic New",sans-serif;font-weight:500}
+.cycle-body,.value-body{color:var(--fg-dim);font-size:.98rem;line-height:1.85}
+.flow-block{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  margin-top:clamp(42px,6vw,72px);
+  padding-top:clamp(42px,6vw,72px);
+  border-top:1px solid var(--line);
+}
+.flow-grid{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  gap:0;
+  background:transparent;
+  max-width:760px;
+}
+.flow-grid::before{
+  content:"";
+  position:absolute;
+  left:23px;
+  top:34px;
+  bottom:34px;
+  width:1px;
+  background:var(--line);
+}
+.flow-card{
+  display:grid;
+  grid-template-columns:46px minmax(0,1fr);
+  gap:clamp(18px,3vw,28px);
+  align-items:start;
+  padding:clamp(20px,3vw,28px) 0;
+  background:transparent;
+  border-bottom:1px solid var(--line);
+}
+.flow-card:last-child{border-bottom:0}
+.flow-card .index{
+  width:46px;
+  height:46px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid var(--accent);
   border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-  margin:0 auto 24px;
-  font-family:'Cormorant Garamond',serif;
-  font-weight:300; font-style:italic; font-size:14px;
-  color:var(--green);
-  background:var(--cream2);
-  position:relative; z-index:1;
+  color:var(--accent);
+  font-family:"Archivo",sans-serif;
+  font-size:1.05rem;
+  font-weight:500;
+  line-height:1;
+  background:var(--bg);
+  position:relative;
+  z-index:1;
+  grid-row:1 / span 2;
 }
-.flow-title { font-size:12px; font-weight:400; letter-spacing:0.1em; margin-bottom:10px; color:var(--char); }
-.flow-body { font-size:14px; font-weight:300; line-height:2; color:var(--mid); letter-spacing:0.05em; }
-.flow-note {
-  display: block;
-  margin-top: 10px;
-  font-size: 11px;
-  color: var(--green);
-  letter-spacing: 0.06em;
+.flow-card .flow-title,.flow-card .body-copy{grid-column:2}
+.flow-note{display:block;margin-top:10px;color:var(--accent);font-size:.98rem;line-height:1.8}
+
+.package{background:var(--bg-2)}
+.package-card{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(max-content,.42fr);
+  gap:34px;
+  align-items:center;
+  max-width:920px;
+  margin:0 auto;
+  padding:clamp(28px,5vw,54px);
+  border:1px solid rgba(176,122,54,.48);
+  background:var(--bg-3);
 }
-
-/* ── MISSION ── */
-.mission { background: var(--cream2); }
-
-.mission-copy {
-  font-family: 'Noto Serif JP', serif;
-  font-weight: 300;
-  font-size: clamp(24px, 3vw, 38px);
-  line-height: 1.9;
-  color: var(--char);
-  letter-spacing: 0.06em;
-  margin-top: 48px;
-  margin-bottom: 24px;
+.package-title{
+  color:var(--fg);
+  font-family:"Shippori Mincho",serif;
+  font-size:var(--t-h3);
+  font-weight:700;
+  line-height:1.7;
 }
+.package-desc{margin-top:14px;color:var(--fg-dim)}
+.package-price{text-align:right}
+.price-main{color:var(--accent);font-family:"Archivo",sans-serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:500;line-height:1;white-space:nowrap}
+.price-sub{margin-top:8px;color:var(--fg-dim);font-size:.98rem;line-height:1.8}
+.price-alt{margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}
 
-.mission-body {
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 2.3;
-  color: var(--mid);
-  letter-spacing: 0.06em;
-  max-width: 560px;
+.cta{
+  min-height:70svh;
+  align-items:center;
+  text-align:center;
 }
-
-/* ── COMPARE ── */
-.compare { background: var(--chalk); }
-
-.compare-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  margin-top: 52px;
-  font-size: 13px;
+.cta .section-title{max-width:none}
+.cta-body{
+  max-width:34em;
+  margin:0 auto 34px;
+  color:var(--fg-dim);
 }
+.cta-limit{margin-bottom:24px;color:var(--accent);font-family:"Archivo",sans-serif;font-size:12px;letter-spacing:.18em;text-transform:uppercase}
+.cta-note{margin-top:16px;color:rgba(242,237,228,.42);font-size:.98rem;line-height:1.8}
 
-.compare-table th {
-  padding: 16px 20px;
-  text-align: center;
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  font-weight: 400;
-  border-bottom: 2px solid var(--line);
+.body-copy, .lead, .problem-body, .concept-body, .cycle-body, .value-body,
+.service-detail, .service-desc, .hero-body, .hero-subtitle, .cta-body,
+.package-desc, .note, .flow-note, .partner-body, .mission-line, .about-body p, .price-sub{
+  word-break:normal;
+  overflow-wrap:normal;
+  line-break:strict;
 }
 
-.compare-table th:first-child { text-align: left; }
-.compare-table th.th-shima { background: rgba(42,92,63,0.1); color: var(--green); border-bottom-color: var(--green); box-shadow:inset 0 2px 0 var(--green); }
-.compare-table th.th-other { color: var(--muted); }
-
-.compare-table tbody tr:nth-child(even) td { background: rgba(28,26,23,0.018); }
-
-.compare-table td {
-  padding: 18px 20px;
-  text-align: center;
-  border-bottom: 1px solid rgba(28,26,23,0.05);
-  vertical-align: middle;
-  color: var(--mid);
-  line-height: 1.7;
+.site-footer{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,max-content);
+  gap:24px;
+  padding:34px clamp(18px,5vw,64px);
+  border-top:1px solid var(--line);
+  background:#0E0C09;
+  color:rgba(242,237,228,.54);
 }
+.footer-logo{font-family:"Archivo",sans-serif;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--fg)}
+.footer-sub,.footer-copy{font-size:.98rem;color:rgba(242,237,228,.42)}
 
-.compare-table td:first-child {
-  text-align: left;
-  font-weight: 400;
-  color: var(--char);
-  font-size: 13px;
+.snap-modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  align-items:center;
+  justify-content:center;
+  background:rgba(14,12,9,.9);
+  -webkit-backdrop-filter:blur(8px);
+  backdrop-filter:blur(8px);
 }
-
-.compare-table td.td-shima { background: rgba(42,92,63,0.075) !important; color: var(--green); font-weight:400; }
-
-.compare-table tr:last-child td { border-bottom: none; }
-
-.check { color: var(--green); font-size: 16px; font-weight: 500; }
-.cross { color: var(--muted); font-size: 16px; }
-.partial { color: var(--gold); font-size: 13px; font-weight: 400; }
-
-/* ── DATA TABLE ── */
-.data-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 13px;
+.snap-modal.open{display:flex}
+.snap-modal-stage{
+  width:1080px;
+  height:607px;
+  transform-origin:center center;
+  box-shadow:0 30px 80px rgba(0,0,0,.5);
+  flex-shrink:0;
 }
-.data-table th {
-  text-align: left;
-  font-size: 9px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--muted);
-  font-weight: 400;
-  padding: 10px 16px;
-  border-bottom: 1px solid var(--line);
-  background: rgba(28,26,23,0.03);
+.snap-modal-frame{
+  width:1080px;
+  height:607px;
+  border:0;
+  display:block;
+  background:var(--cream-2);
 }
-.data-table td {
-  padding: 14px 16px;
-  border-bottom: 1px solid rgba(28,26,23,0.05);
-  vertical-align: top;
-  line-height: 1.9;
-  color: var(--mid);
+.snap-modal-close{
+  position:fixed;
+  top:24px;
+  right:28px;
+  z-index:10000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:46px;
+  height:46px;
+  border:1px solid rgba(242,237,228,.32);
+  background:rgba(242,237,228,.12);
+  color:var(--cream);
+  font-size:24px;
+  line-height:1;
+  cursor:pointer;
+  transition:background .2s;
 }
-.data-table td:first-child { font-weight: 400; color: var(--char); }
-.data-table tbody tr:nth-child(even) td { background: rgba(28,26,23,0.018); }
-.data-table th:last-child,
-.data-table td:last-child { background: rgba(42,92,63,0.055); color: var(--green); }
-.data-table td:last-child { font-weight: 400; }
+.snap-modal-close:hover{background:rgba(242,237,228,.24)}
 
-/* ── PARTNER ── */
-.partner { background: var(--char); }
-
-.partner-inner {
-  margin-top: 52px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1px;
-  background: rgba(242,237,228,0.06);
-}
-
-.partner-card {
-  background: var(--char);
-  padding: 40px 36px;
-}
-
-.partner-card-label {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 300;
-  font-style: italic;
-  font-size: 11px;
-  letter-spacing: 0.2em;
-  color: var(--green);
-  margin-bottom: 18px;
-}
-
-.partner-card-title {
-  font-family: 'Noto Serif JP', serif;
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 2;
-  color: var(--cream);
-  letter-spacing: 0.05em;
-  margin-bottom: 16px;
-}
-
-.partner-card-body {
-  font-size: 15px;
-  font-weight: 300;
-  line-height: 2.1;
-  color: rgba(242,237,228,0.55);
-  letter-spacing: 0.05em;
-}
-
-.partner-price-box {
-  margin-top: 28px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(242,237,228,0.08);
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-}
-
-.partner-price {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 300;
-  font-size: 36px;
-  color: var(--cream);
-  letter-spacing: 0.02em;
-}
-
-.partner-price-unit {
-  font-size: 11px;
-  color: rgba(242,237,228,0.4);
-  letter-spacing: 0.1em;
-}
-
-/* ── CV CYCLE ── */
-.cv-cycle-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1px;
-  background: rgba(242,237,228,0.08);
-}
-
-.cv-cycle-item {
-  background: var(--char);
-  padding: 24px 20px;
-}
-
-.cv-cycle-num {
-  font-size: 10px;
-  letter-spacing: 0.18em;
-  color: var(--green);
-  margin-bottom: 10px;
-  text-transform: uppercase;
-}
-
-.cv-cycle-title {
-  font-size: 15px;
-  font-weight: 400;
-  color: var(--cream);
-  margin-bottom: 10px;
-  letter-spacing: 0.03em;
-}
-
-.cv-cycle-body {
-  font-size: 12px;
-  font-weight: 300;
-  line-height: 1.9;
-  color: rgba(242,237,228,0.5);
-}
-
-@media (max-width: 768px) {
-  .cv-cycle-grid {
-    grid-template-columns: 1fr 1fr;
+@media (max-width:900px){
+  .site-header{grid-template-columns:minmax(0,1fr) minmax(0,max-content);min-height:64px}
+  .nav-links{display:none}
+  .hero{padding-top:108px}
+  .problem-item,.concept-grid,.why-panels,.partner-grid,.package-card,.site-footer{
+    grid-template-columns:minmax(0,1fr);
   }
-  .cv-cycle-item {
-    padding: 20px 16px;
+  .concept-item,.service-head,.service-row{
+    grid-template-columns:minmax(0,1fr);
   }
-  .cv-cycle-title {
-    font-size: 14px;
+  .snap-service .service-desc{grid-column:auto}
+  .service-price,.package-price{text-align:left}
+  .cycle-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .value-grid{grid-template-columns:minmax(0,1fr)}
+  .compare-table,.compare-table thead,.compare-table tbody,.compare-table tr,.compare-table th,.compare-table td{
+    display:block;
+    width:100%;
   }
+  .compare-table thead{display:none}
+  .compare-table tr{border-bottom:1px solid var(--line);padding:14px 0}
+  .compare-table td{border-bottom:0;padding:6px 0}
 }
-
-/* ── PACKAGE ── */
-.package { background: var(--chalk); padding-top: 0; }
-
-.pack-box {
-  border: 1px solid rgba(42,92,63,0.32);
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 48px;
-  align-items: center;
-  padding: 48px 52px;
-  position: relative;
-  overflow: hidden;
+@media (max-width:520px){
+  :root{--pad-section:88px}
+  .site-header{grid-template-columns:minmax(0,1fr);gap:10px;padding:10px 16px}
+  .brand{letter-spacing:.18em}
+  .site-header .btn{width:100%;padding-inline:14px;font-size:10px;letter-spacing:.12em}
+  .hero{padding-inline:18px;padding-top:140px}
+  .hero h1{font-size:clamp(2rem,10vw,2.55rem)}
+  .hero-subtitle{max-width:16em}
+  .hero-actions{align-items:stretch}
+  .hero-actions .btn,.hero-actions .text-link{width:100%}
+  .cycle-grid{grid-template-columns:minmax(0,1fr)}
 }
-.pack-box::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 0% 50%, rgba(42,92,63,0.04), transparent 60%); pointer-events:none; }
-
-.pack-label { font-family:'Cormorant Garamond',serif; font-weight:300; font-style:italic; font-size:10px; letter-spacing:0.24em; color:var(--green); border:1px solid rgba(42,92,63,0.25); padding:4px 14px; display:inline-block; margin-bottom:20px; }
-.pack-title { font-family:'Cormorant Garamond',serif; font-weight:300; font-size:26px; letter-spacing:0.03em; line-height:1.4; color:var(--char); margin-bottom:12px; }
-.pack-desc { font-size:13px; font-weight:300; line-height:2.15; color:var(--mid); letter-spacing:0.045em; }
-.pack-right { text-align:right; flex-shrink:0; }
-.pack-price { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:58px; letter-spacing:0.01em; color:var(--green); line-height:1; }
-.pack-note { font-size:10px; letter-spacing:0.14em; color:var(--muted); margin-top:8px; }
-
-/* ── CTA ── */
-.cta { background: var(--char); padding: 96px 7vw; text-align:center; }
-
-.cta-body { font-size:14px; font-weight:300; line-height:2.2; color:rgba(242,237,228,0.75); letter-spacing:0.06em; margin:0 auto 44px; max-width:500px; word-break:keep-all; }
-
-.btn-cta {
-  font-size:10px; letter-spacing:0.2em; color:var(--char); background:var(--cream);
-  padding:16px 52px; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; min-height:48px; text-transform:uppercase; font-weight:400;
-  transition:background 0.2s, color 0.2s;
+@media(max-width:560px){
+  .about-band{aspect-ratio:3/2;object-position:center 58%}
 }
-.btn-cta:hover { background:var(--green); color:var(--cream); }
-
-/* ── FOOTER ── */
-footer {
-  background: #0E0C09;
-  padding: 36px 7vw;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-top: 1px solid rgba(242,237,228,0.05);
-}
-.footer-logo { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:16px; letter-spacing:0.22em; color:rgba(242,237,228,0.8); }
-.footer-logo em { font-style:italic; color:var(--green); }
-.footer-sub { font-size:10px; letter-spacing:0.12em; color:rgba(242,237,228,0.35); margin-top:5px; }
-.footer-copy { font-size:10px; letter-spacing:0.08em; color:rgba(242,237,228,0.25); }
-
-/* ── HERO LOAD ANIMATION ── */
-.hero-left > * {
-  opacity: 0;
-  transform: translateY(26px);
-  animation: heroUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-.hero-overline   { animation-delay: 0.08s; }
-h1.hero-title    { animation-delay: 0.22s; }
-.hero-subtitle   { animation-delay: 0.36s; }
-.hero-body       { animation-delay: 0.48s; }
-.hero-actions    { animation-delay: 0.60s; }
-@keyframes heroUp {
-  to { opacity: 1; transform: translateY(0); }
-}
-.hero-photo {
-  opacity: 0;
-  transform: scale(1.05);
-  animation: heroPan 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
-}
-@keyframes heroPan {
-  to { opacity: 0.85; transform: scale(1); }
-}
-
-/* ── KOTA SCROLL ANIMATION ── */
-.kota-photo-col,
-.kota-text-col {
-  opacity: 0;
-  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.kota-photo-col { transform: translateX(-28px); }
-.kota-text-col  { transform: translateX(28px); transition-delay: 0.12s; }
-.kota-photo-col.in-view,
-.kota-text-col.in-view { opacity: 1; transform: translateX(0); }
-
-/* ── RESPONSIVE ── */
-@media (max-width: 768px) {
-  body { font-size: 13px; }
-  .sec { padding: 56px 5vw; }
-  .hero { grid-template-columns: 1fr; }
-  .hero-photo-panel { display: block; height: 260px; }
-  .hero-photo { min-height: 260px; object-position: right top !important; }
-  .hero-photo-id { bottom: 16px; right: 16px; padding: 12px 16px; }
-  .hero-left { padding: 72px 5vw 60px; }
-
-  .hdg {
-    font-size: 22px !important;
-    word-break: keep-all;
-    overflow-wrap: normal;
-    line-height: 1.4;
-    letter-spacing: 0.01em;
-  }
-  h1.hero-title {
-    font-size: 28px !important;
-    word-break: normal;
-    overflow-wrap: anywhere;
-    line-height: 1.4;
-  }
-  .hero-subtitle { font-size: 16px; }
-  .hero-body { font-size: 14px; line-height: 2; }
-
-  .concept-grid { grid-template-columns:1fr; }
-  .concept-left { margin-bottom: 32px; }
-  .concept-main-copy {
-    font-size: 17px !important;
-    word-break: keep-all;
-    line-height: 1.9;
-  }
-
-  .mission-copy {
-    font-size: 18px !important;
-    word-break: keep-all;
-  }
-
-  .val-grid { grid-template-columns:1fr; }
-  .kota-grid { grid-template-columns: 1fr; gap: 32px; }
-  .kota-photo { aspect-ratio: 3/2; }
-  .kota-body { font-size: 14px; }
-  .works-grid { grid-template-columns: 1fr; }
-  .works-grid img { aspect-ratio: 4/3; }
-  .prob-grid { grid-template-columns: 1fr; }
-  .flow-body { font-size: 13px; }
-  .prob-body { font-size: 13px; }
-  .concept-card-body { font-size: 13px; }
-
-  .svc-row { grid-template-columns: 24px 1fr; gap: 10px; }
-  .svc-desc, .svc-price { grid-column: 2; }
-  .svc-price { text-align:left; }
-  .svc-row:hover { margin:0; padding:28px 0; box-shadow:none; }
-  .svc-highlight { padding-left:0 !important; }
-  .svc-cat-title { font-size: 17px; }
-  .svc-name { font-size: 16px; }
-  .svc-main-col { grid-column: 2; }
-  .svc-price-wrap { margin-top: 12px; }
-
-  .pack-box { grid-template-columns:1fr; padding:24px; gap:12px; }
-  .pack-right { text-align:left; }
-  .pack-title {
-    font-size: 18px !important;
-    word-break: keep-all;
-    line-height: 1.5;
-  }
-  .pack-price { font-size: 44px; }
-
-  .cta-body {
-    font-size: 14px;
-    word-break: keep-all;
-  }
-
-  .flow-grid { grid-template-columns:1fr; }
-  .flow-grid-5 { grid-template-columns: 1fr; }
-  .partner-inner { grid-template-columns:1fr; }
-  .partner-card { padding: 24px 20px; }
-  .partner-card-title {
-    font-size: 14px;
-    word-break: keep-all;
-  }
-
-  nav .nav-links { display:none; }
-  footer { flex-direction:column; gap:16px; text-align:center; }
-
-  .data-table { font-size: 11px; }
-  .data-table th, .data-table td { padding: 8px 6px; }
-
-  .compare-table { display: none; }
-  .compare-cards { display: flex !important; flex-direction: column; gap: 12px; margin-top: 28px; }
-}
-
-@media (min-width: 769px) {
-  .compare-cards { display: none; }
-  .prose { font-size: 17px; }
-  .val-body { font-size: 16px; }
-  .svc-desc { font-size: 16px; }
-  .prob-body { font-size: 16px; }
-  .flow-body { font-size: 15px; }
-  .concept-card-body { font-size: 16px; }
-  .mission-body { font-size: 17px; }
-}
-
-/* ── PRICE SPLIT GRID ── */
-.price-split-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1px;
-  background: var(--line);
-}
-@media (max-width: 768px) {
-  .price-split-grid { grid-template-columns: 1fr; }
-  .data-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-  .svc-row { grid-template-columns: 1fr; gap: 8px; }
-  .svc-idx { display: none; }
-  .svc-desc, .svc-price { grid-column: 1; }
-}
-
-/* ── MOBILE COMPREHENSIVE OVERRIDE ── */
-@media screen and (max-width: 820px) {
-  html, body { overflow-x: hidden !important; max-width: 100% !important; }
-
-  /* Hero */
-  .hero { grid-template-columns: 1fr !important; min-height: auto !important; }
-  .hero-left { padding: 80px 6vw 48px !important; border-right: none !important; }
-  .hero-right { height: 260px !important; padding: 0 !important; }
-  .hero-photo { min-height: 260px !important; height: 100% !important; object-position: right top !important; }
-  .hero-photo-id { bottom: 12px !important; right: 12px !important; padding: 8px 12px !important; background: rgba(28,26,23,0.72) !important; }
-  .hero-photo-id .hero-name-en { font-size: 13px !important; letter-spacing: 0.14em !important; margin-bottom: 3px !important; }
-  .hero-photo-id .hero-name-jp { font-size: 9px !important; margin-bottom: 5px !important; }
-  .hero-photo-id .hero-role { font-size: 9px !important; letter-spacing: 0.14em !important; text-shadow: 0 1px 8px rgba(0,0,0,0.9) !important; }
-
-  /* All 2+ column grids → 1 column */
-  .concept-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
-  .kota-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
-  .val-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
-  .prob-grid { grid-template-columns: 1fr !important; gap: 1px !important; }
-  .flow-grid, .flow-grid-5 { grid-template-columns: 1fr !important; gap: 24px !important; }
-  .flow-grid::before { display: none !important; }
-  .partner-inner { grid-template-columns: 1fr !important; }
-  .price-split-grid { grid-template-columns: 1fr !important; }
-  .cv-cycle-grid { grid-template-columns: 1fr 1fr !important; }
-  .pack-box { grid-template-columns: 1fr !important; padding: 24px !important; gap: 16px !important; }
-
-  /* Services */
-  .svc-row {
-    grid-template-columns: 1fr !important;
-    gap: 6px !important;
-    padding: 20px 0 !important;
-  }
-  .svc-idx { display: none !important; }
-  .svc-desc { grid-column: 1 !important; }
-  .svc-price { grid-column: 1 !important; text-align: left !important; white-space: nowrap !important; }
-  .svc-row:hover { margin: 0 !important; padding: 20px 0 !important; box-shadow: none !important; }
-  .svc-highlight { padding-left: 12px !important; }
-
-  /* Text sizes */
-  .hdg { font-size: 20px !important; line-height: 1.45 !important; }
-  h1.hero-title { font-size: 24px !important; line-height: 1.4 !important; }
-  .concept-main-copy { font-size: 16px !important; }
-  .mission-copy { font-size: 17px !important; }
-  .pack-title { font-size: 17px !important; }
-  .pack-price { font-size: 40px !important; }
-  .pack-right { text-align: left !important; }
-
-  /* Section padding */
-  .sec { padding: 52px 5vw !important; }
-  .partner-card { padding: 24px 18px !important; }
-
-  /* Nav */
-  .nav-links { display: none !important; }
-
-  /* Tables */
-  .compare-table { display: none !important; }
-  .compare-cards { display: flex !important; flex-direction: column !important; gap: 12px !important; margin-top: 24px !important; }
-  .data-table { display: block !important; overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; white-space: nowrap !important; }
-
-  /* Works slider */
-  .works-slide::before { padding-top: 75% !important; }
-  .works-btn { width: 40px !important; height: 40px !important; font-size: 18px !important; }
-  .works-btn-prev { left: 8px !important; }
-  .works-btn-next { right: 8px !important; }
-
-  /* Text overflow fix */
-  body { word-break: normal !important; overflow-wrap: break-word !important; line-break: auto !important; }
-  section, .sec { overflow-x: hidden !important; max-width: 100vw !important; }
-  p, li, span,
-  .concept-sub-copy, .concept-card-body, .concept-main-copy,
-  .val-body, .val-lead,
-  .svc-desc, .svc-cat-desc,
-  .kota-body, .kota-body p,
-  .partner-card, .partner-body,
-  .flow-card-body, .flow-num-body,
-  .pack-desc, .pack-meta,
-  .prob-body, .prob-lead,
-  .cta-body, .hero-body, .hero-subtitle {
-    max-width: 100% !important;
-    overflow-wrap: break-word !important;
-    word-break: normal !important;
-    overflow-x: hidden !important;
-  }
-  .hero-photo-id { max-width: calc(100% - 24px) !important; overflow: hidden !important; }
-  .hero-photo-id .hero-name-en { font-size: 13px !important; letter-spacing: 0.14em !important; }
-  .svc-cat-desc { font-size: 11px !important; letter-spacing: 0.02em !important; }
-  .concept-sub-copy { letter-spacing: 0.03em !important; }
-
-  /* Footer */
-  footer { flex-direction: column !important; gap: 16px !important; text-align: center !important; }
-}
-
-/* ── SNAP MODAL ── */
-.svc-cat-link {
-  margin-left: auto;
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  color: var(--green);
-  cursor: pointer;
-  border-bottom: 1px solid rgba(42,92,63,0.4);
-  padding-bottom: 2px;
-  transition: color 0.2s, border-color 0.2s;
-  white-space: nowrap;
-  flex-shrink: 0;
-  text-decoration: none;
-}
-.svc-cat-link:hover { color: var(--char); border-color: var(--char); }
-
-.snap-modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  align-items: center;
-  justify-content: center;
-  background: rgba(20,18,15,0.88);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-}
-.snap-modal.open { display: flex; }
-.snap-modal-stage {
-  width: 1080px;
-  height: 607px;
-  transform-origin: center center;
-  box-shadow: 0 30px 80px rgba(0,0,0,0.5);
-  flex-shrink: 0;
-}
-.snap-modal-frame {
-  width: 1080px;
-  height: 607px;
-  border: none;
-  display: block;
-  background: #D8D3CC;
-}
-.snap-modal-close {
-  position: fixed;
-  top: 24px;
-  right: 28px;
-  width: 46px;
-  height: 46px;
-  background: rgba(242,237,228,0.12);
-  border: 1px solid rgba(242,237,228,0.32);
-  color: var(--cream);
-  font-size: 24px;
-  line-height: 1;
-  cursor: pointer;
-  z-index: 10000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.2s;
-}
-.snap-modal-close:hover { background: rgba(242,237,228,0.24); }
+@media(max-width:640px){.mini-gallery a{height:140px}}
 </style>
 </head>
 <body>
-
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">Shima <em>Lab</em></a>
+<header class="site-header">
+  <a href="#" class="brand">Shima Lab</a>
   <ul class="nav-links">
-    <li><a href="#concept">About</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#flow">Flow</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="https://line.me/R/ti/p/%40009yvklo" class="nav-cta" target="_blank" rel="noopener">無料相談（LINE）</a>
-</nav>
+  <a href="https://line.me/R/ti/p/%40009yvklo" class="btn btn-primary" target="_blank" rel="noopener">無料相談（LINE）</a>
+</header>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-left">
-    <div class="hero-overline">
-      <span>Shima Lab &nbsp;/&nbsp; 島ラボ</span>
-    </div>
-    <h1 class="hero-title">
-      写真もサイトも古い。でも誰に頼めばいいかわからない。
-    </h1>
-    <p class="hero-subtitle">写真・映像・Web。島のクリエイティブ、まとめて引き受けます。</p>
-    <p class="hero-body">
-      相談後、構成案をお送りします。見てから決めてください。
-    </p>
-    <div class="hero-actions">
-      <a href="#contact" class="btn-fill">まず、お話しましょう</a>
-      <a href="#services" class="btn-outline">サービスを見る</a>
-    </div>
-  </div>
-  <div class="hero-right hero-photo-panel">
-    <img src="profile-face.jpg" alt="上江洌孝太 / Kota Uezu" class="hero-photo">
-    <div class="hero-photo-id">
-      <div class="hero-name-en">Kota Uezu</div>
-      <div class="hero-name-jp">上江洌 孝太</div>
-      <div class="hero-role">Creative Partner</div>
-    </div>
-  </div>
-  <div class="hero-scroll">Scroll</div>
-</section>
-
-<!-- STRIP -->
-<div class="strip">
-  <div class="strip-inner">
-    Photography &nbsp;—&nbsp; Videography &nbsp;—&nbsp; LP Design &nbsp;—&nbsp; Corporate Site &nbsp;—&nbsp; Creative Partner &nbsp;—&nbsp; Okinawa &nbsp;—&nbsp;
-    Photography &nbsp;—&nbsp; Videography &nbsp;—&nbsp; LP Design &nbsp;—&nbsp; Corporate Site &nbsp;—&nbsp; Creative Partner &nbsp;—&nbsp; Okinawa &nbsp;—&nbsp;
-  </div>
-</div>
-
-<!-- PROBLEM -->
-<section class="problem sec">
-  <div class="eyebrow ey-light">Problem We Solve</div>
-  <h2 class="hdg hdg-light">魅力があるのに、<wbr><em>見た目で損している。</em></h2>
-
-  <div class="prob-grid">
-    <div class="prob-card" data-n="01">
-      <div class="prob-title">素材が古い</div>
-      <div class="prob-body">開業当時の写真を、今も使っている。スタッフが変わっても、メニューが変わっても、HPの写真だけ変わっていない。</div>
-      <div class="prob-solve">→ 定期撮影で、常に新鮮な素材を。</div>
-    </div>
-    <div class="prob-card" data-n="02">
-      <div class="prob-title">Webが機能していない</div>
-      <div class="prob-body">予約サイトには載っている。でも、自社サイトは機能していない。検索しても出てこない。スマホで開くと崩れる。</div>
-      <div class="prob-solve">→ LP・サイトを制作・保守。月次で数字を確認する。</div>
-    </div>
-    <div class="prob-card" data-n="03">
-      <div class="prob-title">業者がバラバラ</div>
-      <div class="prob-body">カメラマンに頼んだ写真が、Web業者には使えないと言われた。別々に頼むたびに、また説明からやり直す。</div>
-      <div class="prob-solve">→ 撮影からLP制作まで、私一人が担当する。</div>
-    </div>
-    <div class="prob-card" data-n="04">
-      <div class="prob-title">作って終わり、の繰り返し</div>
-      <div class="prob-body">2年前に作り直した。でも今また同じ状態になっている。作ったあと、誰も見ていなかった。</div>
-      <div class="prob-solve">→ パートナー契約で磨き続ける。</div>
-    </div>
-  </div>
-</section>
-
-<!-- CONCEPT -->
-<section class="concept sec" id="concept">
-  <div class="eyebrow ey-light">Concept</div>
-  <h2 class="hdg hdg-light">写真も、Webも、担当が変わらないから、ブランドがブレない。</h2>
-
-  <div class="concept-grid">
-    <div class="concept-left">
-      <div class="concept-main-copy">
-        撮影からLP制作まで、同じ人間が担当する。だから、話が早い。
+<main>
+  <section class="hero">
+    <img class="hero-bg" src="img/hero-02.jpg" alt="">
+    <div class="hero-inner">
+      <div class="kicker label">Shima Lab / 島ラボ</div>
+      <h1>写真もサイトも古い。でも誰に頼めばいいかわからない。</h1>
+      <p class="hero-subtitle">写真・映像・Web。島のクリエイティブ、まとめて引き受けます。</p>
+      <p class="hero-body">相談後、構成案をお送りします。見てから決めてください。</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">まず、お話しましょう</a>
+        <a href="#services" class="text-link">サービスを見る</a>
+        <a href="gallery.html" class="text-link">ギャラリーを見る →</a>
       </div>
-      <p class="concept-sub-copy">
-        カメラマンとWeb業者が別々だと、撮影した写真がLPに活かされないことがある。島ラボは一人が撮影からLP制作まで担当するから、素材の使い方に無駄がない。パートナー契約では、月1ミーティングで数字を確認し、次の一手を一緒に実行します。
-      </p>
-    </div>
-
-    <div class="concept-right">
-      <div class="concept-card">
-        <div class="concept-card-num">01</div>
-        <div class="concept-card-title">窓口は、一つ</div>
-        <div class="concept-card-body">撮影・映像・Web制作を一社が統括。業者間の連携コストがなくなり、ブランドに一貫した統一感が生まれる。</div>
-      </div>
-      <div class="concept-card">
-        <div class="concept-card-num">02</div>
-        <div class="concept-card-title">作って、終わらない</div>
-        <div class="concept-card-body">納品がゴールではない。月1ミーティングで現状を確認し、ブランドの次の一手を一緒に考え続ける。</div>
-      </div>
-      <div class="concept-card">
-        <div class="concept-card-num">03</div>
-        <div class="concept-card-title">ずっと、同じ目線で</div>
-        <div class="concept-card-body">担当が変わらないから、毎回説明しなくていい。あなたのビジネスを一番理解しているパートナーが、ずっと隣にいる。</div>
-      </div>
-      <div class="concept-card">
-        <div class="concept-card-num">04</div>
-        <div class="concept-card-title">ありのままを、引き出す</div>
-        <div class="concept-card-body">どこよりも良く見せるのではなく、施設が本来持っている価値を見つけて届ける。それが、本来の価値で選ばれる理由になる。</div>
+      <div class="hero-id">
+        <strong>上江洌孝太 / Kota Uezu</strong>
+        <span>Shima Lab 代表</span>
+        <span>ウェディングフォトグラファー</span>
+        <span>沖縄県在住 / 元理学療法士</span>
       </div>
     </div>
+  </section>
+
+  <div class="strip">
+    <div class="strip-inner">
+      Photography — Videography — LP Design — Corporate Site — Creative Partner — Okinawa —
+      Photography — Videography — LP Design — Corporate Site — Creative Partner — Okinawa —
+    </div>
   </div>
-</section>
 
-<!-- MISSION -->
-<section class="mission sec">
-  <div class="eyebrow ey-dark">Mission</div>
-  <h2 class="hdg hdg-dark">島のいいものを、<wbr><em>ちゃんと伝える。</em></h2>
-  <div class="mission-copy" style="word-break:keep-all;font-size:18px;">
-    うむい（島への想い）を広めることが、島を守ることにつながる。
-  </div>
-  <p class="mission-body">
-    島のいいものを、ありのまま届ける。
-  </p>
-</section>
-
-<!-- COMPARE -->
-<section class="compare sec">
-  <div class="eyebrow ey-dark">Why Shima Lab</div>
-  <h2 class="hdg hdg-dark">他の選択肢と、<wbr><em>何が違うのか。</em></h2>
-
-  <table class="compare-table">
-    <thead>
-      <tr>
-        <th>できること</th>
-        <th class="th-other">他の業者</th>
-        <th class="th-shima">Shima Lab</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>撮影・映像・LP・Web を一気通貫</td>
-        <td><span class="cross">—</span></td>
-        <td class="td-shima"><span class="check">✓</span></td>
-      </tr>
-      <tr>
-        <td>担当者が変わらない</td>
-        <td><span class="partial">場合による</span></td>
-        <td class="td-shima"><span class="check">✓</span></td>
-      </tr>
-      <tr>
-        <td>納品後の継続サポート込み</td>
-        <td><span class="partial">有償対応</span></td>
-        <td class="td-shima"><span class="check">✓ 月1MTG込み</span></td>
-      </tr>
-      <tr>
-        <td>ブランドを一緒に育てる</td>
-        <td><span class="cross">—</span></td>
-        <td class="td-shima"><span class="check">✓</span></td>
-      </tr>
-      <tr>
-        <td>大規模・複数同時・短納期</td>
-        <td><span class="check">✓</span></td>
-        <td class="td-shima"><span class="cross">— 少数と深く関わることを大切にしています</span></td>
-      </tr>
-    </tbody>
-  </table>
-  <p style="margin-top:16px;font-size:12px;color:var(--muted);letter-spacing:0.06em;line-height:1.9;">
-    ※ 撮影・LP制作に加え、LINE公式構築・オンライン決済導入（Stripe / Square）もセットで対応可能。問い合わせから決済まで一気通貫で完結します。
-  </p>
-
-  <!-- スマホ用カード表示 -->
-  <div class="compare-cards">
-    <div style="background:rgba(42,92,63,0.06);border-left:3px solid var(--green);padding:20px;">
-      <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--green);margin-bottom:16px;">Shima Labにできること</div>
-      <div style="display:flex;flex-direction:column;gap:10px;">
-        <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(42,92,63,0.1);"><span style="font-size:13px;color:var(--char);">撮影・映像・LP・Web を一気通貫</span><span class="check">✓</span></div>
-        <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(42,92,63,0.1);"><span style="font-size:13px;color:var(--char);">担当者が変わらない</span><span class="check">✓</span></div>
-        <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(42,92,63,0.1);"><span style="font-size:13px;color:var(--char);">納品後の継続サポート込み</span><span class="check">✓ 月1MTG込み</span></div>
-        <div style="display:flex;justify-content:space-between;padding:8px 0;"><span style="font-size:13px;color:var(--char);">ブランドを一緒に育てる</span><span class="check">✓</span></div>
+  <section class="section problem">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker label">Problem</div>
+        <h2 class="section-title"><span class="nowrap">魅力があるのに、</span><span class="nowrap">見た目で損している。</span></h2>
+      </div>
+      <div class="problem-list">
+        <div class="problem-item">
+          <div class="index">01</div>
+          <h3 class="problem-title">素材が古い</h3>
+          <p class="problem-body">開業当時の写真を、今も使っている。スタッフが変わっても、メニューが変わっても、HPの写真だけ変わっていない。</p>
+          <p class="problem-solve">→ 定期撮影で、常に新鮮な素材を。</p>
+        </div>
+        <div class="problem-item">
+          <div class="index">02</div>
+          <h3 class="problem-title"><span class="nowrap">Webが機能</span><span class="nowrap">していない</span></h3>
+          <p class="problem-body">予約サイトには載っている。でも、自社サイトは機能していない。検索しても出てこない。スマホで開くと崩れる。</p>
+          <p class="problem-solve">→ LP・サイトを制作・保守。月次で数字を確認する。</p>
+        </div>
+        <div class="problem-item">
+          <div class="index">03</div>
+          <h3 class="problem-title"><span class="nowrap">業者が</span><span class="nowrap">バラバラ</span></h3>
+          <p class="problem-body">カメラマンに頼んだ写真が、Web業者には使えないと言われた。別々に頼むたびに、また説明からやり直す。</p>
+          <p class="problem-solve">→ 撮影からLP制作まで、私一人が担当する。</p>
+        </div>
+        <div class="problem-item">
+          <div class="index">04</div>
+          <h3 class="problem-title"><span class="nowrap">作って終わり</span><span class="nowrap">の繰り返し</span></h3>
+          <p class="problem-body">2年前に作り直した。でも今また同じ状態になっている。作ったあと、誰も見ていなかった。</p>
+          <p class="problem-solve">→ パートナー契約で磨き続ける。</p>
+        </div>
       </div>
     </div>
-    <div style="background:rgba(28,26,23,0.04);border-left:3px solid var(--line);padding:20px;">
-      <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;">Shima Labに向かない案件</div>
-      <div style="display:flex;flex-direction:column;gap:10px;">
-        <div style="display:flex;justify-content:space-between;padding:8px 0;"><span style="font-size:13px;color:var(--mid);">大規模・複数同時・短納期</span><span class="cross">—</span></div>
+  </section>
+
+  <section class="section concept" id="concept">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker label">Concept</div>
+        <h2 class="section-title">写真も、Webも、担当が変わらないから、ブランドがブレない。</h2>
       </div>
-      <div style="font-size:11px;color:var(--muted);margin-top:14px;line-height:1.9;">少数のクライアントと深く長く関わることを大切にしています。</div>
-    </div>
-  </div>
-</section>
-
-<!-- KOTA -->
-<section class="kota sec" id="about">
-  <div class="kota-grid">
-    <div class="kota-photo-col">
-      <img src="profile-back.jpg" alt="上江洌孝太" class="kota-photo">
-    </div>
-    <div class="kota-text-col">
-      <div class="eyebrow ey-dark">About</div>
-      <h2 class="hdg hdg-dark">元々、医療従事者でした。</h2>
-      <div class="kota-body">
-        <p>理学療法士として約5年間、患者さんの状態を診て、<br>治療して、また数字で確認する仕事をしていました。<br>やることは今も同じです。</p>
-        <p>施設のWebの状態を診る。<br>原因を特定して、制作・撮影で治す。<br>翌月の数字で確認する。</p>
-        <p>担当が変わらないから、毎回説明しなくていい。<br>あなたのビジネスを一番理解している人間が、<br>ずっと同じ目線で並走します。</p>
-        <p>沖縄生まれ育ち。みんなが好きな沖縄を、次の世代に残したい。</p>
+      <div class="concept-grid">
+        <div class="concept-lead">
+          <p class="concept-main">撮影からLP制作まで、同じ人間が担当する。だから、話が早い。</p>
+          <p class="lead">カメラマンとWeb業者が別々だと、撮影した写真がLPに活かされないことがある。島ラボは一人が撮影からLP制作まで担当するから素材の使い方に無駄がない。パートナー契約では、月1ミーティングで数字を確認し、次の一手を一緒に実行します。</p>
+          <div class="mission-inset">
+            <h3 class="section-title">島のいいものを、ちゃんと伝える。</h3>
+            <p class="body-copy">うむい（島への想い）を広めることが、島を守ることにつながる。</p>
+            <p class="body-copy">島のいいものを、ありのまま届ける。</p>
+          </div>
+        </div>
+        <div class="concept-list">
+          <div class="concept-item">
+            <div class="index">01</div>
+            <h3 class="concept-title"><span class="nowrap">窓口は一つ</span></h3>
+            <p class="body-copy">撮影・映像・Web制作を一社が統括。業者間の連携コストがなくなり、ブランドに一貫した統一感が生まれる。</p>
+          </div>
+          <div class="concept-item">
+            <div class="index">02</div>
+            <h3 class="concept-title"><span class="nowrap">作って</span><span class="nowrap">終わらない</span></h3>
+            <p class="body-copy">納品がゴールではない。月1ミーティングで現状を確認し、ブランドの次の一手を一緒に考え続ける。</p>
+          </div>
+          <div class="concept-item">
+            <div class="index">03</div>
+            <h3 class="concept-title"><span class="nowrap">ずっと</span><span class="nowrap">同じ目線で</span></h3>
+            <p class="body-copy">担当が変わらないから、毎回説明しなくていい。あなたのビジネスを一番理解しているパートナーが、ずっと隣にいる。</p>
+          </div>
+          <div class="concept-item">
+            <div class="index">04</div>
+            <h3 class="concept-title"><span class="nowrap">ありのままを</span><span class="nowrap">引き出す</span></h3>
+            <p class="body-copy">どこよりも良く見せるのではなく、施設が本来持っている価値を見つけて届ける。それが、本来の価値で選ばれる理由になる。</p>
+          </div>
+        </div>
       </div>
-      <div class="kota-profile-line">
-        <span class="kota-name">上江洌 孝太（うえずこうた）</span>
-        <span class="kota-title-text">Shima Lab 代表</span>
-        <span class="kota-location">沖縄県在住 / 元理学療法士</span>
+    </div>
+  </section>
+
+  <section class="section about" id="about">
+    <div class="container">
+      <img class="about-portrait" src="img/profile-face.jpg" alt="上江洌孝太 / Kota Uezu">
+      <div class="about-text">
+        <div class="kicker label">About</div>
+        <h2 class="section-title"><span class="nowrap">元々</span><span class="nowrap">医療従事者でした。</span></h2>
+        <div class="about-body">
+          <p>理学療法士として約5年間、患者さんの状態を診て、<br>治療して、また数字で確認する仕事をしていました。<br>やることは今も同じです。</p>
+          <p>施設のWebの状態を診る。<br>原因を特定して、制作・撮影で治す。<br>翌月の数字で確認する。</p>
+          <p>担当が変わらないから、毎回説明しなくていい。<br>あなたのビジネスを一番理解している人間が、<br>ずっと同じ目線で並走します。</p>
+          <p>沖縄生まれ育ち。みんなが好きな沖縄を、次の世代に残したい。</p>
+        </div>
+        <div class="profile-line">
+          <strong>上江洌孝太 / Kota Uezu</strong>
+          <span>Shima Lab 代表</span>
+          <span>ウェディングフォトグラファー</span>
+          <span>沖縄県在住 / 元理学療法士</span>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+    <img class="about-band" src="img/profile-back.jpg" alt="">
+  </section>
 
-<!-- INTERIM CTA -->
-<section class="sec" style="background:var(--cream2);text-align:center;padding:80px 20px;">
-  <div class="eyebrow ey-dark" style="justify-content:center;">First Step</div>
-  <h2 class="hdg hdg-dark" style="text-align:center;margin-bottom:16px;">まず、<wbr>構成案をお送りします。</h2>
-  <p style="font-size:15px;line-height:1.9;color:var(--ink);margin-bottom:32px;word-break:keep-all;max-width:520px;margin-left:auto;margin-right:auto;">
-    相談後、構成案をお送りします。見てから決めてください。
-  </p>
-  <a href="#contact" class="btn-fill">構成案を無料でもらう</a>
-</section>
-
-<!-- WORKS -->
-<section class="works sec">
-  <div class="eyebrow ey-light">Works</div>
-
-  <div class="works-slider" id="worksSlider">
-    <div class="works-slides">
-      <div class="works-slide"><img src="work-01.jpg" alt="果報バンタ — 沖縄の海"></div>
-      <div class="works-slide"><img src="work-02.jpg" alt="宿のテラス空間"></div>
-      <div class="works-slide works-slide-full"><img src="work-03.jpg" alt="星空とヒルギ — 天の川と夜の海"></div>
-      <div class="works-slide"><img src="work-04.jpg" alt="希望が丘ビーチ"></div>
-      <div class="works-slide"><img src="work-05.jpg" alt="津堅島への橋 — 夕暮れの海"></div>
-      <div class="works-slide works-slide-full"><img src="work-06.jpg" alt="海への階段 — 沖縄の浜辺"></div>
-      <div class="works-slide works-slide-full"><img src="work-07.jpg" alt="グスク城跡 — 沖縄の石積み文化"></div>
-      <div class="works-slide works-slide-full"><img src="work-08.jpg" alt="果報バンタ — 沖縄の絶景"></div>
-      <div class="works-slide works-slide-full"><img src="work-09.jpg" alt="座間味島 — 沖縄の海"></div>
-      <div class="works-slide works-slide-full"><img src="work-10.jpg" alt="浜比嘉島 — 沖縄の離島風景"></div>
+  <section class="section why">
+    <div class="container compare-wrap">
+      <div class="section-head">
+        <div class="kicker label">Why Shima Lab</div>
+        <h2 class="section-title"><span class="nowrap">他の選択肢と</span><span class="nowrap">何が違うのか。</span></h2>
+      </div>
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>できること</th>
+            <th>他の業者</th>
+            <th>Shima Lab</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>撮影・映像・LP・Web を一気通貫</td>
+            <td>分かれる</td>
+            <td>対応</td>
+          </tr>
+          <tr>
+            <td>担当者が変わらない</td>
+            <td>場合による</td>
+            <td>対応</td>
+          </tr>
+          <tr>
+            <td>納品後の継続サポート込み</td>
+            <td>有償対応</td>
+            <td>月1MTG込み</td>
+          </tr>
+          <tr>
+            <td>ブランドを一緒に育てる</td>
+            <td>分かれる</td>
+            <td>対応</td>
+          </tr>
+          <tr>
+            <td>大規模・複数同時・短納期</td>
+            <td>対応</td>
+            <td>少数と深く関わることを大切にしています</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note">※ 撮影・LP制作に加え、LINE公式構築・オンライン決済導入（Stripe / Square）もセットで対応可能。問い合わせから決済まで一気通貫で完結します。</p>
+      <div class="why-panels">
+        <div class="why-panel">
+          <div class="why-panel-title">Shima Labにできること</div>
+          <p>撮影・映像・LP・Web を一気通貫</p>
+          <p>担当者が変わらない</p>
+          <p>納品後の継続サポート込み</p>
+          <p>ブランドを一緒に育てる</p>
+        </div>
+        <div class="why-panel">
+          <div class="why-panel-title">Shima Labに向かない案件</div>
+          <p>大規模・複数同時・短納期</p>
+          <p>少数のクライアントと深く長く関わることを大切にしています。</p>
+        </div>
+      </div>
     </div>
-    <button class="works-btn works-btn-prev" aria-label="前の写真">&#8592;</button>
-    <button class="works-btn works-btn-next" aria-label="次の写真">&#8594;</button>
-    <div class="works-dots">
-      <span class="works-dot active" data-index="0"></span>
-      <span class="works-dot" data-index="1"></span>
-      <span class="works-dot" data-index="2"></span>
-      <span class="works-dot" data-index="3"></span>
-      <span class="works-dot" data-index="4"></span>
-      <span class="works-dot" data-index="5"></span>
-      <span class="works-dot" data-index="6"></span>
-      <span class="works-dot" data-index="7"></span>
-      <span class="works-dot" data-index="8"></span>
-      <span class="works-dot" data-index="9"></span>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- VALUE -->
-<section class="value sec">
-  <div class="eyebrow ey-dark">Value</div>
-  <h2 class="hdg hdg-dark">大切にしていること</h2>
+  <section class="section works">
+    <div class="container section-head">
+      <h2 class="section-title">Gallery</h2>
+    </div>
+    <div class="container">
+      <div class="mini-gallery" id="miniGallery"></div>
+      <div class="mini-gallery-cta">
+        <a href="gallery.html" class="btn btn-primary">ギャラリー（写真展）を見る →</a>
+      </div>
+    </div>
+  </section>
 
-  <div class="val-grid">
-    <div class="val-item">
-      <div class="val-num">01</div>
-      <div class="val-title">発見する</div>
-      <div class="val-body">その場所ならではのありのままの良さを見つける。</div>
+  <section class="section services" id="services">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker label">Services</div>
+        <h2 class="section-title">提供サービス</h2>
+      </div>
+      <div class="service-category">
+        <div class="service-head">
+          <div class="index">01</div>
+          <h3 class="service-name">写真・映像撮影（専用素材）</h3>
+          <p class="service-desc">素材を作る</p>
+        </div>
+        <div class="service-row">
+          <div class="index"></div>
+          <div><h4 class="service-name">写真撮影（4h）</h4><div class="service-tag">Photography</div></div>
+          <p class="service-detail">施設・商品・スタッフ撮影。現像・編集込み、全データ納品。Web・SNSに即活用できる素材を提供。</p>
+          <div class="service-price">¥30,000<small>〜</small></div>
+        </div>
+        <div class="service-row">
+          <div class="index"></div>
+          <div><h4 class="service-name">スナップムービー</h4><div class="service-tag">Videography</div></div>
+          <p class="service-detail">その場の空気感をそのまま閉じ込めた2〜3分の映像制作。過剰編集せず、見た人が「行きたい」と思う映像を届ける。</p>
+          <div class="service-price">¥45,000<small>〜</small></div>
+        </div>
+      </div>
+      <div class="service-category snap-service">
+        <div class="service-head">
+          <div class="index">02</div>
+          <div class="service-name-line">
+            <h3 class="service-name">スナップ素材サブスク（共用ライブラリ）</h3>
+            <a class="snap-detail-link" onclick="openSnapModal()">詳しく見る →</a>
+          </div>
+          <div class="service-price">¥10,000<small>/月</small></div>
+          <p class="service-desc">沖縄・離島の風景・観光スポット・施設周辺の写真をクラウドで公開。契約期間中、SNS・Webで自由に使えます。撮ってほしいエリアがあればリクエスト可。追加料金なし。契約事業者間で共用（非独占）。映像は含みません。売上の50%を積み立て、ゆいまーる精神で島を支えてきた人に届けていきます。</p>
+        </div>
+      </div>
+      <div class="service-category">
+        <div class="service-head">
+          <div class="index">03</div>
+          <h3 class="service-name">Web・デジタル</h3>
+          <p class="service-desc"></p>
+        </div>
+        <div class="service-row">
+          <div class="index"></div>
+          <div><h4 class="service-name">LP制作</h4><div class="service-tag">Web Design</div></div>
+          <p class="service-detail">構成・コピー・デザイン一気通貫。1ページ完結型。修正2回まで。</p>
+          <div class="service-price">¥80,000</div>
+        </div>
+        <div class="service-row">
+          <div class="index"></div>
+          <div><h4 class="service-name">コーポレートサイト</h4><div class="service-tag">Web Design</div></div>
+          <p class="service-detail">3ページ〜構成。会社の顔となる複数ページWebサイト。修正3回まで。</p>
+          <div class="service-price">¥150,000<small>〜</small></div>
+        </div>
+        <div class="service-row">
+          <div class="index"></div>
+          <div><h4 class="service-name">LINE公式＋決済導入</h4><div class="service-tag">Set</div></div>
+          <p class="service-detail">LINE公式アカウントの初期設計・リッチメニュー・挨拶メッセージ設定と、オンライン決済の導入をセットで対応。問い合わせ〜決済までをオンラインで完結させる。<span>決済サービスは用途に合わせて2択から提案</span><span>Stripe　オンライン完結・LP埋め込み型に最適<br>Square　実店舗＋オンライン両対応・日本語サポート充実</span><span>※ 単体での提供は行っていません</span></p>
+          <div class="service-price">¥80,000</div>
+        </div>
+      </div>
+      <div class="service-category">
+        <div class="service-head">
+          <div class="index">04</div>
+          <h3 class="service-name">パック</h3>
+          <p class="service-desc"></p>
+        </div>
+        <div class="service-row">
+          <div class="index"></div>
+          <div><h4 class="service-name">スチル撮影4h＋LP制作</h4><div class="service-tag">Recommended</div></div>
+          <p class="service-detail">撮影素材をそのままLPへ。構成・コピー・素材・Web、すべて一社完結。</p>
+          <div class="service-price">¥110,000</div>
+        </div>
+      </div>
+      <div class="service-category">
+        <div class="service-head">
+          <div class="index">05</div>
+          <h3 class="service-name">継続支援</h3>
+          <p class="service-desc">制作物の保守を継続サポート。月1回のミーティングで数字確認→改善実行も行います。スナップ素材サブスク（¥10,000/月相当）が無料で付帯します。</p>
+        </div>
+        <div class="service-row">
+          <div class="index"></div>
+          <div><h4 class="service-name">クリエイティブパートナー契約</h4><div class="service-tag">10社限定</div></div>
+          <p class="service-detail">月1MTG＋数字確認＋改善実行。<br><span>※ 撮影・LP制作のご依頼後にご案内します</span></p>
+          <div class="service-price">¥20,000<small>/月〜</small></div>
+        </div>
+      </div>
     </div>
-    <div class="val-item">
-      <div class="val-num">02</div>
-      <div class="val-title">誠実に届ける</div>
-      <div class="val-body">盛らない。見つけた良さをちゃんと届ける。</div>
-    </div>
-    <div class="val-item">
-      <div class="val-num">03</div>
-      <div class="val-title">継続</div>
-      <div class="val-body">制作物は公開がスタート。月1回の数字確認と改善を繰り返すことで、はじめてブランドは育っていく。</div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- SERVICES -->
-<section class="services sec" id="services">
-  <div class="eyebrow ey-dark">Services</div>
-  <h2 class="hdg hdg-dark">提供サービス</h2>
-
-  <!-- カテゴリ01: 写真・映像撮影（専用素材） -->
-  <div class="svc-category">
-    <div class="svc-cat-header">
-      <div class="svc-cat-num">01</div>
-      <div class="svc-cat-title">写真・映像撮影（専用素材）</div>
-      <div class="svc-cat-desc">素材を作る</div>
+  <section class="section partner" id="flow">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker label">Partner</div>
+        <h2 class="section-title">作ったあとも、一緒に考え続ける。</h2>
+      </div>
+      <div class="partner-grid">
+        <div class="partner-card">
+          <div class="label index">月次パートナーMTGでやること</div>
+          <h3 class="partner-title">数字を見て、原因を探し、次の一手を実行する。</h3>
+          <p class="body-copy">GA4でセッション数・直帰率・問い合わせ数を確認。Clarityでユーザーの動きを把握。「なぜ動かないか」を一緒に言語化し、撮影素材の更新・LP改善・SNS連動のどこから手をつけるかを即決して実行します。</p>
+          <div class="partner-price">¥20,000 <span class="service-tag">/ 月〜</span></div>
+        </div>
+        <div class="partner-card">
+          <div class="label index">Shima Labにしかできない理由</div>
+          <h3 class="partner-title">撮影・LP・SNSを、一社で即動かせる。</h3>
+          <p class="body-copy">制作会社はLP作ったら終わり。広告代理店は広告運用のみ。Shima Labは数字を確認した翌週に撮影素材を更新し、LPのコピーを直し、SNSの訴求を変えられる。このサイクルを一社で回せることが、クライアントの売上を動かす最短ルートです。沖縄・離島を拠点に撮り続けているからこそ、エリア指定の撮影リクエストに追加料金なしで応えられます。スナップ素材サブスクは、島ラボが現地に根ざしているからこそ成立するサービスです。</p>
+        </div>
+      </div>
+      <div class="cycle-grid">
+        <div class="cycle-card"><div class="index">01 計測</div><h3 class="cycle-title">数字を見る</h3><p class="cycle-body">GA4・Clarityで問い合わせ数・離脱箇所・ユーザー行動を毎月確認する</p></div>
+        <div class="cycle-card"><div class="index">02 分析</div><h3 class="cycle-title">原因を探す</h3><p class="cycle-body">写真が古いのか、コピーが刺さっていないのか、CTAの位置が悪いのかを特定する</p></div>
+        <div class="cycle-card"><div class="index">03 改善</div><h3 class="cycle-title">即実行する</h3><p class="cycle-body">撮影素材の更新・LPの修正・SNS訴求の変更を、一社でまとめて動かす</p></div>
+        <div class="cycle-card"><div class="index">04 継続</div><h3 class="cycle-title">また数字を見る</h3><p class="cycle-body">改善結果を翌月のMTGで確認。このサイクルを回し続けることでCV率が上がっていく</p></div>
+      </div>
+      <div class="value-grid">
+        <div class="value-card"><div class="index">01</div><h3 class="value-title">発見する</h3><p class="value-body">その場所ならではのありのままの良さを見つける。</p></div>
+        <div class="value-card"><div class="index">02</div><h3 class="value-title">誠実に届ける</h3><p class="value-body">盛らない。見つけた良さをちゃんと届ける。</p></div>
+        <div class="value-card"><div class="index">03</div><h3 class="value-title">継続</h3><p class="value-body">制作物は公開がスタート。月1回の数字確認と改善を繰り返すことで、はじめてブランドは育っていく。</p></div>
+      </div>
+      <div class="flow-block">
+        <div class="section-head">
+          <div class="kicker label">Flow</div>
+          <h2 class="section-title">ご相談から公開まで。</h2>
+        </div>
+        <div class="flow-grid">
+          <div class="flow-card"><div class="index">01</div><h3 class="flow-title">無料相談（30分）</h3><p class="body-copy">まず、LINEかZoomで話しましょう。施設の現状・課題・やりたいことを聞かせてください。</p></div>
+          <div class="flow-card"><div class="index">02</div><h3 class="flow-title">構成案をお見せします</h3><p class="body-copy">御社の施設を分析して、LP構成案と訴求軸をまとめます。作る前に「どんなものができるか」を確認してください。</p></div>
+          <div class="flow-card"><div class="index">03</div><h3 class="flow-title">LP制作</h3><p class="body-copy">構成案に合意いただいたら、LP制作を開始します。PC・スマホ両対応、修正2回まで対応します。</p></div>
+          <div class="flow-card"><div class="index">04</div><h3 class="flow-title">確認・公開</h3><p class="body-copy">2回の修正まで対応します。公開・動作確認まで対応します。</p></div>
+          <div class="flow-card"><div class="index">05</div><h3 class="flow-title">パートナー契約 or ここで終了</h3><p class="body-copy">続けるかどうかは、公開後に判断してください。「よかった、続けたい」と思ったときに、パートナー契約の話をしましょう。<span class="flow-note">パートナー契約 ¥20,000/月 — 月1MTG・数字確認・改善提案込み</span></p></div>
+        </div>
+      </div>
     </div>
-    <div class="svc-list">
-      <div class="svc-row">
-        <div class="svc-idx">—</div>
+  </section>
+
+  <section class="section package">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker label">Package</div>
+      </div>
+      <div class="package-card">
         <div>
-          <div class="svc-name">写真撮影（4h）</div>
-          <div class="svc-tag">Photography</div>
+          <div class="label index">Recommended</div>
+          <h2 class="package-title">写真撮影&thinsp;4h&thinsp;+&thinsp;LP制作&thinsp;ワンストップパック</h2>
+          <p class="package-desc">撮影した素材をそのままLPへ。撮影とWeb制作が同一の窓口だからこそできる、一貫したブランディング。並走が必要な場合はパートナー契約（¥20,000/月）を追加できます。</p>
         </div>
-        <div class="svc-desc">施設・商品・スタッフ撮影。現像・編集込み、全データ納品。Web・SNSに即活用できる素材を提供。</div>
-        <div class="svc-price">¥30,000<small>〜</small></div>
-      </div>
-      <div class="svc-row">
-        <div class="svc-idx">—</div>
-        <div>
-          <div class="svc-name">スナップムービー</div>
-          <div class="svc-tag">Videography</div>
-        </div>
-        <div class="svc-desc">その場の空気感をそのまま閉じ込めた2〜3分の映像制作。過剰編集せず、見た人が「行きたい」と思う映像を届ける。</div>
-        <div class="svc-price">¥45,000<small>〜</small></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- カテゴリ02: スナップ素材サブスク（共用ライブラリ） -->
-  <div class="svc-category">
-    <div class="svc-cat-header">
-      <div class="svc-cat-num">02</div>
-      <div class="svc-cat-title">スナップ素材サブスク（共用ライブラリ）</div>
-      <a class="svc-cat-link" onclick="openSnapModal()">詳しく見る →</a>
-    </div>
-    <div class="svc-desc" style="margin-top:14px;">沖縄・離島の風景・観光スポット・施設周辺の写真をクラウドで公開。契約期間中、SNS・Webで自由に使えます。撮ってほしいエリアがあればリクエスト可。追加料金なし。契約事業者間で共用（非独占）。映像は含みません。</div>
-    <div class="svc-list">
-      <div class="svc-row">
-        <div class="svc-idx">—</div>
-        <div>
-          <div class="svc-name">月額プラン</div>
-          <div class="svc-tag">Subscription</div>
-        </div>
-        <div class="svc-desc">SNS・Webで使える沖縄・離島の写真素材を、契約期間中に自由利用。売上の50%を積み立て、ゆいまーる精神で島を支えてきた人に届けていきます。</div>
-        <div class="svc-price">¥10,000<small>/月</small></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- カテゴリ03: Web・デジタル -->
-  <div class="svc-category">
-    <div class="svc-cat-header">
-      <div class="svc-cat-num">03</div>
-      <div class="svc-cat-title">Web・デジタル</div>
-    </div>
-    <div class="svc-list">
-      <div class="svc-row">
-        <div class="svc-idx">—</div>
-        <div>
-          <div class="svc-name">LP制作</div>
-          <div class="svc-tag">Web Design</div>
-        </div>
-        <div class="svc-desc">構成・コピー・デザイン一気通貫。1ページ完結型。修正2回まで。</div>
-        <div class="svc-price">¥80,000</div>
-      </div>
-      <div class="svc-row">
-        <div class="svc-idx">—</div>
-        <div>
-          <div class="svc-name">コーポレートサイト</div>
-          <div class="svc-tag">Web Design</div>
-        </div>
-        <div class="svc-desc">3ページ〜構成。会社の顔となる複数ページWebサイト。修正3回まで。</div>
-        <div class="svc-price">¥150,000<small>〜</small></div>
-      </div>
-      <div class="svc-row svc-highlight">
-        <div class="svc-idx">—</div>
-        <div>
-          <div class="svc-name">LINE公式＋決済導入</div>
-          <div class="svc-tag">Set</div>
-        </div>
-        <div class="svc-desc">
-          LINE公式アカウントの初期設計・リッチメニュー・挨拶メッセージ設定と、オンライン決済の導入をセットで対応。問い合わせ〜決済までをオンラインで完結させる。<br>
-          <span style="font-size:11px;color:var(--green);font-weight:400;display:block;margin-top:8px;">決済サービスは用途に合わせて2択から提案</span>
-          <span style="font-size:11px;color:var(--mid);display:block;margin-top:4px;">
-            <strong style="color:var(--char);">Stripe</strong>　オンライン完結・LP埋め込み型に最適<br>
-            <strong style="color:var(--char);">Square</strong>　実店舗＋オンライン両対応・日本語サポート充実
-          </span>
-          <span style="font-size:11px;color:var(--muted);display:block;margin-top:6px;">※ 単体での提供は行っていません</span>
-        </div>
-        <div class="svc-price">¥80,000</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- カテゴリ04: パック -->
-  <div class="svc-category">
-    <div class="svc-cat-header">
-      <div class="svc-cat-num">04</div>
-      <div class="svc-cat-title">パック</div>
-    </div>
-    <div class="svc-list">
-      <div class="svc-row svc-highlight">
-        <div class="svc-idx">—</div>
-        <div class="svc-main-col">
-          <div class="svc-name" style="font-family:'Cormorant Garamond',serif;font-size:19px;vertical-align:baseline;line-height:1.3;">スチル撮影4h＋LP制作</div>
-          <div class="svc-tag">Recommended</div>
-          <div class="svc-desc" style="margin-top:8px;">撮影素材をそのままLPへ。構成・コピー・素材・Web、すべて一社完結。</div>
-          <div class="svc-price-wrap">
-            <div class="svc-price" style="margin-top:8px;">¥110,000</div>
+        <div class="package-price">
+          <div class="price-main">¥110,000</div>
+          <div class="price-sub">写真撮影4h + LP制作</div>
+          <div class="price-alt">
+            <div class="partner-price">¥130,000</div>
+            <div class="price-sub">クリエイティブパートナー契約（¥20,000/月）込み</div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- カテゴリ05: 継続支援 -->
-  <div class="svc-category">
-    <div class="svc-cat-header">
-      <div class="svc-cat-num">05</div>
-      <div class="svc-cat-title">継続支援</div>
+  <section class="section cta" id="contact">
+    <div class="container">
+      <div class="kicker label center">Contact</div>
+      <h2 class="section-title center">まず、お話しましょう。</h2>
+      <p class="cta-body">難しいことはありません。<br>今どんな状態で、何に困っているか。<br>それだけ聞かせてください。</p>
+      <p class="cta-limit">現在受付：10社限定</p>
+      <a href="https://line.me/R/ti/p/%40009yvklo" class="btn btn-primary" target="_blank" rel="noopener">LINE で無料相談する</a>
+      <p class="cta-note">返信は24時間以内 / 無理な営業はしません</p>
+      <p class="cta-note">LINE ID：@009yvklo</p>
+      <a href="gallery.html" class="text-link">ギャラリーを見る →</a>
     </div>
-    <div class="svc-desc" style="margin-top:14px;">制作物の保守を継続サポート。月1回のミーティングで数字確認→改善実行も行います。スナップ素材サブスク（¥10,000/月相当）が無料で付帯します。</div>
-    <div class="svc-list">
-      <div class="svc-row svc-highlight">
-        <div class="svc-idx">—</div>
-        <div>
-          <div class="svc-name">クリエイティブパートナー契約</div>
-          <div class="svc-tag" style="color:var(--gold);">10社限定</div>
-        </div>
-        <div class="svc-desc">月1MTG＋数字確認＋改善実行。<br><span style="font-size:11px;color:var(--muted);">※ 撮影・LP制作のご依頼後にご案内します</span></div>
-        <div class="svc-price">¥20,000<small>/月〜</small></div>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
+</main>
 
-<!-- PRICE CONTEXT -->
-<section class="sec" style="background:var(--cream2);">
-  <div class="eyebrow ey-dark">Price</div>
-  <h2 class="hdg hdg-dark">適正価格の、<wbr><em>根拠。</em></h2>
-
-  <p style="font-size:14px;font-weight:300;line-height:2.2;color:var(--mid);letter-spacing:0.06em;margin-bottom:40px;max-width:600px;">
-    Shima Labの価格は市場相場と同等かそれ以下です。さらに撮影素材の準備・構成・コピーまで含めて対応するため、クライアント側の手間とコストをさらに削減できます。
-  </p>
-
-  <!-- 相場比較 -->
-  <table class="data-table" style="margin-bottom:52px;">
-    <thead>
-      <tr>
-        <th>サービス</th>
-        <th>国内相場（制作会社）</th>
-        <th>国内相場（フリーランス）</th>
-        <th style="color:var(--green);">Shima Lab</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>施設撮影（4h）</td>
-        <td>¥50,000〜100,000</td>
-        <td>¥20,000〜50,000</td>
-        <td style="color:var(--green);font-weight:400;">¥30,000〜</td>
-      </tr>
-      <tr>
-        <td>LP制作<br><span style="font-size:11px;color:var(--muted);font-weight:300;">構成・コピー・デザイン込み</span></td>
-        <td>¥300,000〜600,000</td>
-        <td>¥50,000〜300,000</td>
-        <td style="color:var(--green);font-weight:400;">¥80,000</td>
-      </tr>
-      <tr>
-        <td>コーポレートサイト</td>
-        <td>¥500,000〜1,000,000+</td>
-        <td>¥200,000〜500,000</td>
-        <td style="color:var(--green);font-weight:400;">¥150,000<small>〜</small></td>
-      </tr>
-    </tbody>
-  </table>
-
-  <!-- 業者別コスト比較 -->
-  <div style="font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:13px;letter-spacing:0.12em;color:var(--char);margin-bottom:24px;">窓口をまとめると、何が変わるか。</div>
-
-  <div class="price-split-grid">
-    <!-- 別々のケース -->
-    <div style="background:var(--chalk);padding:28px 20px;">
-      <div style="font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;font-weight:400;">バラバラに依頼した場合</div>
-
-      <div style="display:flex;flex-direction:column;gap:0;">
-        <div style="padding:12px 0;border-bottom:1px solid var(--line);">
-          <div style="font-size:12px;font-weight:400;color:var(--char);">カメラマン（施設撮影）</div>
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px;">
-            <div style="font-size:10px;color:var(--muted);">撮影のみ。Web活用は自社で</div>
-            <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--char);white-space:nowrap;margin-left:8px;">¥50,000〜</div>
-          </div>
-        </div>
-        <div style="padding:12px 0;border-bottom:1px solid var(--line);">
-          <div style="font-size:12px;font-weight:400;color:var(--char);">Web制作会社（LP）</div>
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px;">
-            <div style="font-size:10px;color:var(--muted);">素材・原稿は自社で用意が前提</div>
-            <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--char);white-space:nowrap;margin-left:8px;">¥300,000〜</div>
-          </div>
-        </div>
-        <div style="padding:12px 0;border-bottom:1px solid var(--line);">
-          <div style="font-size:12px;font-weight:400;color:var(--char);">業者間の調整</div>
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px;">
-            <div style="font-size:10px;color:var(--muted);">あなたの時間と労力</div>
-            <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--muted);white-space:nowrap;margin-left:8px;">別途発生</div>
-          </div>
-        </div>
-      </div>
-
-      <div style="padding-top:16px;border-top:2px solid var(--line);margin-top:16px;">
-        <div style="font-size:9px;letter-spacing:0.14em;color:var(--muted);margin-bottom:4px;text-transform:uppercase;">初期費用合計</div>
-        <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--char);">¥350,000〜</div>
-        <div style="font-size:10px;color:var(--muted);margin-top:6px;line-height:1.9;">+ 保守費用は別途（月¥5,000〜30,000が相場）<br>+ 業者間の調整コスト<br>+ 統一感のなさによる機会損失</div>
-      </div>
-    </div>
-
-    <!-- Shima Labのケース -->
-    <div style="background:rgba(42,92,63,0.10);padding:28px 20px;border-left:4px solid var(--green);">
-      <div style="font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--green);margin-bottom:16px;font-weight:400;">Shima Labに依頼した場合</div>
-
-      <div style="display:flex;flex-direction:column;gap:0;">
-        <div style="padding:12px 0;border-bottom:1px solid rgba(42,92,63,0.1);">
-          <div style="font-size:12px;font-weight:400;color:var(--char);">写真撮影 4h + LP制作</div>
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px;">
-            <div style="font-size:10px;color:var(--mid);">構成・コピー・素材・Web、すべて込み</div>
-            <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--green);white-space:nowrap;margin-left:8px;">¥110,000</div>
-          </div>
-        </div>
-        <div style="padding:12px 0;border-bottom:1px solid rgba(42,92,63,0.1);">
-          <div style="font-size:12px;font-weight:400;color:var(--char);">クリエイティブパートナー契約</div>
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px;">
-            <div style="font-size:10px;color:var(--mid);">月1MTG＋数字確認＋改善実行（2ヶ月目以降）</div>
-            <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--green);white-space:nowrap;margin-left:8px;">¥20,000/月〜</div>
-          </div>
-        </div>
-        <div style="padding:12px 0;border-bottom:1px solid rgba(42,92,63,0.1);">
-          <div style="font-size:12px;font-weight:400;color:var(--char);">業者間の調整</div>
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px;">
-            <div style="font-size:10px;color:var(--mid);">窓口一つ。調整は不要</div>
-            <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--green);white-space:nowrap;margin-left:8px;">¥0</div>
-          </div>
-        </div>
-        <div style="padding:12px 0;border-bottom:1px solid rgba(42,92,63,0.1);">
-          <div style="font-size:12px;font-weight:400;color:var(--char);">ブランドの統一感</div>
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px;">
-            <div style="font-size:10px;color:var(--mid);">素材からWebまで一社が担保</div>
-            <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--green);white-space:nowrap;margin-left:8px;">込み</div>
-          </div>
-        </div>
-      </div>
-
-      <div style="padding-top:16px;border-top:2px solid var(--green);margin-top:16px;">
-        <div style="font-size:9px;letter-spacing:0.14em;color:var(--green);margin-bottom:8px;text-transform:uppercase;">初期費用合計（パートナー契約込み）</div>
-        <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--green);">¥130,000</div>
-        <div style="font-size:10px;color:var(--mid);margin-top:10px;line-height:1.9;">写真撮影4h＋LP制作＋パートナー契約1ヶ月分<br>+ 修正・改善をワンストップで継続対応<br>+ 統一感のあるブランドが育っていく</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FLOW -->
-<section class="flow sec" id="flow">
-  <div class="eyebrow ey-dark">Flow</div>
-  <h2 class="hdg hdg-dark">DMを受け取ってから、<wbr>始まるまで。</h2>
-
-  <div class="flow-grid flow-grid-5">
-    <div class="flow-step">
-      <div class="flow-dot">1</div>
-      <div class="flow-title">無料相談（30分）</div>
-      <div class="flow-body">まず、LINEかZoomで話しましょう。施設の現状・課題・やりたいことを聞かせてください。</div>
-    </div>
-    <div class="flow-step">
-      <div class="flow-dot">2</div>
-      <div class="flow-title">構成案をお見せします</div>
-      <div class="flow-body">御社の施設を分析して、LP構成案と訴求軸をまとめます。作る前に「どんなものができるか」を確認してください。</div>
-    </div>
-    <div class="flow-step">
-      <div class="flow-dot">3</div>
-      <div class="flow-title">LP制作</div>
-      <div class="flow-body">構成案に合意いただいたら、LP制作を開始します。PC・スマホ両対応、修正2回まで対応します。</div>
-    </div>
-    <div class="flow-step">
-      <div class="flow-dot">4</div>
-      <div class="flow-title">確認・公開</div>
-      <div class="flow-body">2回の修正まで対応します。公開・動作確認まで対応します。</div>
-    </div>
-    <div class="flow-step">
-      <div class="flow-dot">5</div>
-      <div class="flow-title">パートナー契約 or ここで終了</div>
-      <div class="flow-body">続けるかどうかは、公開後に判断してください。「よかった、続けたい」と思ったときに、パートナー契約の話をしましょう。<span class="flow-note">パートナー契約 ¥20,000/月 — 月1MTG・数字確認・改善提案込み</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- PARTNER -->
-<section class="partner sec">
-  <div class="eyebrow ey-light">Creative Partner</div>
-  <h2 class="hdg hdg-light">作ったあとも、<wbr><em>一緒に考え続ける。</em></h2>
-
-  <div class="partner-inner">
-    <div class="partner-card">
-      <div class="partner-card-label">月次パートナーMTGでやること</div>
-      <div class="partner-card-title">数字を見て、原因を探し、次の一手を実行する。</div>
-      <div class="partner-card-body">
-        GA4でセッション数・直帰率・問い合わせ数を確認。Clarityでユーザーの動きを把握。「なぜ動かないか」を一緒に言語化し、撮影素材の更新・LP改善・SNS連動のどこから手をつけるかを即決して実行します。
-      </div>
-      <div class="partner-price-box">
-        <div class="partner-price">¥20,000</div>
-        <div class="partner-price-unit">/ 月〜</div>
-      </div>
-    </div>
-    <div class="partner-card">
-      <div class="partner-card-label">Shima Labにしかできない理由</div>
-      <div class="partner-card-title">撮影・LP・SNSを、一社で即動かせる。</div>
-      <div class="partner-card-body">
-        制作会社はLP作ったら終わり。広告代理店は広告運用のみ。Shima Labは数字を確認した翌週に撮影素材を更新し、LPのコピーを直し、SNSの訴求を変えられる。このサイクルを一社で回せることが、クライアントの売上を動かす最短ルートです。沖縄・離島を拠点に撮り続けているからこそ、エリア指定の撮影リクエストに追加料金なしで応えられます。スナップ素材サブスクは、島ラボが現地に根ざしているからこそ成立するサービスです。
-      </div>
-    </div>
-  </div>
-
-  <!-- CV改善サイクル -->
-  <div style="margin-top:1px; background:rgba(242,237,228,0.04); padding:40px 36px;">
-    <div style="font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:11px;letter-spacing:0.2em;color:var(--green);margin-bottom:20px;">CV改善サイクル</div>
-    <div class="cv-cycle-grid">
-      <div class="cv-cycle-item">
-        <div class="cv-cycle-num">01 計測</div>
-        <div class="cv-cycle-title">数字を見る</div>
-        <div class="cv-cycle-body">GA4・Clarityで問い合わせ数・離脱箇所・ユーザー行動を毎月確認する</div>
-      </div>
-      <div class="cv-cycle-item">
-        <div class="cv-cycle-num">02 分析</div>
-        <div class="cv-cycle-title">原因を探す</div>
-        <div class="cv-cycle-body">写真が古いのか、コピーが刺さっていないのか、CTAの位置が悪いのかを特定する</div>
-      </div>
-      <div class="cv-cycle-item">
-        <div class="cv-cycle-num">03 改善</div>
-        <div class="cv-cycle-title">即実行する</div>
-        <div class="cv-cycle-body">撮影素材の更新・LPの修正・SNS訴求の変更を、一社でまとめて動かす</div>
-      </div>
-      <div class="cv-cycle-item">
-        <div class="cv-cycle-num">04 継続</div>
-        <div class="cv-cycle-title">また数字を見る</div>
-        <div class="cv-cycle-body">改善結果を翌月のMTGで確認。このサイクルを回し続けることでCV率が上がっていく</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PACKAGE -->
-<section class="package sec">
-  <div class="eyebrow ey-dark">Package</div>
-  <div class="pack-box">
-    <div>
-      <div class="pack-label">Recommended</div>
-      <div class="pack-title">写真撮影&thinsp;4h&thinsp;+&thinsp;LP制作&thinsp;ワンストップパック</div>
-      <div class="pack-desc">撮影した素材をそのままLPへ。撮影とWeb制作が同一の窓口だからこそできる、一貫したブランディング。並走が必要な場合はパートナー契約（¥20,000/月）を追加できます。</div>
-    </div>
-    <div class="pack-right">
-      <div style="margin-bottom:8px;">
-        <div class="pack-price">¥110,000</div>
-        <div class="pack-note">写真撮影4h + LP制作</div>
-      </div>
-      <div style="border-top:1px solid rgba(42,92,63,0.2);padding-top:12px;margin-top:4px;">
-        <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--green);">¥130,000</div>
-        <div style="font-size:11px;color:var(--mid);margin-top:4px;letter-spacing:0.04em;">クリエイティブパートナー契約（¥20,000/月）込み</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta" id="contact">
-  <div class="eyebrow ey-light" style="justify-content:center;">Contact</div>
-  <h2 class="hdg hdg-light" style="text-align:center; margin-bottom:18px;">まず、<wbr>お話しましょう。</h2>
-  <p class="cta-body" style="word-break:keep-all;padding:0 5vw;">
-    難しいことはありません。<br>
-    今どんな状態で、何に困っているか。<br>
-    それだけ聞かせてください。
-  </p>
-  <p style="font-size:12px;letter-spacing:0.18em;color:var(--green);margin-bottom:24px;">現在受付：10社限定</p>
-  <a href="https://line.me/R/ti/p/%40009yvklo" class="btn-cta" target="_blank" rel="noopener">LINE で無料相談する</a>
-  <p style="margin-top:16px;font-size:11px;letter-spacing:0.12em;color:rgba(242,237,228,0.3);">返信は24時間以内 / 無理な営業はしません</p>
-  <p style="margin-top:20px;font-size:11px;letter-spacing:0.14em;color:rgba(242,237,228,0.3);">LINE ID：@009yvklo</p>
-</section>
-
-<!-- FOOTER -->
-<footer>
+<footer class="site-footer">
   <div>
-    <div class="footer-logo">Shima <em>Lab</em> &nbsp;<span style="font-family:'Noto Serif JP',serif;font-weight:300;font-size:13px;color:rgba(242,237,228,0.25);letter-spacing:0.14em;">島ラボ</span></div>
-    <div class="footer-sub">Kota Uezu / 上江洌 孝太 &nbsp;—&nbsp; LINE: @009yvklo</div>
+    <div class="footer-logo">Shima Lab / 島ラボ</div>
+    <div class="footer-sub">Kota Uezu / 上江洌 孝太 — LINE: @009yvklo</div>
   </div>
   <div class="footer-copy">© 2026 Shima Lab. All rights reserved.</div>
 </footer>
-
+<div id="snapModal" class="snap-modal" aria-hidden="true">
+  <button class="snap-modal-close" aria-label="閉じる">&times;</button>
+  <div class="snap-modal-stage" id="snapStage">
+    <iframe id="snapFrame" class="snap-modal-frame" title="スナップ素材サブスク" scrolling="no"></iframe>
+  </div>
+</div>
 <script>
-// Works slider
-(function(){
-  var slider = document.getElementById('worksSlider');
-  if(!slider) return;
-  var track = slider.querySelector('.works-slides');
-  var dots  = slider.querySelectorAll('.works-dot');
-  var total = slider.querySelectorAll('.works-slide').length;
-  var cur   = Math.floor(Math.random() * total);
-  function goTo(n) {
-    cur = ((n % total) + total) % total;
-    track.style.transform = 'translateX(-' + (cur * 100) + '%)';
-    dots.forEach(function(d,i){ d.classList.toggle('active', i === cur); });
-  }
-  slider.querySelector('.works-btn-prev').addEventListener('click', function(){ goTo(cur-1); });
-  slider.querySelector('.works-btn-next').addEventListener('click', function(){ goTo(cur+1); });
-  dots.forEach(function(d){ d.addEventListener('click', function(){ goTo(+d.dataset.index); }); });
-  var sx = 0;
-  slider.addEventListener('touchstart', function(e){ sx = e.touches[0].clientX; }, {passive:true});
-  slider.addEventListener('touchend',   function(e){
-    var dx = e.changedTouches[0].clientX - sx;
-    if(Math.abs(dx) > 40){ goTo(dx < 0 ? cur+1 : cur-1); }
-  }, {passive:true});
-  goTo(cur);
-})();
-
-// Scroll animations
-(function(){
-  var els = document.querySelectorAll('.kota-photo-col, .kota-text-col');
-  if(!window.IntersectionObserver){
-    els.forEach(function(el){ el.classList.add('in-view'); });
-    return;
-  }
-  var obs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('in-view'); });
-  }, { threshold: 0.12 });
-  els.forEach(function(el){ obs.observe(el); });
-})();
-
-// Snap modal
 function openSnapModal(){
   var m = document.getElementById('snapModal');
   var f = document.getElementById('snapFrame');
@@ -2065,19 +1126,9 @@ function scaleSnapFrame(){
   if(!stage) return;
   var maxW = window.innerWidth * 0.94;
   var maxH = window.innerHeight * 0.9;
-  var s = Math.min(maxW/1080, maxH/607, 1);
+  var s = Math.min(maxW / 1080, maxH / 607, 1);
   stage.style.transform = 'scale(' + s + ')';
 }
-</script>
-
-<!-- SNAP MODAL -->
-<div id="snapModal" class="snap-modal" aria-hidden="true">
-  <button class="snap-modal-close" aria-label="閉じる">&times;</button>
-  <div class="snap-modal-stage" id="snapStage">
-    <iframe id="snapFrame" class="snap-modal-frame" title="スナップ素材サブスク" scrolling="no"></iframe>
-  </div>
-</div>
-<script>
 (function(){
   var m = document.getElementById('snapModal');
   if(!m) return;
@@ -2086,7 +1137,16 @@ function scaleSnapFrame(){
   document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeSnapModal(); });
   window.addEventListener('resize', scaleSnapFrame);
 })();
+(function(){
+  var box=document.getElementById('miniGallery'); if(!box) return;
+  var idx=[]; for(var i=1;i<=31;i++) idx.push(i);
+  for(var i=idx.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=idx[i]; idx[i]=idx[j]; idx[j]=t; }
+  var pick=idx.slice(0,6);
+  box.innerHTML = pick.map(function(n){
+    var s=('0'+n).slice(-2);
+    return '<a href="gallery.html"><img src="img/gallery/g'+s+'.jpg" alt="" loading="lazy"></a>';
+  }).join('');
+})();
 </script>
-
 </body>
 </html>
