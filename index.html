@@ -834,8 +834,10 @@ button,input,textarea,select{font:inherit}
   .cycle-grid{grid-template-columns:minmax(0,1fr)}
 }
 @media(max-width:560px){
-  .hero-profile{ flex-direction:column; align-items:flex-start; gap:16px; }
-  .hero-portrait{ width:150px; max-width:150px; }
+  .hero-profile{ flex-direction:row; align-items:flex-start; gap:16px; flex-wrap:nowrap; }
+  .hero-portrait{ order:-1; width:96px; max-width:96px; gap:8px; }
+  .hero-id{ flex:1 1 auto; min-width:0; padding-top:0; border-top:none; }
+  .hero-id .sp-hide{ display:none; }
   .article-thumb{ width:72px; height:72px; }
   .about-band{aspect-ratio:3/2;object-position:center 58%}
 }
@@ -861,7 +863,7 @@ button,input,textarea,select{font:inherit}
     <div class="hero-inner">
       <div class="hero-text">
         <div class="kicker label">Shima Lab / 島ラボ</div>
-        <h1>写真も<span class="nowrap">サイト</span>も<span class="nowrap">古い。</span><br>でも誰に頼めば<br><span class="nowrap">いい</span>か<span class="nowrap">わからない。</span></h1>
+        <h1><span class="nowrap">写真も</span><span class="nowrap">サイトも</span><span class="nowrap">古い。</span><br><span class="nowrap">でも</span><span class="nowrap">誰に頼めば</span><span class="nowrap">いいか</span><span class="nowrap">わからない。</span></h1>
         <p class="hero-subtitle">写真・映像・Web。島の<span class="nowrap">クリエイティブ</span>、まとめて引き受けます。</p>
         <p class="hero-body">サイトだけじゃない。文章も、写真も映像も、必要な素材はぜんぶ込み。<br>価格は最初から明記。契約前に構成案をお送りするので、見てから決められます。</p>
         <div class="hero-actions">
@@ -870,11 +872,11 @@ button,input,textarea,select{font:inherit}
         </div>
         <div class="hero-profile">
           <div class="hero-id">
-            <strong>Kota Uezu / 上江洌孝太</strong>
-            <span>1998年、沖縄生まれ沖縄育ち。</span>
+            <strong>Kota Uezu / <span class="nowrap">上江洌孝太</span></strong>
+            <span>1998年、<span class="nowrap">沖縄生まれ</span><span class="nowrap">沖縄育ち。</span></span>
             <span>Shima Lab 代表</span>
-            <span><span class="nowrap">ウェディングフォトグラファー</span></span>
-            <span>沖縄県在住 / 元理学療法士</span>
+            <span class="sp-hide"><span class="nowrap">ウェディングフォトグラファー</span></span>
+            <span class="sp-hide">沖縄県在住 / 元理学療法士</span>
           </div>
           <div class="hero-portrait">
             <img src="img/profile-face.jpg" alt="Kota Uezu / 上江洌孝太">
