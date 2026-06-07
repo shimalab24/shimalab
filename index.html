@@ -202,21 +202,29 @@ button,input,textarea,select{font:inherit}
   position:relative;
   z-index:2;
   display:grid;
-  grid-template-columns:minmax(0,1.7fr) minmax(0,.58fr);
-  align-items:end;
+  grid-template-columns:minmax(0,1fr);
+  align-items:start;
   gap:clamp(28px,5vw,56px);
   width:min(100%,var(--container));
   margin:0 auto;
 }
 .hero-text{display:grid;gap:clamp(18px,2.6vw,28px)}
 .hero-text .kicker{margin-bottom:0}
+.hero-profile{
+  display:flex;
+  gap:clamp(18px,4vw,30px);
+  align-items:flex-start;
+  flex-wrap:wrap;
+}
 .hero-portrait{
   display:flex;
   flex-direction:column;
   gap:14px;
   align-items:flex-start;
-  max-width:200px;
-  align-self:end;
+  width:clamp(120px,30vw,150px);
+  max-width:150px;
+  align-self:flex-start;
+  margin-top:0;
 }
 .hero-portrait img{
   width:100%;
@@ -265,6 +273,8 @@ button,input,textarea,select{font:inherit}
   padding-top:28px;
   border-top:1px solid var(--line);
   max-width:360px;
+  flex:1 1 auto;
+  min-width:0;
 }
 .hero-id strong{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:500}
 .hero-id span{color:var(--fg-dim);font-size:.98rem;line-height:1.8}
@@ -784,7 +794,9 @@ button,input,textarea,select{font:inherit}
 }
 @media(max-width:860px){
   .hero-inner{grid-template-columns:minmax(0,1fr)}
-  .hero-portrait{max-width:170px;margin-top:8px}
+  .hero-profile{flex-wrap:nowrap}
+  .hero-id{flex-basis:0}
+  .hero-portrait{max-width:140px;margin-top:0}
 }
 @media (max-width:520px){
   :root{--pad-section:88px}
@@ -822,6 +834,8 @@ button,input,textarea,select{font:inherit}
   .cycle-grid{grid-template-columns:minmax(0,1fr)}
 }
 @media(max-width:560px){
+  .hero-profile{ flex-direction:column; align-items:flex-start; gap:16px; }
+  .hero-portrait{ width:150px; max-width:150px; }
   .article-thumb{ width:72px; height:72px; }
   .about-band{aspect-ratio:3/2;object-position:center 58%}
 }
@@ -854,17 +868,19 @@ button,input,textarea,select{font:inherit}
           <a href="#contact" class="btn btn-primary">まず、お話しましょう</a>
           <a href="#services" class="text-link">サービスを見る</a>
         </div>
-        <div class="hero-id">
-          <strong>Kota Uezu / 上江洌孝太</strong>
-          <span>1998年、沖縄生まれ沖縄育ち。</span>
-          <span>Shima Lab 代表</span>
-          <span>ウェディングフォトグラファー</span>
-          <span>沖縄県在住 / 元理学療法士</span>
+        <div class="hero-profile">
+          <div class="hero-id">
+            <strong>Kota Uezu / 上江洌孝太</strong>
+            <span>1998年、沖縄生まれ沖縄育ち。</span>
+            <span>Shima Lab 代表</span>
+            <span><span class="nowrap">ウェディングフォトグラファー</span></span>
+            <span>沖縄県在住 / 元理学療法士</span>
+          </div>
+          <div class="hero-portrait">
+            <img src="img/profile-face.jpg" alt="Kota Uezu / 上江洌孝太">
+            <a href="gallery.html" class="hero-gallery">作品を見る　Gallery →</a>
+          </div>
         </div>
-      </div>
-      <div class="hero-portrait">
-        <img src="img/profile-face.jpg" alt="Kota Uezu / 上江洌孝太">
-        <a href="gallery.html" class="hero-gallery">作品を見る　Gallery →</a>
       </div>
     </div>
   </section>
@@ -932,7 +948,7 @@ button,input,textarea,select{font:inherit}
             <p class="body-copy">うむい（島への想い）を広めることが、島を守ることにつながる。</p>
             <p class="body-copy">島のいいものを、ありのまま届ける。</p>
             <a class="article-card" href="https://shimalab24.substack.com/p/6e8" target="_blank" rel="noopener">
-              <img class="article-thumb" src="img/substack-okinawa.jpg" alt="">
+              <img class="article-thumb" src="https://substackcdn.com/image/fetch/w_400,h_400,c_fill,f_auto,q_auto:good/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8a05c55c-d44d-4bec-aab4-bbead39ca888_7008x4672.jpeg" alt="" loading="lazy">
               <div class="article-body">
                 <span class="article-kicker">Substack — 島ラボ</span>
                 <span class="article-title">みんなの好きな沖縄が無くなる前に</span>
