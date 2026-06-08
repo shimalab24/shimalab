@@ -425,6 +425,21 @@ button,input,textarea,select{font:inherit}
   background:var(--cream-2);
   margin-top:clamp(48px,7vw,88px);
 }
+.about-cols{
+  display:grid;
+  grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);
+  gap:clamp(36px,6vw,72px);
+  align-items:start;
+}
+.about-cols .about-body{ max-width:none; }
+.about .mission-inset{ margin-top:0; border-color:var(--line-ink); }
+.about .article-card{ background:rgba(28,26,23,.04); border-color:var(--line-ink); }
+.about .article-card:hover{ border-color:var(--accent); }
+.about .article-title{ color:var(--ink); }
+@media(max-width:900px){
+  .about-cols{ grid-template-columns:minmax(0,1fr); gap:32px; }
+  .about .mission-inset{ margin-top:4px; }
+}
 
 .why{background:var(--bg)}
 .compare-wrap{display:grid;grid-template-columns:minmax(0,1fr);gap:28px}
@@ -835,7 +850,7 @@ button,input,textarea,select{font:inherit}
 }
 @media(max-width:560px){
   .hero-profile{ flex-direction:row; align-items:flex-start; gap:16px; flex-wrap:nowrap; }
-  .hero-portrait{ order:-1; width:96px; max-width:96px; gap:8px; }
+  .hero-portrait{ width:96px; max-width:96px; gap:8px; }
   .hero-id{ flex:1 1 auto; min-width:0; padding-top:0; border-top:none; }
   .hero-id .sp-hide{ display:none; }
   .article-thumb{ width:72px; height:72px; }
@@ -945,19 +960,6 @@ button,input,textarea,select{font:inherit}
         <div class="concept-lead">
           <p class="concept-main">撮影からLP制作まで、同じ人間が担当する。だから、話が早い。</p>
           <p class="lead">カメラマンとWeb業者が別々だと、撮影した写真がLPに活かされないことがある。島ラボは一人が撮影からLP制作まで担当するから素材の使い方に無駄がない。パートナー契約では、月1ミーティングで相談しながら、次の一手を一緒に考えます。</p>
-          <div class="mission-inset">
-            <h3 class="section-title">島のいいものを、<span class="nowrap">ちゃんと伝える。</span></h3>
-            <p class="body-copy">うむい（島への想い）を広めることが、島を守ることにつながる。</p>
-            <p class="body-copy">島のいいものを、ありのまま届ける。</p>
-            <a class="article-card" href="https://shimalab24.substack.com/p/6e8" target="_blank" rel="noopener">
-              <img class="article-thumb" src="https://substackcdn.com/image/fetch/w_400,h_400,c_fill,f_auto,q_auto:good/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8a05c55c-d44d-4bec-aab4-bbead39ca888_7008x4672.jpeg" alt="" loading="lazy">
-              <div class="article-body">
-                <span class="article-kicker">Substack — 島ラボ</span>
-                <span class="article-title">みんなの好きな沖縄が無くなる前に</span>
-                <span class="article-link">読む →</span>
-              </div>
-            </a>
-          </div>
         </div>
         <div class="concept-list">
           <div class="concept-item">
@@ -990,12 +992,27 @@ button,input,textarea,select{font:inherit}
       <img class="about-portrait" src="img/profile-back.jpg" alt="海辺に立つ Kota Uezu">
       <div class="about-text">
         <div class="kicker label">About</div>
-        <h2 class="section-title">元々医療<span class="nowrap">従事者でした。</span></h2>
-        <div class="about-body">
-          <p>理学療法士として約5年間、患者さんの状態を診て、<br>治療して、経過を見守る仕事をしていました。<br>やることは今も同じです。</p>
-          <p>お店の見せ方を診る。<br>原因を見つけて、撮影と制作で整える。</p>
-          <p>担当が変わらないから、毎回説明しなくていい。<br>あなたのビジネスを一番理解している人間が、<br>ずっと同じ目線で並走します。</p>
-          <p>沖縄生まれ育ち。みんなが好きな沖縄を、次の世代に残したい。</p>
+        <h2 class="section-title">元々医療<span class="nowrap">従事者でした</span></h2>
+        <div class="about-cols">
+          <div class="about-body">
+            <p>理学療法士として約5年間、患者さんの状態を診て、<br>治療して、経過を見守る仕事をしていました。<br>やることは今も同じです。</p>
+            <p>お店の見せ方を診る。<br>原因を見つけて、撮影と制作で整える。</p>
+            <p>担当が変わらないから、毎回説明しなくていい。<br>あなたのビジネスを一番理解している人間が、<br>ずっと同じ目線で並走します。</p>
+            <p>沖縄生まれ育ち。みんなが好きな沖縄を、次の世代に残したい。</p>
+          </div>
+          <div class="mission-inset">
+            <h3 class="section-title">島のいいものを、<span class="nowrap">ちゃんと伝える。</span></h3>
+            <p class="body-copy">うむい（島への想い）を広めることが、島を守ることにつながる。</p>
+            <p class="body-copy">島のいいものを、ありのまま届ける。</p>
+            <a class="article-card" href="https://shimalab24.substack.com/p/6e8" target="_blank" rel="noopener">
+              <img class="article-thumb" src="https://substackcdn.com/image/fetch/w_400,h_400,c_fill,f_auto,q_auto:good/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8a05c55c-d44d-4bec-aab4-bbead39ca888_7008x4672.jpeg" alt="" loading="lazy">
+              <div class="article-body">
+                <span class="article-kicker">Substack — 島ラボ</span>
+                <span class="article-title">みんなの好きな沖縄が無くなる前に</span>
+                <span class="article-link">読む →</span>
+              </div>
+            </a>
+          </div>
         </div>
       </div>
     </div>
