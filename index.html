@@ -254,6 +254,7 @@ button,input,textarea,select{font:inherit}
   line-height:1.36;
   letter-spacing:.02em;
 }
+.hero-id .hero-service-link{margin-top:10px}
 .hero-subtitle{
   max-width:34em;
   color:var(--fg);
@@ -855,9 +856,8 @@ button,input,textarea,select{font:inherit}
   .hero-id .sp-hide{ display:none; }
   .article-thumb{ width:72px; height:72px; }
   .about-band{aspect-ratio:3/2;object-position:center 58%}
-  .hero h1{font-size:clamp(1.6rem,1rem + 1.8vw,2.2rem);line-height:1.42}
-  .hero-actions{margin-top:clamp(28px,7vw,48px)}
-  .hero-profile{margin-top:clamp(32px,8vw,52px)}
+  .hero h1{font-size:clamp(1.4rem,0.9rem + 1.4vw,1.9rem);line-height:1.42}
+  .hero-profile{margin-top:clamp(56px,15vw,88px)}
 }
 @media(max-width:640px){.mini-gallery a{height:140px}}
 @media(min-width:901px){
@@ -893,9 +893,6 @@ button,input,textarea,select{font:inherit}
       <div class="hero-text">
         <div class="kicker label">Shima Lab / 島ラボ</div>
         <h1>せっかく<span class="nowrap">SNS運用</span>しているのに、<br>OTAで予約を受けていませんか。</h1>
-        <div class="hero-actions">
-          <a href="#services" class="text-link">サービスを見る</a>
-        </div>
         <div class="hero-profile">
           <div class="hero-id">
             <strong>Kota Uezu / <span class="nowrap">上江洌孝太</span></strong>
@@ -903,6 +900,7 @@ button,input,textarea,select{font:inherit}
             <span>Shima Lab 代表</span>
             <span class="sp-hide"><span class="nowrap">ウェディングフォトグラファー</span></span>
             <span class="sp-hide">沖縄県在住 / 元理学療法士</span>
+            <a href="#services" class="text-link hero-service-link">サービスを見る</a>
           </div>
           <div class="hero-portrait">
             <img src="img/profile-face.jpg" alt="Kota Uezu / 上江洌孝太">
