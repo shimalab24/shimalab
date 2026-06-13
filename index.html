@@ -179,7 +179,7 @@ button,input,textarea,select{font:inherit}
   grid-template-columns:minmax(0,1fr);
   align-items:end;
   overflow:hidden;
-  padding:clamp(120px,15vw,190px) clamp(18px,5vw,64px) clamp(56px,7vw,90px);
+  padding:clamp(120px,15vw,190px) clamp(18px,5vw,64px) clamp(88px,11vw,140px);
 }
 .hero::before{
   content:"";
@@ -208,7 +208,7 @@ button,input,textarea,select{font:inherit}
   width:min(100%,var(--container));
   margin:0 auto;
 }
-.hero-text{display:grid;gap:clamp(18px,2.6vw,28px)}
+.hero-text{display:grid;gap:clamp(24px,3.2vw,40px)}
 .hero-text .kicker{margin-bottom:0}
 .hero-profile{
   display:flex;
@@ -251,7 +251,7 @@ button,input,textarea,select{font:inherit}
   font-family:"Shippori Mincho",serif;
   font-size:var(--t-h1);
   font-weight:700;
-  line-height:1.42;
+  line-height:1.36;
   letter-spacing:.02em;
 }
 .hero-subtitle{
@@ -857,6 +857,17 @@ button,input,textarea,select{font:inherit}
   .about-band{aspect-ratio:3/2;object-position:center 58%}
 }
 @media(max-width:640px){.mini-gallery a{height:140px}}
+@media(min-width:901px){
+  .hero h1{font-size:clamp(3rem,1.8rem + 2.8vw,4.4rem);line-height:1.3}
+}
+.pitch{padding-block:clamp(72px,9vw,120px);border-bottom:1px solid var(--line)}
+.pitch .kicker{margin-bottom:clamp(24px,3vw,40px)}
+.pitch-inner{display:grid;grid-template-columns:1fr;gap:clamp(28px,4vw,48px)}
+.pitch-headline{font-family:"Shippori Mincho",serif;font-size:clamp(1.7rem,1.2rem + 1.8vw,2.6rem);font-weight:700;line-height:1.52;letter-spacing:.02em;max-width:22em;color:var(--fg);overflow-wrap:normal;word-break:normal;font-feature-settings:"palt" 1}
+.pitch-body{margin-top:0;max-width:none;color:var(--fg-dim);padding-top:clamp(18px,2.5vw,28px);border-top:1px solid var(--line)}
+@media(min-width:768px){
+  .pitch-inner{grid-template-columns:1.5fr 1fr;align-items:start;gap:clamp(56px,7vw,96px)}
+}
 </style>
 </head>
 <body>
@@ -879,8 +890,6 @@ button,input,textarea,select{font:inherit}
       <div class="hero-text">
         <div class="kicker label">Shima Lab / 島ラボ</div>
         <h1>せっかく<span class="nowrap">SNS運用</span>しているのに、<br>OTAで予約を受けていませんか。</h1>
-        <p class="hero-subtitle">世界観の伝わる写真・<span class="nowrap">映像と</span>直販決済の<span class="nowrap">仕組み</span>をセットで。<br>SNSからの予約を<span class="nowrap">手数料なしで。</span></p>
-        <p class="hero-body">サイトだけじゃない。文章も、写真も映像も、必要な素材はぜんぶ込み。<br>価格は最初で明記。契約前に構成案をお送りするので、全て見た上で決められます。</p>
         <div class="hero-actions">
           <a href="#contact" class="btn btn-primary">まず、お話しましょう</a>
           <a href="#services" class="text-link">サービスを見る</a>
@@ -909,6 +918,16 @@ button,input,textarea,select{font:inherit}
     </div>
   </div>
 
+  <section class="section pitch">
+    <div class="container">
+      <div class="kicker label">Shima Lab / 島ラボ</div>
+      <div class="pitch-inner">
+        <p class="pitch-headline">世界観の伝わる写真・<span class="nowrap">映像と</span><br>直販決済の<span class="nowrap">仕組み</span>をセットで。<br>SNSからの予約を<span class="nowrap">手数料なしで。</span></p>
+        <p class="pitch-body">サイトだけじゃない。文章も、写真も映像も、必要な素材はぜんぶ込み。<br>価格は最初で明記。契約前に構成案をお送りするので、全て見た上で決められます。</p>
+      </div>
+    </div>
+  </section>
+
   <section class="section problem">
     <div class="container">
       <div class="section-head">
@@ -919,37 +938,25 @@ button,input,textarea,select{font:inherit}
         <div class="problem-item">
           <div class="index">01</div>
           <h3 class="problem-title">OTAに流れるまま</h3>
-          <p class="problem-body">インスタで集客できています。写真に「行きたい」とコメントが来ます。でも「予約はこちら」とOTAに飛ばすと、そこで15〜30%の手数料が引かれます。ファンを作ったのに、その分が毎月削られています。</p>
+          <p class="problem-body">インスタで集客できている。写真に「行きたい」とコメントも来る。でも「予約はこちら」とOTAに飛ばした瞬間、15〜30%が引かれます。ファンができたのに、毎月削られる。</p>
           <p class="problem-solve">→ SNSのファンを直販で受け取れる仕組みをつくります。</p>
         </div>
         <div class="problem-item">
           <div class="index">02</div>
-          <h3 class="problem-title">DM返信が止まらない</h3>
-          <p class="problem-body">DMで「空いてますか」が来ます。夜中に来ます。翌朝「他を予約しました」という返信が来ます。問い合わせから決済まで全部手動でやっています。</p>
-          <p class="problem-solve">→ LINE予約＋オンライン決済で<span class="nowrap">問い合わせを</span>自動で受け取ります。</p>
-        </div>
-        <div class="problem-item">
-          <div class="index">03</div>
-          <h3 class="problem-title">写真が古いまま</h3>
-          <p class="problem-body">開業当時の写真を今も使っています。スタッフが変わっても、サービスが変わっても、公式サイトの写真だけ変わっていません。撮り直す手が回っていません。</p>
-          <p class="problem-solve">→ 定期撮影で常に使える<span class="nowrap">素材を</span>届けます。</p>
-        </div>
-        <div class="problem-item">
-          <div class="index">04</div>
-          <h3 class="problem-title">業者がバラバラ</h3>
-          <p class="problem-body">カメラマンとWeb業者が別々です。撮ってもらった写真が「LP用に使えない」と言われました。また別の業者を探して、また説明からやり直します。</p>
+          <h3 class="problem-title">写真が世界観と合わない</h3>
+          <p class="problem-body">カメラマンに頼んで撮ってもらいました。届いた写真は綺麗でしたが、自分のインスタに並べると何かが違う。世界観が合いませんでした。</p>
           <p class="problem-solve">→ 撮影からLP制作まで同じ人間が<span class="nowrap">担当します。</span></p>
         </div>
         <div class="problem-item">
-          <div class="index">05</div>
+          <div class="index">03</div>
           <h3 class="problem-title">作って終わり</h3>
-          <p class="problem-body">2年前にLPを作り直しました。でも今また同じ状態になっています。OTAへの依存も、DMの手動返信も、何も変わっていません。更新する仕組みがありませんでした。</p>
+          <p class="problem-body">2年前にLPを作り直しました。でも今また同じ状態になっています。OTAへの依存も、DMの手動返信も、何も変わっていませんでした。更新していく仕組みがなかった。</p>
           <p class="problem-solve">→ パートナー契約で継続して仕組みを磨きます。</p>
         </div>
         <div class="problem-item">
-          <div class="index">06</div>
+          <div class="index">04</div>
           <h3 class="problem-title">料金が不明瞭</h3>
-          <p class="problem-body">相見積もりをとったら、カメラマンとWeb業者それぞれから見積もりが来ました。どこにいくらかかるのか、最後まで分かりませんでした。</p>
+          <p class="problem-body">相見積もりをとったら、カメラマンとWeb業者それぞれから見積もりが来ました。でもどこにいくらかかるのか、最後まで全体像が見えませんでした。</p>
           <p class="problem-solve">→ 全工程の料金を最初から明記します。</p>
         </div>
       </div>
