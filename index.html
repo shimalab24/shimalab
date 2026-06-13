@@ -26,7 +26,7 @@
   --t-body:clamp(1.06rem,1rem + .4vw,1.2rem);
   --t-h3:clamp(1.3rem,1.1rem + .7vw,1.62rem);
   --t-h2:clamp(1.9rem,1.4rem + 1.9vw,2.8rem);
-  --t-h1:clamp(2.45rem,1.8rem + 3vw,4rem);
+  --t-h1:clamp(2.2rem,1.3rem + 1.8vw,3rem);
   --t-num:14px;
   --pad-section:clamp(88px,11vw,148px);
   --col:34em;
@@ -247,7 +247,7 @@ button,input,textarea,select{font:inherit}
 }
 .hero-gallery:hover{opacity:.7}
 .hero h1{
-  max-width:12em;
+  max-width:100%;
   font-family:"Shippori Mincho",serif;
   font-size:var(--t-h1);
   font-weight:700;
@@ -264,7 +264,7 @@ button,input,textarea,select{font:inherit}
   word-break:normal;
   overflow-wrap:anywhere;
 }
-.hero-body{max-width:var(--col);color:var(--fg-dim)}
+.hero-body{max-width:38em;color:var(--fg-dim)}
 .hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
 .hero-id{
   display:grid;
@@ -878,9 +878,9 @@ button,input,textarea,select{font:inherit}
     <div class="hero-inner">
       <div class="hero-text">
         <div class="kicker label">Shima Lab / 島ラボ</div>
-        <h1><span class="nowrap">写真も</span><span class="nowrap">サイトも</span><span class="nowrap">古い。</span><br><span class="nowrap">でも</span><span class="nowrap">誰に頼めば</span><span class="nowrap">いいか</span><span class="nowrap">わからない。</span></h1>
-        <p class="hero-subtitle">写真・映像・Web。島の<span class="nowrap">クリエイティブ</span>、まとめて引き受けます。</p>
-        <p class="hero-body">サイトだけじゃない。文章も、写真も映像も、必要な素材はぜんぶ込み。<br>価格は最初から明記。契約前に構成案をお送りするので、見てから決められます。</p>
+        <h1>せっかく<span class="nowrap">SNS運用</span>しているのに、<br>OTAで予約を受けていませんか。</h1>
+        <p class="hero-subtitle">世界観の伝わる写真・<span class="nowrap">映像と</span>直販決済の<span class="nowrap">仕組み</span>をセットで。<br>SNSからの予約を<span class="nowrap">手数料なしで。</span></p>
+        <p class="hero-body">サイトだけじゃない。文章も、写真も映像も、必要な素材はぜんぶ込み。<br>価格は最初で明記。契約前に構成案をお送りするので、全て見た上で決められます。</p>
         <div class="hero-actions">
           <a href="#contact" class="btn btn-primary">まず、お話しましょう</a>
           <a href="#services" class="text-link">サービスを見る</a>
@@ -913,38 +913,44 @@ button,input,textarea,select{font:inherit}
     <div class="container">
       <div class="section-head">
         <div class="kicker label">Problem</div>
-        <h2 class="section-title">魅力があるのに、<span class="nowrap">見た目</span>で<span class="nowrap">損している。</span></h2>
+        <h2 class="section-title">SNSを頑張っているのに、<span class="nowrap">予約で</span><span class="nowrap">損している。</span></h2>
       </div>
       <div class="problem-list">
         <div class="problem-item">
           <div class="index">01</div>
-          <h3 class="problem-title">素材が古い</h3>
-          <p class="problem-body">開業当時の写真を、今も使っている。スタッフが変わっても、メニューが変わっても、HPの写真だけ変わっていない。</p>
-          <p class="problem-solve">→ 定期撮影で、<span class="nowrap">常に新鮮な素材を。</span></p>
+          <h3 class="problem-title">OTAに流れるまま</h3>
+          <p class="problem-body">インスタで集客できています。写真に「行きたい」とコメントが来ます。でも「予約はこちら」とOTAに飛ばすと、そこで15〜30%の手数料が引かれます。ファンを作ったのに、その分が毎月削られています。</p>
+          <p class="problem-solve">→ SNSのファンを直販で受け取れる仕組みをつくります。</p>
         </div>
         <div class="problem-item">
           <div class="index">02</div>
-          <h3 class="problem-title"><span class="nowrap">Webが機能</span><span class="nowrap">していない</span></h3>
-          <p class="problem-body">予約サイトには載っている。でも、自社サイトは機能していない。検索しても出てこない。スマホで開くと崩れる。</p>
-          <p class="problem-solve">→ ちゃんと機能するサイトに<span class="nowrap">作り直す。</span></p>
+          <h3 class="problem-title">DM返信が止まらない</h3>
+          <p class="problem-body">DMで「空いてますか」が来ます。夜中に来ます。翌朝「他を予約しました」という返信が来ます。問い合わせから決済まで全部手動でやっています。</p>
+          <p class="problem-solve">→ LINE予約＋オンライン決済で<span class="nowrap">問い合わせを</span>自動で受け取ります。</p>
         </div>
         <div class="problem-item">
           <div class="index">03</div>
-          <h3 class="problem-title"><span class="nowrap">業者が</span><span class="nowrap">バラバラ</span></h3>
-          <p class="problem-body">カメラマンに頼んだ写真が、Web業者には使えないと言われた。別々に頼むたびに、また説明からやり直す。</p>
-          <p class="problem-solve">→ 撮影からLP制作まで、<span class="nowrap">一人が担当する。</span></p>
+          <h3 class="problem-title">写真が古いまま</h3>
+          <p class="problem-body">開業当時の写真を今も使っています。スタッフが変わっても、サービスが変わっても、公式サイトの写真だけ変わっていません。撮り直す手が回っていません。</p>
+          <p class="problem-solve">→ 定期撮影で常に使える<span class="nowrap">素材を</span>届けます。</p>
         </div>
         <div class="problem-item">
           <div class="index">04</div>
-          <h3 class="problem-title"><span class="nowrap">作って終わりの</span><span class="nowrap">繰り返し</span></h3>
-          <p class="problem-body">2年前に作り直した。でも今また同じ状態になっている。作ったあと、誰も見ていなかった。</p>
-          <p class="problem-solve">→ <span class="nowrap">パートナー契約で磨き続ける。</span></p>
+          <h3 class="problem-title">業者がバラバラ</h3>
+          <p class="problem-body">カメラマンとWeb業者が別々です。撮ってもらった写真が「LP用に使えない」と言われました。また別の業者を探して、また説明からやり直します。</p>
+          <p class="problem-solve">→ 撮影からLP制作まで同じ人間が<span class="nowrap">担当します。</span></p>
         </div>
         <div class="problem-item">
           <div class="index">05</div>
-          <h3 class="problem-title">値段が見えない</h3>
-          <p class="problem-body">いくらかかるのか、頼んでみないと分からない。あとから追加で請求されないか不安になる。</p>
-          <p class="problem-solve">→ 価格は表で明記。文章も<span class="nowrap">撮影素材</span>も込みの値段。</p>
+          <h3 class="problem-title">作って終わり</h3>
+          <p class="problem-body">2年前にLPを作り直しました。でも今また同じ状態になっています。OTAへの依存も、DMの手動返信も、何も変わっていません。更新する仕組みがありませんでした。</p>
+          <p class="problem-solve">→ パートナー契約で継続して仕組みを磨きます。</p>
+        </div>
+        <div class="problem-item">
+          <div class="index">06</div>
+          <h3 class="problem-title">料金が不明瞭</h3>
+          <p class="problem-body">相見積もりをとったら、カメラマンとWeb業者それぞれから見積もりが来ました。どこにいくらかかるのか、最後まで分かりませんでした。</p>
+          <p class="problem-solve">→ 全工程の料金を最初から明記します。</p>
         </div>
       </div>
     </div>
@@ -954,28 +960,28 @@ button,input,textarea,select{font:inherit}
     <div class="container">
       <div class="section-head">
         <div class="kicker label">Concept</div>
-        <h2 class="section-title">写真も、Webも、<span class="nowrap">担当</span>が変わらないから、<span class="nowrap">ブランド</span>がブレない。</h2>
+        <h2 class="section-title">OTAに流さないで、<span class="nowrap">直接</span>予約を受ける<span class="nowrap">仕組み</span>を作ります。</h2>
       </div>
       <div class="concept-grid">
         <div class="concept-lead">
-          <p class="concept-main">撮影からLP制作まで、同じ人間が担当する。だから、話が早い。</p>
-          <p class="lead">カメラマンとWeb業者が別々だと、撮影した写真がLPに活かされないことがある。島ラボは一人が撮影からLP制作まで担当するから素材の使い方に無駄がない。パートナー契約では、月1ミーティングで相談しながら、次の一手を一緒に考えます。</p>
+          <p class="concept-main">写真・LP・直販の仕組みを、一人が最初から最後まで担当します。</p>
+          <p class="lead">カメラマンとWeb業者が別々だと、撮った写真がLPに活かされないことがあります。島ラボは一人が撮影からLP制作・直販設定まで担当するので、説明のやり直しがありません。パートナー契約では、月1ミーティングでOTA依存から抜け出すための次の一手を一緒に考えます。</p>
         </div>
         <div class="concept-list">
           <div class="concept-item">
             <div class="index">01</div>
             <h3 class="concept-title"><span class="nowrap">窓口は一つ</span></h3>
-            <p class="body-copy">撮影・映像・Web制作を一社が統括。業者間の連携コストがなくなり、ブランドに一貫した統一感が生まれる。</p>
+            <p class="body-copy">カメラマンとWeb業者を別々に探す必要がありません。撮影・LP・直販設定まで同じ人間が担当するので、業者間の説明コストがゼロになります。</p>
           </div>
           <div class="concept-item">
             <div class="index">02</div>
             <h3 class="concept-title"><span class="nowrap">作って</span><span class="nowrap">終わらない</span></h3>
-            <p class="body-copy">納品がゴールではない。月1ミーティングで現状を確認し、ブランドの次の一手を一緒に考え続ける。</p>
+            <p class="body-copy">納品がゴールではありません。パートナー契約では月1ミーティングで現状を確認し、OTA依存から抜け出すための次の一手を一緒に考えます。</p>
           </div>
           <div class="concept-item">
             <div class="index">03</div>
             <h3 class="concept-title"><span class="nowrap">ありのままを</span><span class="nowrap">引き出す</span></h3>
-            <p class="body-copy">どこよりも良く見せるのではなく、施設が本来持っている価値を見つけて届ける。それが、本来の価値で選ばれる理由になる。</p>
+            <p class="body-copy">どこよりも良く見せるのではなく、その施設が本来持っている価値を言葉と写真で届けます。本来の価値で選ばれると、リピーターになります。</p>
           </div>
         </div>
       </div>
@@ -1123,7 +1129,7 @@ button,input,textarea,select{font:inherit}
             <a class="snap-detail-link" onclick="openSnapModal()">詳しく見る →</a>
           </div>
           <div class="service-price">¥10,000<small>/月</small></div>
-          <p class="service-desc">沖縄・離島の風景・観光<span class="nowrap">スポット</span>・施設<span class="nowrap">周辺</span>の写真をクラウドで公開。契約期間中、SNS・Webで自由に使えます。撮ってほしいエリアがあればリクエスト可。追加料金なし。契約事業者間で共用（非独占）。映像は含みません。売上の50%を積み立て、ゆいまーる精神で島を支えてきた人に届けていきます。</p>
+          <p class="service-desc">沖縄・離島の風景・観光<span class="nowrap">スポット</span>・施設<span class="nowrap">周辺</span>の写真をクラウドで公開。<span class="nowrap">契約</span>期間中、SNS・Webで自由に<span class="nowrap">使えます。</span>撮ってほしい<span class="nowrap">エリア</span>があればリクエスト可。追加料金なし。<span class="nowrap">契約事業者間</span>で共用（非独占）。映像は含みません。売上の50%を積み立て、ゆいまーる精神で島を支えてきた人に届けていきます。</p>
         </div>
       </div>
       <div class="service-category">
@@ -1159,16 +1165,16 @@ button,input,textarea,select{font:inherit}
         </div>
         <div class="service-row">
           <div class="index"></div>
-          <div><h4 class="service-name">スチル撮影4h＋LP制作</h4><div class="service-tag">Recommended</div></div>
-          <p class="service-detail">撮影素材をそのままLPへ。構成・コピー・素材・Web、すべて一社完結。</p>
-          <div class="service-price">¥110,000</div>
+          <div><h4 class="service-name">撮影・LP・<span class="nowrap">直販 まとめて</span></h4><div class="service-tag">Recommended</div></div>
+          <p class="service-detail">撮影した素材をそのままLPへ。LINE公式アカウントとオンライン決済の導入までをセットで対応します。問い合わせから決済まで一気通貫で完結します。</p>
+          <div class="service-price">¥170,000</div>
         </div>
       </div>
       <div class="service-category">
         <div class="service-head">
           <div class="index">05</div>
           <h3 class="service-name">継続支援</h3>
-          <p class="service-desc">制作物の保守と、気軽に相談できる窓口。<span class="nowrap">ドメイン</span>・サーバー費用と、スナップ素材サブスク（¥10,000/月相当）も無料で付帯します。</p>
+          <p class="service-desc">制作物の保守と、気軽に<span class="nowrap">相談</span>できる窓口。<span class="nowrap">ドメイン・サーバー</span>費用と、スナップ素材<span class="nowrap">サブスク</span>（¥10,000/月<span class="nowrap">相当</span>）も無料で付帯します。</p>
         </div>
         <div class="service-row">
           <div class="index"></div>
@@ -1228,14 +1234,15 @@ button,input,textarea,select{font:inherit}
       <div class="package-card">
         <div>
           <div class="label index">Recommended</div>
-          <h2 class="package-title"><span class="nowrap">写真撮影&thinsp;4h&thinsp;+&thinsp;LP制作</span> <span class="nowrap">ワンストップパック</span></h2>
-          <p class="package-desc">撮影した素材をそのままLPへ。撮影とWeb制作が同一の窓口だからこそできる、一貫したブランディング。並走が必要な場合はパートナー契約（¥20,000/月）を追加できます。</p>
+          <h2 class="package-title"><span class="nowrap">撮影・LP・直販 まとめて</span></h2>
+          <p class="package-desc">SNSのファンを直接受け取れる状態をつくります。写真・LP制作に加えて、LINE公式アカウントとオンライン決済（Stripe / Square）の導入までをセットで対応。夜中のDMに返信しなくなります。撮影から直販化まで、これ一つで完結します。</p>
+          <p class="package-desc" style="margin-top:10px;font-size:.95rem;">撮影4h&thinsp;+&thinsp;LP制作&thinsp;+&thinsp;LINE公式&thinsp;+&thinsp;オンライン決済</p>
         </div>
         <div class="package-price">
-          <div class="price-main">¥110,000</div>
-          <div class="price-sub">写真撮影4h + LP制作</div>
+          <div class="price-main">¥170,000</div>
+          <div class="price-sub">単体合計 ¥190,000 → パックで ¥20,000 OFF</div>
           <div class="price-alt">
-            <div class="partner-price">¥130,000</div>
+            <div class="partner-price">¥190,000</div>
             <div class="price-sub">クリエイティブパートナー契約（¥20,000/月）込み</div>
           </div>
         </div>
